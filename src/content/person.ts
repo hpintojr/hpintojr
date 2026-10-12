@@ -26,6 +26,7 @@ export function personJsonLd() {
     name: site.name,
     alternateName: ["Hamilton Pinto", "hpintojr"],
     url: site.url,
+    image: `${site.url}${site.headshot}`,
     birthDate: site.birthDate,
     jobTitle: site.title,
     description: bio,
