@@ -36,23 +36,17 @@ export const site = {
       blurb: "Technology advisory for the X-Beton platform and operations.",
     },
     {
-      name: "Mercury Call Desk",
-      url: "https://mercurycalldesk.com",
-      role: "Founder",
-      blurb: "AI phone assistant platform for local businesses.",
-    },
-    {
       name: "Benny & Penny",
       url: "https://www.bennyandpenny.com",
       role: "President, CEO, and Developer",
-      blurb: "Technology and creative studio: software architecture, branding, design, and publishing.",
+      blurb:
+        "Technology company (formerly Pinto Design Group): software architecture, branding, design, and marketing for enterprise and regional clients.",
     },
     {
-      name: "Pinto Design Group & HDG Technical Services",
-      url: "",
-      role: "Owner",
-      blurb:
-        "Marketing, branding, and technical solutions for enterprise and regional clients.",
+      name: "Mercury Call Desk",
+      url: "https://mercurycalldesk.com",
+      role: "Founder",
+      blurb: "CRM and AI phone system for local businesses.",
     },
   ],
 } as const;

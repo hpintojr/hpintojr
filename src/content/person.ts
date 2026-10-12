@@ -2,15 +2,15 @@ import { site } from "@/config/site";
 
 /** Canonical bio. Used verbatim across the site and in structured data. */
 export const bio =
-  "Hamilton Pinto Jr. is a Southern California-based technology advisor, marketing strategist, and creative director. He serves as a technology advisor to American Colonial Capital and X-Beton, and operates Pinto Design Group & HDG Technical Services, delivering marketing, branding, and technical solutions to enterprise clients including Johnson & Johnson, Nestle, Anchor Blue, Bimbo Bakeries, and Lancome, alongside Southern California local businesses. He is the founder of Mercury Call Desk, an AI phone assistant platform, and President, CEO, and Developer of Benny & Penny, a technology and creative studio.";
+  "Hamilton Pinto Jr. is a Southern California-based technology advisor, marketing strategist, and creative director. He serves as a technology advisor to American Colonial Capital and X-Beton, and is President, CEO, and Developer of Benny & Penny, a technology company (formerly Pinto Design Group) that has delivered marketing, branding, and technical solutions to enterprise clients including Johnson & Johnson, Nestle, Anchor Blue, Bimbo Bakeries, and Lancome, alongside Southern California local businesses. He is also the founder of Mercury Call Desk, a CRM and AI phone system for local businesses.";
 
 export const education =
   "Westwood College, Bachelor of Arts in Visual Communications; UC Berkeley Haas School of Business, Undergraduate Certificate in Cryptography and Blockchain Technologies; executive leadership programs, Chicago Booth.";
 
 export const bioParagraphs = [
   "Hamilton Pinto Jr. is a Southern California-based technology advisor, marketing strategist, and creative director.",
-  "He serves as a technology advisor to American Colonial Capital and X-Beton, and operates Pinto Design Group & HDG Technical Services, delivering marketing, branding, and technical solutions to enterprise clients including Johnson & Johnson, Nestle, Anchor Blue, Bimbo Bakeries, and Lancome, alongside Southern California local businesses.",
-  "He is the founder of Mercury Call Desk, an AI phone assistant platform, and President, CEO, and Developer of Benny & Penny, a technology and creative studio.",
+  "He serves as a technology advisor to American Colonial Capital and X-Beton, and is President, CEO, and Developer of Benny & Penny, a technology company (formerly Pinto Design Group) that has delivered marketing, branding, and technical solutions to enterprise clients including Johnson & Johnson, Nestle, Anchor Blue, Bimbo Bakeries, and Lancome, alongside Southern California local businesses.",
+  "He is also the founder of Mercury Call Desk, a CRM and AI phone system for local businesses.",
 ];
 
 /**
@@ -55,16 +55,13 @@ export function personJsonLd() {
       },
       {
         "@type": "Organization",
-        name: "Pinto Design Group & HDG Technical Services",
-      },
-      {
-        "@type": "Organization",
         name: "Mercury Call Desk",
         url: "https://mercurycalldesk.com",
       },
       {
         "@type": "Organization",
         name: "Benny & Penny",
+        alternateName: "Pinto Design Group",
         url: "https://www.bennyandpenny.com",
       },
     ],
@@ -75,6 +72,7 @@ export function personJsonLd() {
       "Brand development",
       "Software architecture",
       "AI phone systems",
+      "CRM systems",
       "CRM automation",
       "GoHighLevel",
     ],
