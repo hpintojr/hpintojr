@@ -16,6 +16,8 @@ const ventures = [
   <Mark key="xb" label="XB" />,
   <Mark key="bp" label="B&P" />,
   <Mark key="mcd" label="MCD" />,
+  <Mark key="aff" label="AFF" />,
+  <Mark key="fi" label="FI" />,
 ];
 
 const disciplines = [

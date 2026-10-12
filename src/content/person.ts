@@ -65,6 +65,11 @@ export function personJsonLd() {
         alternateName: "Pinto Design Group",
         url: "https://www.bennyandpenny.com",
       },
+      {
+        "@type": "Organization",
+        name: "Advantage First Financial",
+        url: "https://www.advantagefirst.com",
+      },
     ],
     knowsAbout: [
       "Technology advisory",

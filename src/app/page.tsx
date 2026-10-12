@@ -5,10 +5,10 @@ import {
   Card,
   Container,
   Eyebrow,
-  ExternalLink,
   Pill,
 } from "@/components/site/ui";
 import { VentureOrbit } from "@/components/site/venture-orbit";
+import { VentureCard } from "@/components/site/venture-card";
 import {
   BrandVisual,
   PhoneVisual,
@@ -141,36 +141,18 @@ export default function Home() {
                 Where I work
               </h2>
               <p className="mt-4 max-w-md text-muted-foreground">
-                Advisory roles and companies I lead, all connected by the
-                same focus on technology, marketing, and brand.
+                Companies I lead, advise, market, and create for, all
+                connected by the same focus on technology, marketing, and
+                brand.
               </p>
             </div>
             <div className="h-72 sm:h-80">
               <VentureOrbit />
             </div>
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {site.ventures.map((v) => (
-              <Card key={v.name} className="flex flex-col p-6">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-lg font-semibold tracking-tight">
-                    {v.name}
-                  </h3>
-                  <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                    {v.role}
-                  </span>
-                </div>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {v.blurb}
-                </p>
-                {v.url ? (
-                  <div className="mt-5">
-                    <ExternalLink href={v.url}>
-                      {v.url.replace(/^https?:\/\/(www\.)?/, "")}
-                    </ExternalLink>
-                  </div>
-                ) : null}
-              </Card>
+              <VentureCard key={v.name} venture={v} />
             ))}
           </div>
         </Container>
