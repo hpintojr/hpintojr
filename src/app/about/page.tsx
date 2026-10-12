@@ -3,7 +3,8 @@ import Image from "next/image";
 import headshot from "../../../public/hamilton-pinto-jr.jpg";
 import { site } from "@/config/site";
 import { bioParagraphs, education, personJsonLd } from "@/content/person";
-import { Card, Container, Eyebrow, ExternalLink } from "@/components/site/ui";
+import { Card, Container, Eyebrow } from "@/components/site/ui";
+import { VentureCard } from "@/components/site/venture-card";
 
 export const metadata: Metadata = {
   title: `About ${site.name}`,
@@ -30,7 +31,7 @@ const facts = [
   {
     label: "Roles",
     value:
-      "Technology Advisor, American Colonial Capital; Technology Advisor, X-Beton; Founder, CEO and Developer, Benny & Penny (formerly Pinto Design Group); Founder, Mercury Call Desk",
+      "Technology Advisor, American Colonial Capital; Technology Advisor, X-Beton; Founder, CEO and Developer, Benny & Penny (formerly Pinto Design Group); Founder, Mercury Call Desk; Marketing, Advantage First Financial; Brand Ambassador, False Idols",
   },
 ];
 
@@ -91,28 +92,9 @@ export default function About() {
           <h2 id="ventures" className="text-2xl font-bold tracking-tight">
             Ventures
           </h2>
-          <div className="mt-6 grid gap-4">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {site.ventures.map((v) => (
-              <Card key={v.name} className="p-6">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-lg font-semibold tracking-tight">
-                    {v.name}
-                  </h3>
-                  <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                    {v.role}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {v.blurb}
-                </p>
-                {v.url ? (
-                  <div className="mt-4">
-                    <ExternalLink href={v.url}>
-                      {v.url.replace(/^https?:\/\/(www\.)?/, "")}
-                    </ExternalLink>
-                  </div>
-                ) : null}
-              </Card>
+              <VentureCard key={v.name} venture={v} />
             ))}
           </div>
         </section>

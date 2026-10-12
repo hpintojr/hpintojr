@@ -58,16 +58,18 @@ export function ButtonLink({
 
 export function ExternalLink({
   href,
+  rel,
   children,
 }: {
   href: string;
+  rel?: string;
   children: React.ReactNode;
 }) {
   return (
     <a
       href={href}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={cn("noopener noreferrer", rel)}
       className="group inline-flex items-center gap-1 text-sm font-semibold text-foreground underline-offset-4 hover:underline"
     >
       {children}
