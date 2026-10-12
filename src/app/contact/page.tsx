@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Mail } from "lucide-react";
 import { site } from "@/config/site";
+import { Card, Container, Eyebrow } from "@/components/site/ui";
 
 export const metadata: Metadata = {
   title: `Contact ${site.name}`,
@@ -18,64 +20,59 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
-      <p className="text-sm font-medium uppercase tracking-widest text-neutral-500">
-        Contact
-      </p>
-      <h1 className="mt-3 font-serif text-4xl sm:text-5xl font-semibold tracking-tight">
+    <Container className="max-w-4xl py-16 sm:py-24">
+      <Eyebrow>Contact</Eyebrow>
+      <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
         Contact {site.name}
       </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700">
+      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
         For project work, advisory engagements, or background information
         related to {site.name}, reach out by email.
       </p>
 
-      <div className="mt-10 rounded-lg border border-neutral-200 p-8">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
-          Email
-        </h2>
+      <Card className="mt-10 p-8">
+        <div className="flex items-center gap-3">
+          <span className="flex size-10 items-center justify-center rounded-lg bg-muted">
+            <Mail className="size-5" />
+          </span>
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Email
+          </h2>
+        </div>
         <a
           href={`mailto:${site.email}`}
-          className="mt-2 inline-block font-serif text-2xl font-semibold text-neutral-900 underline underline-offset-4 hover:text-neutral-600"
+          className="mt-4 inline-block text-2xl font-bold tracking-tight underline-offset-4 hover:underline sm:text-3xl"
         >
           {site.email}
         </a>
-        <p className="mt-2 text-sm text-neutral-500">
+        <p className="mt-3 text-sm text-muted-foreground">
           Note: this address is a placeholder and will be confirmed before
           launch.
         </p>
-      </div>
+      </Card>
 
-      <section aria-labelledby="social" className="mt-10">
-        <h2
-          id="social"
-          className="font-serif text-2xl font-semibold tracking-tight"
-        >
+      <section aria-labelledby="social" className="mt-12">
+        <h2 id="social" className="text-2xl font-bold tracking-tight">
           Elsewhere
         </h2>
-        <ul className="mt-6 flex flex-wrap gap-4">
-          <li>
-            <a
-              href={site.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer me"
-              className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-semibold hover:border-neutral-900 transition-colors"
-            >
-              Instagram
-            </a>
-          </li>
-          <li>
-            <a
-              href={site.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer me"
-              className="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-semibold hover:border-neutral-900 transition-colors"
-            >
-              Facebook
-            </a>
-          </li>
+        <ul className="mt-6 flex flex-wrap gap-3">
+          {[
+            { href: site.social.instagram, label: "Instagram" },
+            { href: site.social.facebook, label: "Facebook" },
+          ].map((l) => (
+            <li key={l.label}>
+              <a
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer me"
+                className="inline-flex h-10 items-center rounded-lg border bg-card px-4 text-sm font-semibold transition-colors hover:bg-muted"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </section>
-    </div>
+    </Container>
   );
 }
