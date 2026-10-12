@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import headshot from "../../../public/hamilton-pinto-jr.jpg";
 import { site } from "@/config/site";
 import { bioParagraphs, education, personJsonLd } from "@/content/person";
 import { Card, Container, Eyebrow, ExternalLink } from "@/components/site/ui";
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    images: [site.ogImage],
     url: `${site.url}/about`,
     siteName: site.name,
     title: `About ${site.name}`,
@@ -39,10 +42,22 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
       />
       <Container className="max-w-4xl py-16 sm:py-24">
-        <Eyebrow>About</Eyebrow>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-          About {site.name}
-        </h1>
+        <div className="flex flex-col-reverse gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Eyebrow>About</Eyebrow>
+            <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+              About {site.name}
+            </h1>
+          </div>
+          <Image
+            src={headshot}
+            alt={`${site.name}, portrait`}
+            priority
+            placeholder="blur"
+            sizes="160px"
+            className="size-32 shrink-0 rounded-2xl border object-cover shadow-sm sm:size-40"
+          />
+        </div>
         <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
           {bioParagraphs.map((p, i) => (
             <p key={i} className={i === 0 ? "text-foreground" : undefined}>

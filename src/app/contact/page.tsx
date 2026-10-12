@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    images: [site.ogImage],
     url: `${site.url}/contact`,
     siteName: site.name,
     title: `Contact ${site.name}`,

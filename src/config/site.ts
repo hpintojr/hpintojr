@@ -9,6 +9,13 @@ export const site = {
   name: "Hamilton Pinto Jr.",
   shortName: "Hamilton Pinto",
   url: "https://hamiltonpinto.com",
+  headshot: "/hamilton-pinto-jr.jpg",
+  ogImage: {
+    url: "/og-image.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Hamilton Pinto Jr., portrait",
+  },
   title: "Technology Advisor, Marketing Strategist, Creative Director",
   location: "Riverside, California",
   birthDate: "1983-08-04",

@@ -15,8 +15,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: site.url,
   },
+  twitter: {
+    card: "summary_large_image",
+    images: [site.ogImage.url],
+  },
   openGraph: {
     type: "website",
+    images: [site.ogImage],
     url: site.url,
     siteName: site.name,
     title: `${site.name} | ${site.title}`,

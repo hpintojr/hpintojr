@@ -14,7 +14,9 @@ import {
   PhoneVisual,
   WebVisual,
 } from "@/components/site/service-visuals";
+import Image from "next/image";
 import { MapPin } from "lucide-react";
+import headshot from "../../public/hamilton-pinto-jr.jpg";
 
 const services = [
   {
@@ -79,8 +81,21 @@ export default function Home() {
               </ButtonLink>
             </div>
           </div>
-          <div className="h-80 sm:h-96">
-            <VentureOrbit />
+          <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
+            <div
+              aria-hidden="true"
+              className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-brand/25 via-transparent to-brand/10 blur-2xl"
+            />
+            <div className="overflow-hidden rounded-3xl border bg-card shadow-lg">
+              <Image
+                src={headshot}
+                alt={`${site.name}, portrait`}
+                priority
+                placeholder="blur"
+                sizes="(min-width: 1024px) 448px, (min-width: 640px) 384px, 100vw"
+                className="aspect-square w-full object-cover"
+              />
+            </div>
           </div>
         </Container>
       </section>
@@ -116,13 +131,24 @@ export default function Home() {
 
       <section aria-labelledby="ventures" className="border-y bg-muted/30 py-20">
         <Container>
-          <Eyebrow>Ventures and roles</Eyebrow>
-          <h2
-            id="ventures"
-            className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl"
-          >
-            Where I work
-          </h2>
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr]">
+            <div>
+              <Eyebrow>Ventures and roles</Eyebrow>
+              <h2
+                id="ventures"
+                className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl"
+              >
+                Where I work
+              </h2>
+              <p className="mt-4 max-w-md text-muted-foreground">
+                Advisory roles and companies I lead, all connected by the
+                same focus on technology, marketing, and brand.
+              </p>
+            </div>
+            <div className="h-72 sm:h-80">
+              <VentureOrbit />
+            </div>
+          </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {site.ventures.map((v) => (
               <Card key={v.name} className="flex flex-col p-6">
