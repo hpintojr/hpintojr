@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Container, Monogram } from "@/components/site/ui";
 import "./globals.css";
 import { site } from "@/config/site";
 
@@ -32,45 +33,52 @@ const nav = [
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-white text-neutral-900">
-        <header className="border-b border-neutral-200">
-          <div className="mx-auto max-w-4xl px-6 py-5 flex items-center justify-between">
+    <html lang="en" className="h-full">
+      <body className="flex min-h-full flex-col">
+        <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
+          <Container className="flex h-16 items-center justify-between gap-4">
             <Link
               href="/"
-              className="font-serif text-xl font-semibold tracking-tight"
+              className="flex items-center gap-2.5 font-semibold tracking-tight"
             >
-              {site.name}
+              <Monogram />
+              <span className="hidden sm:inline">{site.name}</span>
             </Link>
-            <nav aria-label="Primary">
-              <ul className="flex gap-6 text-sm font-medium">
-                {nav.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-neutral-600 hover:text-neutral-900 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <nav aria-label="Primary" className="flex items-center gap-1">
+              {nav.slice(1).map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="ml-1 hidden h-9 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/85 sm:inline-flex"
+              >
+                Work with me
+              </Link>
             </nav>
-          </div>
+          </Container>
         </header>
         <main className="flex-1">{children}</main>
-        <footer className="border-t border-neutral-200 mt-16">
-          <div className="mx-auto max-w-4xl px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-sm text-neutral-500">
-              &copy; 2026 {site.name}. {site.location}.
-            </p>
+        <footer className="mt-24 border-t">
+          <Container className="flex flex-col items-start justify-between gap-6 py-10 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-3">
+              <Monogram className="size-7 text-xs" />
+              <p className="text-sm text-muted-foreground">
+                &copy; 2026 {site.name}. {site.location}.
+              </p>
+            </div>
             <nav aria-label="Footer">
-              <ul className="flex gap-6 text-sm">
+              <ul className="flex gap-5 text-sm">
                 {nav.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {item.label}
                     </Link>
@@ -78,7 +86,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 ))}
               </ul>
             </nav>
-          </div>
+          </Container>
         </footer>
       </body>
     </html>
