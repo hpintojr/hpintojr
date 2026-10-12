@@ -4,7 +4,7 @@ import { bioParagraphs, education, personJsonLd } from "@/content/person";
 
 export const metadata: Metadata = {
   title: `About ${site.name}`,
-  description: `About ${site.name}: technology advisor to American Colonial Capital and X-Beton, President and CEO of Benny & Penny, founder of Mercury Call Desk.`,
+  description: `About ${site.name}: technology advisor to American Colonial Capital and X-Beton, Founder and CEO of Benny & Penny, founder of Mercury Call Desk.`,
   alternates: {
     canonical: `${site.url}/about`,
   },
@@ -26,7 +26,7 @@ const facts = [
   {
     label: "Roles",
     value:
-      "Technology Advisor, American Colonial Capital; Technology Advisor, X-Beton; President, CEO, and Developer, Benny & Penny (formerly Pinto Design Group); Founder, Mercury Call Desk",
+      "Technology Advisor, American Colonial Capital; Technology Advisor, X-Beton; Founder, CEO and Developer, Benny & Penny (formerly Pinto Design Group); Founder, Mercury Call Desk",
   },
 ];
 

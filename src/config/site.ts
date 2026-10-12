@@ -38,7 +38,7 @@ export const site = {
     {
       name: "Benny & Penny",
       url: "https://www.bennyandpenny.com",
-      role: "President, CEO, and Developer",
+      role: "Founder, CEO and Developer",
       blurb:
         "Technology company (formerly Pinto Design Group): software architecture, branding, design, and marketing for enterprise and regional clients.",
     },

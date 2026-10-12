@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "Hamilton Pinto Jr. is a Southern California-based technology advisor, marketing strategist, and creative director serving American Colonial Capital and X-Beton, President and CEO of Benny & Penny, and founder of Mercury Call Desk.",
+    "Hamilton Pinto Jr. is a Southern California-based technology advisor, marketing strategist, and creative director serving American Colonial Capital and X-Beton, Founder and CEO of Benny & Penny, and founder of Mercury Call Desk.",
   alternates: {
     canonical: site.url,
   },
