@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Mail } from "lucide-react";
 import { site } from "@/config/site";
-import { Card, Container, Eyebrow } from "@/components/site/ui";
+import { Container, Eyebrow } from "@/components/site/ui";
+import { ContactForm } from "@/components/site/contact-form";
 
 export const metadata: Metadata = {
   title: `Contact ${site.name}`,
-  description: `Contact ${site.name} for project work, advisory engagements, or background information.`,
+  description: `Contact ${site.name} for consulting, UGC and brand partnerships, press, or project work.`,
   alternates: {
     canonical: `${site.url}/contact`,
   },
@@ -19,61 +19,49 @@ export const metadata: Metadata = {
   },
 };
 
+const elsewhere = [
+  { href: site.social.instagram, label: "Instagram" },
+  { href: site.social.facebook, label: "Facebook" },
+  { href: site.ugcInstagram, label: "UGC on Instagram" },
+];
+
 export default function Contact() {
   return (
-    <Container className="max-w-4xl py-16 sm:py-24">
-      <Eyebrow>Contact</Eyebrow>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-        Contact {site.name}
-      </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-        For project work, advisory engagements, or background information
-        related to {site.name}, reach out by email.
-      </p>
-
-      <Card className="mt-10 p-8">
-        <div className="flex items-center gap-3">
-          <span className="flex size-10 items-center justify-center rounded-lg bg-muted">
-            <Mail className="size-5" />
-          </span>
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Email
-          </h2>
-        </div>
-        <a
-          href={`mailto:${site.email}`}
-          className="mt-4 inline-block text-2xl font-bold tracking-tight underline-offset-4 hover:underline sm:text-3xl"
-        >
-          {site.email}
-        </a>
-        <p className="mt-3 text-sm text-muted-foreground">
-          Note: this address is a placeholder and will be confirmed before
-          launch.
+    <Container className="grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.4fr]">
+      <div>
+        <Eyebrow>Contact</Eyebrow>
+        <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+          Let&apos;s talk
+        </h1>
+        <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+          Consulting, UGC and brand partnerships, press, or a project you
+          want a second opinion on. Send a note and I&apos;ll get back to you
+          directly.
         </p>
-      </Card>
-
-      <section aria-labelledby="social" className="mt-12">
-        <h2 id="social" className="text-2xl font-bold tracking-tight">
-          Elsewhere
-        </h2>
-        <ul className="mt-6 flex flex-wrap gap-3">
-          {[
-            { href: site.social.instagram, label: "Instagram" },
-            { href: site.social.facebook, label: "Facebook" },
-          ].map((l) => (
-            <li key={l.label}>
-              <a
-                href={l.href}
-                target="_blank"
-                rel="noopener noreferrer me"
-                className="inline-flex h-10 items-center rounded-lg border bg-card px-4 text-sm font-semibold transition-colors hover:bg-muted"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section aria-labelledby="social" className="mt-10">
+          <h2
+            id="social"
+            className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+          >
+            Elsewhere
+          </h2>
+          <ul className="mt-4 flex flex-wrap gap-3">
+            {elsewhere.map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  className="inline-flex h-10 items-center rounded-lg border bg-card px-4 text-sm font-semibold transition-colors hover:bg-muted"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+      <ContactForm page="contact" />
     </Container>
   );
 }
