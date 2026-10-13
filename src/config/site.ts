@@ -1,10 +1,16 @@
 /**
  * Central site configuration for hamiltonpinto.com.
  *
- * TODO: REPLACE `email` with Hamilton's real address once confirmed.
  * TODO: Add the LinkedIn profile URL once the exact profile is verified
  *       (a web search on 2026-10-12 did not surface the exact profile URL).
  */
+export type PressItem = {
+  outlet: string;
+  title: string;
+  url: string;
+  date: string; // YYYY-MM-DD
+};
+
 export type Venture = {
   name: string;
   url: string;
@@ -30,10 +36,14 @@ export const site = {
   },
   title: "Technology Advisor, Marketing Strategist, Creative Director",
   location: "Riverside, California",
-  birthDate: "1983-08-04",
-  birthDateDisplay: "August 4, 1983",
-  // TODO: REPLACE with real address. Placeholder only, do not publish as final.
-  email: "hello@hamiltonpinto.com",
+  birthDate: "1983",
+  birthDateDisplay: "1983",
+  // Mercury Call Desk booking page for discovery calls. Until it is set, the
+  // "Book a call" buttons fall back to the contact form.
+  bookingUrl: null as string | null,
+  // Articles and features. The Press section appears once this has entries.
+  press: [] as PressItem[],
+  ugcInstagram: "https://www.instagram.com/bpcrew.falseidols/",
   social: {
     instagram: "https://www.instagram.com/hpintojr",
     facebook: "https://www.facebook.com/hpintojr419",

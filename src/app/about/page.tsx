@@ -5,6 +5,7 @@ import { site } from "@/config/site";
 import { bioParagraphs, education, personJsonLd } from "@/content/person";
 import { Card, Container, Eyebrow } from "@/components/site/ui";
 import { VentureCard } from "@/components/site/venture-card";
+import { PressSection } from "@/components/site/press-section";
 
 export const metadata: Metadata = {
   title: `About ${site.name}`,
@@ -122,6 +123,7 @@ export default function About() {
           </ul>
         </section>
       </Container>
+      <PressSection />
     </>
   );
 }

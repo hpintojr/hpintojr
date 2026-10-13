@@ -9,6 +9,7 @@ import {
 } from "@/components/site/ui";
 import { VentureOrbit } from "@/components/site/venture-orbit";
 import { VentureCard } from "@/components/site/venture-card";
+import { PressSection } from "@/components/site/press-section";
 import {
   BrandVisual,
   PhoneVisual,
@@ -75,7 +76,7 @@ export default function Home() {
               help companies connect their technology, marketing, and brand.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/contact">Work with me</ButtonLink>
+              <ButtonLink href="/consulting">Work with me</ButtonLink>
               <ButtonLink href="/about" variant="outline">
                 About Hamilton
               </ButtonLink>
@@ -171,6 +172,8 @@ export default function Home() {
           </ul>
         </Container>
       </section>
+
+      <PressSection className="pb-20" />
 
       <section aria-labelledby="cta">
         <Container>
