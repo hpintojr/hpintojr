@@ -101,8 +101,10 @@ a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 .hero-topline { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 23px 0; border-bottom: 1px solid var(--border); font-size: 11px; letter-spacing: .025em; color: var(--muted-foreground); }
 .hero-location { display: inline-flex; gap: 6px; align-items: center; }
 .hero-grid { display: grid; grid-template-columns: 1.18fr 1fr; gap: 72px; align-items: center; padding: 62px 0 64px; }
-.hero-copy h1 { margin-top: 25px; max-width: 560px; font-size: clamp(56px, 6vw, 80px); line-height: 1.05; text-wrap: balance; }
-.hero-copy h1 em { color: var(--brand); font-weight: 400; }
+.hero-identity { font-size: var(--text-xs); line-height: var(--text-xs--line-height); font-weight: var(--font-weight-semibold); text-transform: uppercase; letter-spacing: .18em; color: var(--brand); }
+.hero-identity h1 { display: inline; font: inherit; letter-spacing: inherit; }
+.hero-tagline { margin-top: 25px; max-width: 560px; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.045em; font-size: clamp(56px, 6vw, 80px); line-height: 1.05; text-wrap: balance; }
+.hero-tagline em { color: var(--brand); font-weight: 400; }
 .hero-description { margin-top: 27px; max-width: 430px; color: var(--muted-foreground); font-size: 16px; line-height: 1.8; }
 .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 30px; }
 .text-link { display: inline-flex; align-items: center; gap: 10px; padding: 12px 0; font-size: 13px; font-weight: 600; }
@@ -143,7 +145,7 @@ a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 1023px) {
   .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 30px; }
-  .hero-copy h1 { font-size: 60px; }
+  .hero-tagline { font-size: 60px; }
   .hero-actions { gap: 18px; }
   .desktop-nav { gap: 20px; }
   .signature-logo { width: 200px; }
@@ -160,7 +162,7 @@ a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
   .mobile-nav a[aria-current="page"] { color: var(--brand); }
   .hero-topline { padding: 18px 0; flex-wrap: wrap; font-size: 10px; gap: 10px; }
   .hero-grid { grid-template-columns: 1fr; gap: 36px; padding: 40px 0; }
-  .hero-copy h1 { font-size: clamp(52px, 10vw, 72px); max-width: 520px; }
+  .hero-tagline { font-size: clamp(52px, 10vw, 72px); max-width: 520px; }
   .hero-description { font-size: 15px; margin-top: 22px; }
   .hero-disciplines { margin-top: 25px; }
   .hero-portrait { width: 100%; max-width: 480px; justify-self: center; }

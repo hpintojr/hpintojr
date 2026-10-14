@@ -15,8 +15,7 @@ export const bioParagraphs = [
 
 /**
  * Schema.org Person entity for the Google Knowledge Graph.
- * sameAs contains ONLY verified URLs. LinkedIn is intentionally omitted
- * until the exact profile URL is confirmed (see site.ts TODO).
+ * sameAs contains only verified or owner-confirmed URLs.
  */
 export function personJsonLd() {
   return {
@@ -85,6 +84,7 @@ export function personJsonLd() {
     sameAs: [
       site.social.instagram,
       site.social.facebook,
+      site.social.linkedin,
       "https://www.bennyandpenny.com",
       "https://mercurycalldesk.com",
     ],

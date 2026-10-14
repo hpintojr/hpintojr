@@ -1,8 +1,5 @@
 /**
  * Central site configuration for hamiltonpinto.com.
- *
- * TODO: Add the LinkedIn profile URL once the exact profile is verified
- *       (a web search on 2026-10-12 did not surface the exact profile URL).
  */
 export type PressItem = {
   outlet: string;
@@ -47,8 +44,7 @@ export const site = {
   social: {
     instagram: "https://www.instagram.com/hpintojr",
     facebook: "https://www.facebook.com/hpintojr419",
-    // TODO: LinkedIn URL not yet verified. Add the exact profile URL once confirmed.
-    // linkedin: "",
+    linkedin: "https://www.linkedin.com/in/hamilton-pinto-jr",
   },
   ventures: [
     {

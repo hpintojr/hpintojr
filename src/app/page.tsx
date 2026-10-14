@@ -28,8 +28,10 @@ export default function Home() {
           </div>
           <div className="hero-grid">
             <div className="hero-copy">
-              <Eyebrow>Hamilton Pinto Jr. / Consultant</Eyebrow>
-              <h1 id="hero-title">Clarity for your <em>next move.</em></h1>
+              <div className="hero-identity">
+                <h1 id="hero-title">Hamilton Pinto Jr.</h1><span> / Consultant</span>
+              </div>
+              <p className="hero-tagline">Clarity for your <em>next move.</em></p>
               <p className="hero-description">I help companies connect their technology, marketing, and brand. A clear direction. The right systems. A business ready to move forward.</p>
               <div className="hero-actions">
                 <ButtonLink href="/consulting">Explore consulting</ButtonLink>
