@@ -8,6 +8,7 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  robots: { index: true, follow: true },
   title: {
     default: `${site.name} | ${site.title}`,
     template: `%s | ${site.name}`,

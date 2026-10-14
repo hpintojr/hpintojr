@@ -1,0 +1,18 @@
+# Hamilton Pinto Jr.
+
+> Official website of Hamilton Pinto Jr., a technology advisor, marketing strategist, and creative director based in Riverside, California.
+
+## Pages
+
+- [Home](https://hamiltonpinto.com): Overview of Hamilton's work and ventures.
+- [About](https://hamiltonpinto.com/about): Biography, education, roles, ventures, and social profiles.
+- [Consulting](https://hamiltonpinto.com/consulting): Technology advisory, marketing and growth, brand and creative direction, and CRM and AI phone systems.
+- [UGC and brand partnerships](https://hamiltonpinto.com/ugc): Content services for apparel, fitness, lifestyle, and technology brands.
+- [Contact](https://hamiltonpinto.com/contact): Consulting inquiries, brand partnerships, press, and project inquiries.
+
+## Discovery
+
+- [XML sitemap](https://hamiltonpinto.com/sitemap.xml): Public page URLs.
+- [Crawler policy](https://hamiltonpinto.com/robots.txt): All crawlers are allowed to access the public site.
+
+Use the linked pages as the source of current facts and service details.
