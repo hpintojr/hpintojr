@@ -1,199 +1,95 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { site } from "@/config/site";
 import { personJsonLd } from "@/content/person";
-import {
-  ButtonLink,
-  Card,
-  Container,
-  Eyebrow,
-  Pill,
-} from "@/components/site/ui";
-import { VentureOrbit } from "@/components/site/venture-orbit";
+import { ButtonLink, Card, Container, Eyebrow } from "@/components/site/ui";
 import { VentureCard } from "@/components/site/venture-card";
 import { PressSection } from "@/components/site/press-section";
-import {
-  BrandVisual,
-  PhoneVisual,
-  WebVisual,
-} from "@/components/site/service-visuals";
-import Image from "next/image";
-import { MapPin } from "lucide-react";
+import { BrandVisual, PhoneVisual, WebVisual } from "@/components/site/service-visuals";
 import headshot from "../../public/hamilton-pinto-jr.jpg";
 
 const services = [
-  {
-    title: "Technology advisory",
-    body: "Software architecture, platform choices, and go-to-market execution for growing companies, as an advisor to American Colonial Capital and X-Beton.",
-    Visual: WebVisual,
-  },
-  {
-    title: "Brand and creative direction",
-    body: "Branding, design, and marketing systems through Benny & Penny, built on work for enterprise clients and Southern California businesses.",
-    Visual: BrandVisual,
-  },
-  {
-    title: "CRM and AI phone systems",
-    body: "Mercury Call Desk gives local businesses a CRM and an AI phone system that answers, routes, and follows up on every call.",
-    Visual: PhoneVisual,
-  },
+  { number: "01", title: "Technology advisory", body: "Make confident platform and software decisions. Connect architecture, integrations, and execution to the way your business works.", detail: "Architecture · Platforms · Go-to-market", Visual: WebVisual },
+  { number: "02", title: "Brand & creative direction", body: "Give your business a clear identity and a consistent voice, from positioning and design to the marketing systems behind them.", detail: "Positioning · Identity · Marketing", Visual: BrandVisual },
+  { number: "03", title: "CRM & AI phone systems", body: "Connect the customer journey with systems that answer, route, book, and follow up, built through Mercury Call Desk.", detail: "CRM · Automation · AI assistants", Visual: PhoneVisual },
 ];
-
-const clients = [
-  "Johnson & Johnson",
-  "Nestle",
-  "Anchor Blue",
-  "Bimbo Bakeries",
-  "Lancome",
-];
+const clients = ["Johnson & Johnson", "Nestle", "Anchor Blue", "Bimbo Bakeries", "Lancome"];
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
-      />
-
-      <section className="relative overflow-hidden border-b">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(60%_100%_at_50%_0%,var(--color-muted),transparent)]"
-        />
-        <Container className="relative grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[1.15fr_1fr]">
-          <div>
-            <Pill>
-              <MapPin className="size-3.5" />
-              {site.location}
-            </Pill>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-6xl">
-              {site.name}
-            </h1>
-            <p className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl">
-              {site.title}
-            </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Advisor to American Colonial Capital and X-Beton, Founder and
-              CEO of Benny &amp; Penny, and founder of Mercury Call Desk. I
-              help companies connect their technology, marketing, and brand.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/consulting">Work with me</ButtonLink>
-              <ButtonLink href="/about" variant="outline">
-                About Hamilton
-              </ButtonLink>
-            </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }} />
+      <section className="home-hero" aria-labelledby="hero-title">
+        <Container>
+          <div className="hero-topline">
+            <span>Independent perspective. Hands-on execution.</span>
+            <span className="hero-location"><MapPin size={13} aria-hidden="true" /> {site.location}</span>
           </div>
-          <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
-            <div
-              aria-hidden="true"
-              className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-brand/25 via-transparent to-brand/10 blur-2xl"
-            />
-            <div className="overflow-hidden rounded-3xl border bg-card shadow-lg">
-              <Image
-                src={headshot}
-                alt={`${site.name}, portrait`}
-                priority
-                placeholder="blur"
-                sizes="(min-width: 1024px) 448px, (min-width: 640px) 384px, 100vw"
-                className="aspect-square w-full object-cover"
-              />
+          <div className="hero-grid">
+            <div className="hero-copy">
+              <Eyebrow>Hamilton Pinto Jr. / Consultant</Eyebrow>
+              <h1 id="hero-title">Clarity for your <em>next move.</em></h1>
+              <p className="hero-description">I help companies connect their technology, marketing, and brand. A clear direction. The right systems. A business ready to move forward.</p>
+              <div className="hero-actions">
+                <ButtonLink href="/consulting">Explore consulting</ButtonLink>
+                <Link href="/about" className="text-link">Meet Hamilton <ArrowUpRight size={17} aria-hidden="true" /></Link>
+              </div>
+              <p className="hero-disciplines">Technology advisor <span aria-hidden="true">/</span> Marketing strategist <span aria-hidden="true">/</span> Creative director</p>
             </div>
+            <figure className="hero-portrait">
+              <div className="portrait-frame">
+                <Image src={headshot} alt={`${site.name}, portrait`} priority placeholder="blur" sizes="(min-width: 1024px) 440px, (min-width: 640px) 480px, 100vw" className="portrait-image" />
+              </div>
+              <figcaption><span>Hamilton Pinto Jr.</span><span>Strategy meets execution.</span></figcaption>
+            </figure>
           </div>
         </Container>
       </section>
-
-      <section aria-labelledby="services" className="py-20">
+      <section aria-labelledby="clients" className="client-section">
         <Container>
-          <Eyebrow>What I do</Eyebrow>
-          <h2
-            id="services"
-            className="mt-3 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl"
-          >
-            Technology, marketing, and design under one roof.
-          </h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {services.map(({ title, body, Visual }) => (
-              <Card key={title} className="overflow-hidden">
-                <div className="h-52 border-b bg-muted/40">
-                  <Visual />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold tracking-tight">
-                    {title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {body}
-                  </p>
+          <div className="client-inner">
+            <h2 id="clients" className="client-label">Selected client experience<br /><span>through Benny &amp; Penny</span></h2>
+            <ul className="client-list">{clients.map((client) => <li key={client}>{client}</li>)}</ul>
+          </div>
+        </Container>
+      </section>
+      <section aria-labelledby="services" className="section-space">
+        <Container>
+          <div className="section-heading">
+            <div><Eyebrow>How I can help</Eyebrow><h2 id="services">A connected approach<br />to your business.</h2></div>
+            <p>From the decisions that shape your company to the systems that keep it moving, I bring technology, marketing, and creative direction together.</p>
+          </div>
+          <div className="service-grid">
+            {services.map(({ number, title, body, detail, Visual }) => (
+              <Card key={number} className="service-card">
+                <div className="service-visual" aria-hidden="true"><Visual /></div>
+                <div className="service-content">
+                  <span className="service-number">/ {number}</span>
+                  <h3>{title}</h3><p>{body}</p>
+                  <div className="service-detail">{detail}</div>
+                  <Link href="/consulting" className="service-link" aria-label={`Explore ${title.toLowerCase()}`}>Explore service <ArrowUpRight size={17} aria-hidden="true" /></Link>
                 </div>
               </Card>
             ))}
           </div>
         </Container>
       </section>
-
-      <section aria-labelledby="ventures" className="border-y bg-muted/30 py-20">
+      <section aria-labelledby="ventures" className="venture-section section-space">
         <Container>
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr]">
-            <div>
-              <Eyebrow>Ventures and roles</Eyebrow>
-              <h2
-                id="ventures"
-                className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl"
-              >
-                Where I work
-              </h2>
-              <p className="mt-4 max-w-md text-muted-foreground">
-                Companies I lead, advise, market, and create for, all
-                connected by the same focus on technology, marketing, and
-                brand.
-              </p>
-            </div>
-            <div className="h-72 sm:h-80">
-              <VentureOrbit />
-            </div>
+          <div className="section-heading">
+            <div><Eyebrow>Ventures &amp; collaborations</Eyebrow><h2 id="ventures">Built on real work.</h2></div>
+            <p>Companies I lead, advise, market, and create for. Different industries, connected by technology, marketing, and brand.</p>
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {site.ventures.map((v) => (
-              <VentureCard key={v.name} venture={v} />
-            ))}
-          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{site.ventures.map((venture) => <VentureCard key={venture.name} venture={venture} />)}</div>
         </Container>
       </section>
-
-      <section aria-labelledby="clients" className="py-20">
+      <PressSection className="pt-20" />
+      <section aria-labelledby="cta" className="section-space">
         <Container>
-          <Eyebrow>Selected clients</Eyebrow>
-          <h2 id="clients" className="sr-only">
-            Selected clients
-          </h2>
-          <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-4 text-xl font-semibold tracking-tight text-muted-foreground sm:text-2xl">
-            {clients.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-        </Container>
-      </section>
-
-      <PressSection className="pb-20" />
-
-      <section aria-labelledby="cta">
-        <Container>
-          <div className="rounded-3xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-12">
-            <h2
-              id="cta"
-              className="text-3xl font-bold tracking-tight sm:text-4xl"
-            >
-              Have a project in mind?
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-primary-foreground/70">
-              For advisory engagements, project work, or background
-              information, reach out directly.
-            </p>
-            <a
-              href="/contact"
-              className="mt-8 inline-flex h-11 items-center rounded-lg bg-primary-foreground px-6 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
-            >
-              Get in touch
-            </a>
+          <div className="contact-banner">
+            <div><p className="contact-eyebrow">Let&apos;s work together</p><h2 id="cta">What&apos;s your<br /><em>next move?</em></h2></div>
+            <div className="contact-banner-copy"><p>For advisory engagements, project work, or a fresh perspective on your business, start a conversation.</p><ButtonLink href="/contact" variant="outline">Get in touch</ButtonLink></div>
           </div>
         </Container>
       </section>

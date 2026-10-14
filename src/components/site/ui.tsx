@@ -10,7 +10,7 @@ export function Container({
   children: React.ReactNode;
 }) {
   return (
-    <div className={cn("mx-auto w-full max-w-6xl px-4 sm:px-6", className)}>
+    <div className={cn("mx-auto w-full max-w-6xl px-5 sm:px-8", className)}>
       {children}
     </div>
   );
@@ -33,7 +33,7 @@ export function Pill({ children }: { children: React.ReactNode }) {
 }
 
 const buttonBase =
-  "group inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
+  "group inline-flex min-h-12 items-center justify-center gap-3 rounded-md px-6 py-3 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
 
 export function ButtonLink({
   href,
@@ -88,7 +88,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-2xl border bg-card text-card-foreground shadow-xs",
+        "rounded-xl border bg-card text-card-foreground",
         className,
       )}
     >
