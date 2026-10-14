@@ -1,5 +1,7 @@
 "use server";
 
+import { createHmac } from "node:crypto";
+
 export type LeadState = {
   status: "idle" | "success" | "error";
   message?: string;
@@ -15,7 +17,8 @@ function field(data: FormData, key: string, max = 2000) {
 
 /**
  * Sends a website lead to Mercury Call Desk through an inbound webhook.
- * Set LEADS_WEBHOOK_URL in Vercel to the Mercury workflow's inbound webhook URL.
+ * CRM_WEBHOOK_URL and CRM_WEBHOOK_SECRET target the signed MCD Sulus workflow.
+ * LEADS_WEBHOOK_URL remains a compatibility option for an unsigned legacy webhook.
  */
 export async function submitLead(
   _prev: LeadState,
@@ -31,7 +34,8 @@ export async function submitLead(
   const message = field(data, "message", 4000);
   const rawTopic = field(data, "topic", 60);
   const topic = topics.has(rawTopic) ? rawTopic : "Other";
-  const page = field(data, "page", 120);
+  const rawPage = field(data, "page", 120);
+  const page = ["contact", "consulting", "ugc"].includes(rawPage) ? rawPage : "contact";
 
   const fieldErrors: LeadState["fieldErrors"] = {};
   if (!name) fieldErrors.name = "Please enter your name.";
@@ -43,9 +47,11 @@ export async function submitLead(
     return { status: "error", fieldErrors };
   }
 
-  const url = process.env.LEADS_WEBHOOK_URL;
-  if (!url) {
-    console.error("LEADS_WEBHOOK_URL is not set; lead was not delivered.");
+  const crmUrl = process.env.CRM_WEBHOOK_URL;
+  const url = crmUrl || process.env.LEADS_WEBHOOK_URL;
+  const secret = process.env.CRM_WEBHOOK_SECRET;
+  if (!url || (crmUrl && !secret)) {
+    console.error("CRM intake configuration is incomplete; lead was not delivered.");
     return {
       status: "error",
       message:
@@ -54,29 +60,37 @@ export async function submitLead(
   }
 
   const [firstName, ...rest] = name.split(/\s+/);
+  const tags = ["website-contact", "hamiltonpinto.com", topic];
+  const raw = JSON.stringify({
+    name,
+    firstName,
+    lastName: rest.join(" "),
+    email,
+    phone,
+    company,
+    topic,
+    message,
+    source: `hamiltonpinto.com/${page}`,
+    page,
+    tags,
+    tagsCsv: tags.join(","),
+    callbackRequested: "no",
+    submittedAt: new Date().toISOString(),
+  });
   try {
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    if (crmUrl && secret) {
+      headers["X-Webhook-Signature"] = `sha256=${createHmac("sha256", secret).update(raw).digest("hex")}`;
+    }
     const res = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        firstName,
-        lastName: rest.join(" "),
-        email,
-        phone,
-        company,
-        topic,
-        message,
-        source: "hamiltonpinto.com",
-        page,
-        tags: ["website lead", topic],
-        submittedAt: new Date().toISOString(),
-      }),
+      headers,
+      body: raw,
       signal: AbortSignal.timeout(10_000),
     });
     if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
-  } catch (err) {
-    console.error("Lead delivery failed", err);
+  } catch {
+    console.error("CRM lead delivery failed; no successful delivery was confirmed.");
     return {
       status: "error",
       message:
