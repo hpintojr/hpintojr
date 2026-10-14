@@ -56,7 +56,7 @@ export const site = {
       url: "https://www.bennyandpenny.com",
       role: "Founder, CEO and Developer",
       category: "Technology",
-      image: "/ventures/benny-and-penny.jpg",
+      image: "/ventures/benny-and-penny-20261013.jpg",
       blurb:
         "Technology company (formerly Pinto Design Group): software architecture, branding, design, and marketing for enterprise and regional clients.",
     },
