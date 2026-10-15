@@ -57,12 +57,14 @@ export function personJsonLd() {
         "@type": "Organization",
         name: "Mercury Call Desk",
         url: "https://mercurycalldesk.com",
+        sameAs: ["https://www.crunchbase.com/organization/mercury-call-desk"],
       },
       {
         "@type": "Organization",
         name: "Benny & Penny",
         alternateName: "Pinto Design Group",
         url: "https://www.bennyandpenny.com",
+        sameAs: ["https://www.crunchbase.com/organization/benny-penny"],
       },
       {
         "@type": "Organization",
