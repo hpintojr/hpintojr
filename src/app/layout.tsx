@@ -64,7 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <div className="flex items-center gap-3">
               <Monogram className="size-7 text-xs" />
               <p className="text-sm text-muted-foreground">
-                &copy; 2026 {site.name}. {site.location}.
+                &copy; 2026 {site.name} {site.location}.
               </p>
             </div>
             <div className="flex flex-col items-start gap-4 sm:items-end">
