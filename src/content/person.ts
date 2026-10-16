@@ -87,6 +87,7 @@ export function personJsonLd() {
       site.social.instagram,
       site.social.facebook,
       site.social.linkedin,
+      site.social.x,
       "https://www.crunchbase.com/person/hamilton-pinto-jr",
       "https://www.bennyandpenny.com",
       "https://mercurycalldesk.com",

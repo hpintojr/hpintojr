@@ -114,6 +114,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                       Facebook
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href={site.social.x}
+                      target="_blank"
+                      rel="me noopener"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      X
+                    </a>
+                  </li>
                 </ul>
               </nav>
             </div>

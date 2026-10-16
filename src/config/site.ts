@@ -45,6 +45,7 @@ export const site = {
     instagram: "https://www.instagram.com/hpintojr",
     facebook: "https://www.facebook.com/hpintojr419",
     linkedin: "https://www.linkedin.com/in/hamilton-pinto-jr",
+    x: "https://x.com/hpintojr",
   },
   ventures: [
     {
