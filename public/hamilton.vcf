@@ -5,7 +5,8 @@ FN:Hamilton Pinto Jr.
 TITLE:Technology Advisor\, Marketing Strategist\, Creative Director
 ORG:Mercury Call Desk
 TEL;TYPE=CELL,VOICE,pref:+19499910379
-TEL;TYPE=WORK,VOICE:+19497750451
+item4.TEL;TYPE=VOICE:+19497750451
+item4.X-ABLabel:My AI Assistant
 EMAIL;TYPE=INTERNET,WORK,pref:hello@hamiltonpinto.com
 item1.EMAIL;TYPE=INTERNET:hpintojr@gmail.com
 item1.X-ABLabel:iPhone / FaceTime
