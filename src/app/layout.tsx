@@ -52,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Link
               href="/"
               className="signature-link"
-              aria-label={`${site.name} — home`}
+              aria-label={`${site.name}, home`}
             >
               <Image src="/hamilton-signature-black.svg" alt={`${site.name}, Consultant`} width={1793} height={625} priority className="signature-logo" />
             </Link>
