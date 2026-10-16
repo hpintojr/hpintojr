@@ -17,6 +17,16 @@
 .fi p{font-size:14px;margin:0 0 12px}
 .code{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--text);color:#faf9f6;font-weight:700;letter-spacing:.08em}
 .hint{font-size:13px;margin:6px 0 0}
+.iab{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-start;justify-content:flex-end;padding:66px 14px 0;background:rgba(23,43,52,.55)}
+.iab[hidden]{display:none}
+.iab-box{position:relative;width:min(320px,100%);margin-top:16px;padding:20px 18px 16px;border-radius:16px;background:#fff;color:var(--text);text-align:left;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.iab-box::before{content:"";position:absolute;top:-9px;right:22px;border:10px solid transparent;border-top:0;border-bottom-color:#fff}
+.iab-arrow{position:absolute;top:-62px;right:10px;font-size:40px;line-height:1;color:#fff;animation:iabBounce 1.2s ease-in-out infinite}
+@keyframes iabBounce{50%{transform:translateY(-6px)}}
+.iab-box h2{margin:0 0 8px;font-size:20px}
+.iab-box ol{margin:0 0 14px;padding-left:20px;color:var(--muted);font-size:15px;line-height:1.6}
+.iab-box b{color:var(--text)}
+.iab-box button{width:100%;min-height:46px;border:0;border-radius:12px;background:var(--text);color:#faf9f6;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -58,25 +68,36 @@
 <a class="btn primary" href="/card/book">Book a 1-hour strategy session</a>
 <a class="btn" href="/">Visit hamiltonpinto.com</a>
 </main>
+<div class="iab" id="iab" hidden role="dialog" aria-modal="true" aria-labelledby="iab-title">
+<div class="iab-box">
+<span class="iab-arrow" aria-hidden="true">&#8599;</span>
+<h2 id="iab-title">Open in your browser to save my contact</h2>
+<ol>
+<li>Tap the <b>&bull;&bull;&bull;</b> at the top right</li>
+<li>Choose <b id="iab-choice">Open in external browser</b></li>
+<li>Tap <b>Save contact to phone</b></li>
+</ol>
+<button type="button" id="iab-close">Got it</button>
+</div>
+</div>
+
 <script>
 // Instagram, Facebook, TikTok and similar apps open links in a built-in browser
-// that blocks file downloads. There, try handing the contact to Safari or Chrome,
-// then fall back to opening the contact file directly.
+// that can't save contacts. Detect it and show how to open the page in the
+// phone's real browser: on arrival, and again if they tap Save.
 (function(){
 var ua=navigator.userAgent||'';
 if(!/Instagram|FBAN|FBAV|FB_IAB|FBIOS|Line\/|TikTok|musical_ly|Bytedance|LinkedInApp|Snapchat|Twitter|Threads|Pinterest/i.test(ua))return;
-var ios=/iPhone|iPad|iPod/i.test(ua), android=/Android/i.test(ua);
-var vcf='https://hamiltonpinto.com/hamilton.vcf';
+var ios=/iPhone|iPad|iPod/i.test(ua);
+var modal=document.getElementById('iab');
+document.getElementById('iab-choice').textContent=ios?'Open in external browser':'Open in Chrome';
+function show(){modal.hidden=false;document.getElementById('iab-close').focus()}
+document.getElementById('iab-close').onclick=function(){modal.hidden=true};
+modal.addEventListener('click',function(e){if(e.target===modal)modal.hidden=true});
 var btn=document.getElementById('save');
 btn.removeAttribute('download');
-btn.addEventListener('click',function(e){
-e.preventDefault();
-var left=false;
-document.addEventListener('visibilitychange',function(){if(document.hidden)left=true},{once:true});
-if(ios)location.href='x-safari-'+vcf;
-else if(android)location.href='intent://hamiltonpinto.com/hamilton.vcf#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url='+encodeURIComponent(vcf)+';end';
-setTimeout(function(){if(!left)location.href=vcf},1200);
-});
+btn.addEventListener('click',function(e){e.preventDefault();show()});
+show();
 })();
 </script>
 <script>
