@@ -110,6 +110,7 @@ export default function About() {
               { href: site.social.x, label: "X" },
               { href: site.social.instagram, label: "Instagram" },
               { href: site.social.facebook, label: "Facebook" },
+              { href: site.ugcInstagram, label: "UGC on Instagram" },
             ].map((l) => (
               <li key={l.label}>
                 <a

@@ -124,6 +124,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                       Facebook
                     </a>
                   </li>
+                                  <li>
+                    <a
+                      href={site.ugcInstagram}
+                      target="_blank"
+                      rel="me noopener"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      UGC on Instagram
+                    </a>
+                  </li>
                 </ul>
               </nav>
             </div>
