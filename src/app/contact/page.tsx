@@ -20,6 +20,8 @@ export const metadata: Metadata = {
 };
 
 const elsewhere = [
+  { href: site.social.linkedin, label: "LinkedIn" },
+  { href: site.social.x, label: "X" },
   { href: site.social.instagram, label: "Instagram" },
   { href: site.social.facebook, label: "Facebook" },
   { href: site.ugcInstagram, label: "UGC on Instagram" },
