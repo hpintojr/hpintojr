@@ -106,6 +106,8 @@ export default function About() {
           </h2>
           <ul className="mt-6 flex flex-wrap gap-3">
             {[
+              { href: site.social.linkedin, label: "LinkedIn" },
+              { href: site.social.x, label: "X" },
               { href: site.social.instagram, label: "Instagram" },
               { href: site.social.facebook, label: "Facebook" },
             ].map((l) => (
