@@ -96,6 +96,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   </li>
                   <li>
                     <a
+                      href={site.social.x}
+                      target="_blank"
+                      rel="me noopener"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      X
+                    </a>
+                  </li>
+                  <li>
+                    <a
                       href={site.social.instagram}
                       target="_blank"
                       rel="me noopener"
@@ -112,16 +122,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                       className="text-muted-foreground transition-colors hover:text-foreground"
                     >
                       Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={site.social.x}
-                      target="_blank"
-                      rel="me noopener"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      X
                     </a>
                   </li>
                 </ul>
