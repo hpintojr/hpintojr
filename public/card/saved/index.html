@@ -17,7 +17,6 @@
 .fi p{font-size:14px;margin:0 0 12px}
 .code{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--text);color:#faf9f6;font-weight:700;letter-spacing:.08em}
 .hint{font-size:13px;margin:6px 0 0}
-.inapp{margin:10px 0 0;padding:12px;border-radius:12px;background:#fff7e6;border:1px solid #f0d9a8;color:#6b4e16;font-size:13px;line-height:1.5;text-align:left}
 </style>
 </head>
 <body>
@@ -27,7 +26,7 @@
 <p class="role">Technology Advisor · Marketing Strategist · Creative Director</p>
 <p id="thanks" hidden>Thanks, your info is in. Save my contact below.</p>
 <a class="btn primary" id="save" href="/hamilton.vcf" download="Hamilton-Pinto-Jr.vcf">Save contact to phone</a>
-<p class="hint" id="save-hint">iPhone: tap Save, then Add Contact. Android: open the downloaded file and tap Save.</p>
+<p class="hint">iPhone: tap Save, then Add Contact. Android: open the downloaded file and tap Save.</p>
 
 <p class="section-label">Reach me</p>
 <div class="grid">
@@ -61,21 +60,23 @@
 </main>
 <script>
 // Instagram, Facebook, TikTok and similar apps open links in a built-in browser
-// that blocks file downloads, so the contact file never opens there. Hand the
-// contact off to the phone's real browser instead.
+// that blocks file downloads. There, try handing the contact to Safari or Chrome,
+// then fall back to opening the contact file directly.
 (function(){
 var ua=navigator.userAgent||'';
-var inApp=/Instagram|FBAN|FBAV|FB_IAB|FBIOS|Line\/|TikTok|musical_ly|Bytedance|LinkedInApp|Snapchat|Twitter|Threads|Pinterest/i.test(ua);
-if(!inApp)return;
+if(!/Instagram|FBAN|FBAV|FB_IAB|FBIOS|Line\/|TikTok|musical_ly|Bytedance|LinkedInApp|Snapchat|Twitter|Threads|Pinterest/i.test(ua))return;
 var ios=/iPhone|iPad|iPod/i.test(ua), android=/Android/i.test(ua);
 var vcf='https://hamiltonpinto.com/hamilton.vcf';
-var btn=document.getElementById('save'), hint=document.getElementById('save-hint');
+var btn=document.getElementById('save');
 btn.removeAttribute('download');
-if(ios){btn.href='x-safari-'+vcf;btn.textContent='Save contact (opens Safari)';}
-else if(android){btn.href='intent://hamiltonpinto.com/hamilton.vcf#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url='+encodeURIComponent(vcf)+';end';btn.textContent='Save contact (opens Chrome)';}
-var note=document.createElement('p');note.className='inapp';
-note.innerHTML='You\u2019re in an app\u2019s built-in browser, which can\u2019t save contacts. If the button doesn\u2019t open '+(android?'Chrome':'Safari')+', tap the <b>\u2022\u2022\u2022</b> menu and choose <b>Open in external browser</b>, then tap Save again.';
-hint.replaceWith(note);
+btn.addEventListener('click',function(e){
+e.preventDefault();
+var left=false;
+document.addEventListener('visibilitychange',function(){if(document.hidden)left=true},{once:true});
+if(ios)location.href='x-safari-'+vcf;
+else if(android)location.href='intent://hamiltonpinto.com/hamilton.vcf#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url='+encodeURIComponent(vcf)+';end';
+setTimeout(function(){if(!left)location.href=vcf},1200);
+});
 })();
 </script>
 <script>

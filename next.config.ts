@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
         source: "/hamilton.vcf",
         headers: [
           { key: "Content-Type", value: "text/vcard; charset=utf-8" },
-          { key: "Content-Disposition", value: 'attachment; filename="Hamilton-Pinto-Jr.vcf"' },
+          { key: "Content-Disposition", value: 'inline; filename="Hamilton-Pinto-Jr.vcf"' },
           { key: "Cache-Control", value: "public, max-age=300" },
         ],
       },
