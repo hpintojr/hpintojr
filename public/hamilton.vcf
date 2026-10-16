@@ -4,27 +4,24 @@ N:Pinto;Hamilton;;;Jr.
 FN:Hamilton Pinto Jr.
 TITLE:Technology Advisor\, Marketing Strategist\, Creative Director
 ORG:Mercury Call Desk
-TEL;TYPE=CELL,VOICE:+19499910379
+TEL;TYPE=CELL,VOICE,pref:+19499910379
 TEL;TYPE=WORK,VOICE:+19497750451
-EMAIL;TYPE=INTERNET,PREF:hello@hamiltonpinto.com
-URL:https://hamiltonpinto.com
+EMAIL;TYPE=INTERNET,WORK,pref:hello@hamiltonpinto.com
+item1.EMAIL;TYPE=INTERNET:hpintojr@gmail.com
+item1.X-ABLabel:iPhone / FaceTime
+URL;TYPE=HOME:https://hamiltonpinto.com
 ADR;TYPE=WORK:;;;Riverside;CA;;United States
-X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/hpintojr
-X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/hamilton-pinto-jr
-X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/hpintojr419
-X-SOCIALPROFILE;TYPE=twitter:https://x.com/hpintojr
-item1.URL:https://www.instagram.com/hpintojr
-item1.X-ABLabel:Instagram
-item2.URL:https://www.linkedin.com/in/hamilton-pinto-jr
-item2.X-ABLabel:LinkedIn
-item3.URL:https://www.facebook.com/hpintojr419
-item3.X-ABLabel:Facebook
-item4.URL:https://x.com/hpintojr
-item4.X-ABLabel:X
-item5.URL:https://www.instagram.com/bpcrew.falseidols/
-item5.X-ABLabel:False Idols Instagram
-item6.URL:https://www.falseidols.us/discount/bpcrew
-item6.X-ABLabel:False Idols shop (code BPCREW)
+X-SOCIALPROFILE;type=instagram;x-user=hpintojr:https://www.instagram.com/hp
+ intojr
+X-SOCIALPROFILE;type=linkedin;x-user=hamilton-pinto-jr:https://www.linkedin
+ .com/in/hamilton-pinto-jr
+X-SOCIALPROFILE;type=facebook;x-user=hpintojr419:https://www.facebook.com/h
+ pintojr419
+X-SOCIALPROFILE;type=twitter;x-user=hpintojr:https://x.com/hpintojr
+item2.URL:https://www.instagram.com/bpcrew.falseidols/
+item2.X-ABLabel:False Idols Instagram
+item3.URL:https://www.falseidols.us/discount/bpcrew
+item3.X-ABLabel:False Idols shop (code BPCREW)
 NOTE:Technology advisor\, marketing strategist and creative director. Found
  er of Mercury Call Desk. False Idols brand ambassador: use code BPCREW at 
  falseidols.us.
