@@ -67,20 +67,56 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 &copy; 2026 {site.name}. {site.location}.
               </p>
             </div>
-            <nav aria-label="Footer">
-              <ul className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
-                {nav.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
+            <div className="flex flex-col items-start gap-4 sm:items-end">
+              <nav aria-label="Footer">
+                <ul className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
+                  {nav.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <nav aria-label="Social">
+                <ul className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
+                  <li>
+                    <a
+                      href={site.social.linkedin}
+                      target="_blank"
+                      rel="me noopener"
                       className="text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      {item.label}
-                    </Link>
+                      LinkedIn
+                    </a>
                   </li>
-                ))}
-              </ul>
-            </nav>
+                  <li>
+                    <a
+                      href={site.social.instagram}
+                      target="_blank"
+                      rel="me noopener"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={site.social.facebook}
+                      target="_blank"
+                      rel="me noopener"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </Container>
         </footer>
       </body>
