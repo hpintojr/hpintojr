@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf9f6">
+<meta name="robots" content="noindex">
+<title>Book a Strategy Session | Hamilton Pinto Jr.</title>
+<meta name="description" content="Book a 1-hour strategy session with Hamilton Pinto Jr.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/card/card.css">
+<style>
+.card{max-width:520px}
+.facts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.facts span{padding:6px 12px;border-radius:999px;background:var(--soft);font-size:13px;color:var(--text)}
+iframe{display:block;width:100%;height:640px;border:0;border-radius:12px;background:#fff;margin:0 0 14px}
+</style>
+</head>
+<body>
+<main class="card">
+<img class="photo" src="/hamilton-pinto-jr.jpg" alt="Hamilton Pinto Jr." width="104" height="104">
+<h1>Book a strategy session</h1>
+<p>One hour together on technology, marketing, CRM or AI automation for your business.</p>
+<div class="facts"><span>60 minutes</span><span>Google Meet</span><span>Mon to Fri, 9 to 5 PT</span></div>
+<iframe id="cal" title="Strategy session booking calendar" src="https://crm.sulus.ai/b/strategy-session?embed=true" referrerpolicy="no-referrer"></iframe>
+<a class="btn" href="https://crm.sulus.ai/b/strategy-session" target="_blank" rel="noopener">Open the calendar in a new tab</a>
+<a class="btn" href="/card/saved">Get my contact info</a>
+</main>
+<script>
+// The booking widget reports its height so the frame fits without inner scrolling.
+var frame=document.getElementById('cal');
+window.addEventListener('message',function(m){if(m.source===frame.contentWindow&&m.data&&m.data.type==='crm-booking-resize'&&Number(m.data.height)>0)frame.style.height=Math.ceil(Number(m.data.height))+8+'px'});
+</script>
+</body>
+</html>

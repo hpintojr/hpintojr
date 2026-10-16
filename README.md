@@ -34,3 +34,14 @@ Use the Mercury Call Desk location on crm.sulus.ai and its published **Website C
 The payload includes first/last name, email, optional phone/company, inquiry topic, full message, source page, timestamp, `tags`, and the workflow-compatible `tagsCsv`. Sources distinguish `hamiltonpinto.com/contact`, `/consulting`, and `/ugc`. No SMS consent or AI callback is implied by a form submission.
 
 Missing CRM configuration, webhook rejection, or a timeout shows an error instead of reporting successful delivery. `LEADS_WEBHOOK_URL` remains a compatibility option for a legacy unsigned intake. A CRM acknowledgement confirms intake acceptance; use the CRM execution log to verify contact, opportunity, and note creation.
+
+## Business card QR pages (/card)
+
+Static HTML in `public/card`, served through rewrites in `next.config.ts` (no site header or nav, `noindex`).
+
+- `/card`: swipeable carousel of three QR codes (`public/card/qr-join|book|saved.png/.svg`). `/card#book` and `/card#contact` open on the second and third code.
+- `/card/join`: name, phone, email (required) and address (optional). Posts to the Mercury Call Desk **Hamilton Business Card** form (`z17cy2zekkdt2fxwz1a8e1cd618gc38z`); the **Hamilton Card: Form to Lead** workflow tags `hamilton-card`, creates a New Lead opportunity and alerts Hamilton. Then redirects to `/card/saved?joined=1`.
+- `/card/book`: embeds the MCD **Strategy Session** calendar (`https://crm.sulus.ai/b/strategy-session`, 60 minutes, Mon to Fri 9 to 5 PT, Google Meet). The **Hamilton Card: Strategy Session Booked** workflow tags `strategy-session` and creates a Demo Booked opportunity.
+- `/card/saved`: phone, email, socials, False Idols (code BPCREW) and `public/hamilton.vcf` (with photo).
+
+If a URL changes, regenerate the matching QR code with the same path so printed cards keep working.

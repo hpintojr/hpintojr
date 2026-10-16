@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf9f6">
+<meta name="robots" content="noindex">
+<title>Connect with Hamilton Pinto Jr.</title>
+<meta name="description" content="Share your details and save Hamilton Pinto Jr.'s contact.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/card/card.css">
+<style>
+form{text-align:left}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:14px}
+label{display:block;margin:0 0 6px;font-size:14px;font-weight:600}
+.req{color:var(--brand)}
+.opt{color:var(--muted);font-weight:400}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--text);font:inherit;font-size:16px;-webkit-appearance:none;appearance:none}
+input::placeholder{color:#8a9597}
+input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(52,100,89,.15)}
+input[aria-invalid="true"]{border-color:#c0392b}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button{width:100%;margin-top:6px;min-height:54px;padding:15px;border:0;border-radius:12px;background:var(--text);color:#faf9f6;font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+button:disabled{opacity:.6;cursor:not-allowed}
+.err{display:none;margin:12px 0 0;padding:10px 12px;border-radius:10px;background:#fbeceb;color:#a5332a;font-size:14px;text-align:center}
+.fine{margin:14px 0 0;font-size:12px;text-align:center}
+@media (max-width:380px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="card">
+<img class="photo" src="/hamilton-pinto-jr.jpg" alt="Hamilton Pinto Jr." width="104" height="104">
+<h1>Let's stay in touch</h1>
+<p>Share your details and I'll follow up. You'll get my contact info next.</p>
+<form id="join" novalidate>
+<div class="row">
+<div class="field"><label for="fn">First name <span class="req">*</span></label><input id="fn" name="field_1792140332397_fn" type="text" autocomplete="given-name" placeholder="First name" required></div>
+<div class="field"><label for="ln">Last name <span class="req">*</span></label><input id="ln" name="field_1792140332397_ln" type="text" autocomplete="family-name" placeholder="Last name" required></div>
+</div>
+<div class="field"><label for="ph">Phone <span class="req">*</span></label><input id="ph" name="field_1792140332397_ph" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567" required></div>
+<div class="field"><label for="em">Email <span class="req">*</span></label><input id="em" name="field_1792140332397_em" type="email" autocomplete="email" inputmode="email" placeholder="email@example.com" required></div>
+<div class="field"><label for="ad">Address <span class="opt">(optional)</span></label><input id="ad" name="field_1792140332397_ad" type="text" autocomplete="street-address" placeholder="Street address, city, ZIP"></div>
+<div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+<button type="submit" id="go">Share my info</button>
+<div class="err" id="err" role="alert"></div>
+<p class="fine">By submitting, you agree that Hamilton Pinto Jr. may contact you by phone or email about your inquiry.</p>
+</form>
+<a class="btn" href="/card/saved" style="margin-top:14px">Skip and get my contact info</a>
+</main>
+<script>
+(function(){
+var FORM_ID='z17cy2zekkdt2fxwz1a8e1cd618gc38z';
+var ENDPOINT='https://neat-platypus-153.convex.site/api/forms/submit';
+var form=document.getElementById('join'),btn=document.getElementById('go'),err=document.getElementById('err');
+var opened=Date.now();
+function showErr(m){err.textContent=m;err.style.display='block'}
+form.addEventListener('submit',function(e){
+e.preventDefault();err.style.display='none';
+var fd=new FormData(form),data={},bad=null;
+fd.forEach(function(v,k){if(k!=='company')data[k]=String(v).trim()});
+['fn','ln','ph','em'].forEach(function(id){
+var el=document.getElementById(id),v=el.value.trim(),ok=!!v;
+if(id==='em')ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+if(id==='ph')ok=v.replace(/\D/g,'').length>=10;
+el.setAttribute('aria-invalid',ok?'false':'true');
+if(!ok&&!bad)bad=el;
+});
+if(bad){showErr('Please check your name, phone and email.');bad.focus();return}
+// Spam trap: bots fill the hidden field or submit instantly. Pretend success, send nothing.
+if(document.getElementById('company').value||Date.now()-opened<2000){location.href='/card/saved?joined=1';return}
+Object.keys(data).forEach(function(k){if(!data[k])delete data[k]});
+btn.disabled=true;btn.textContent='Sending...';
+fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({formId:FORM_ID,data:data})})
+.then(function(r){if(!r.ok)throw new Error('Something went wrong. Please try again.');location.href='/card/saved?joined=1'})
+.catch(function(x){btn.disabled=false;btn.textContent='Share my info';showErr(x&&x.message?x.message:'Something went wrong. Please try again.')});
+});
+})();
+</script>
+</body>
+</html>

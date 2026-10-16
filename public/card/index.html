@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf9f6">
+<meta name="robots" content="noindex">
+<title>Hamilton Pinto Jr. | Card</title>
+<meta name="description" content="Scan to connect with Hamilton Pinto Jr.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/card/card.css">
+<style>
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;margin:0 -22px;-webkit-overflow-scrolling:touch}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;padding:0 22px}
+.label{display:inline-block;margin:0 0 10px;padding:6px 12px;border-radius:999px;background:#e7efeb;color:var(--brand);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.slide p{margin:0 0 14px;font-size:14px}
+.qr{display:block;width:100%;max-width:270px;margin:0 auto 16px;padding:12px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.dots{display:flex;justify-content:center;gap:10px;margin:2px 0 18px}
+.dot{width:10px;height:10px;padding:0;border:0;border-radius:50%;background:#cfd3cc;cursor:pointer}
+.dot[aria-current="true"]{background:var(--brand);width:26px;border-radius:999px}
+</style>
+</head>
+<body>
+<main class="card">
+<img class="photo" src="/hamilton-pinto-jr.jpg" alt="Hamilton Pinto Jr." width="104" height="104">
+<h1>Scan to connect</h1>
+<p>Point your camera at a code. Swipe for the next one.</p>
+<div class="slides" id="slides" aria-roledescription="carousel" aria-label="Hamilton's QR codes">
+<section class="slide" id="qr-info" aria-roledescription="slide" aria-label="1 of 3: Share your info">
+<span class="label">Share your info</span>
+<h2>Stay in touch</h2>
+<p>Leave your name, phone and email, then save my contact.</p>
+<img class="qr" src="/card/qr-join.png" alt="QR code that opens the share your info form" width="270" height="270">
+</section>
+<section class="slide" id="qr-book" aria-roledescription="slide" aria-label="2 of 3: Book a strategy session">
+<span class="label">Book a session</span>
+<h2>1-hour strategy session</h2>
+<p>Pick a time on my calendar. We meet on Google Meet.</p>
+<img class="qr" src="/card/qr-book.png" alt="QR code that opens the strategy session calendar" width="270" height="270">
+</section>
+<section class="slide" id="qr-contact" aria-roledescription="slide" aria-label="3 of 3: My contact info">
+<span class="label">My contact info</span>
+<h2>Save my contact</h2>
+<p>Phone, email, socials and False Idols, in one tap.</p>
+<img class="qr" src="/card/qr-saved.png" alt="QR code that opens Hamilton's contact info" width="270" height="270">
+</section>
+</div>
+<div class="dots" role="group" aria-label="Choose a QR code">
+<button class="dot" type="button" aria-label="Show the share your info code" aria-current="true"></button>
+<button class="dot" type="button" aria-label="Show the strategy session code" aria-current="false"></button>
+<button class="dot" type="button" aria-label="Show the contact info code" aria-current="false"></button>
+</div>
+<a class="btn primary" href="/card/join">Share your info</a>
+<a class="btn primary" href="/card/book">Book a strategy session</a>
+<a class="btn primary" href="/card/saved">Get my contact info</a>
+<p class="small"><a class="link" href="/">hamiltonpinto.com</a></p>
+</main>
+<script>
+(function(){
+var track=document.getElementById('slides'),dots=[].slice.call(document.querySelectorAll('.dot'));
+function setActive(i){dots.forEach(function(d,j){d.setAttribute('aria-current',i===j?'true':'false')})}
+dots.forEach(function(d,i){d.addEventListener('click',function(){track.scrollTo({left:i*track.clientWidth});setActive(i)})});
+var t;track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){setActive(Math.round(track.scrollLeft/track.clientWidth))},60)},{passive:true});
+// Deep links: /card#book or /card#contact open on that code.
+var start={'#book':1,'#contact':2}[location.hash];
+if(start){window.addEventListener('load',function(){track.scrollTo({left:start*track.clientWidth,behavior:'instant'});setActive(start)})}
+})();
+</script>
+</body>
+</html>

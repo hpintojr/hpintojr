@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf9f6">
+<meta name="robots" content="noindex">
+<title>Hamilton Pinto Jr. | Contact</title>
+<meta name="description" content="Save Hamilton Pinto Jr.'s contact: phone, email, socials and False Idols.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/card/card.css">
+<style>
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid .btn{margin:0;font-size:15px;min-height:48px}
+.fi{margin-top:6px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--bg);text-align:left}
+.fi h2{font-size:19px;margin:0 0 4px}
+.fi p{font-size:14px;margin:0 0 12px}
+.code{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--text);color:#faf9f6;font-weight:700;letter-spacing:.08em}
+.hint{font-size:13px;margin:6px 0 0}
+</style>
+</head>
+<body>
+<main class="card">
+<img class="photo" src="/hamilton-pinto-jr.jpg" alt="Hamilton Pinto Jr." width="104" height="104">
+<h1 id="heading">Hamilton Pinto Jr.</h1>
+<p class="role">Technology Advisor · Marketing Strategist · Creative Director</p>
+<p id="thanks" hidden>Thanks, your info is in. Save my contact below.</p>
+<a class="btn primary" href="/hamilton.vcf" download="Hamilton-Pinto-Jr.vcf">Save contact to phone</a>
+<p class="hint">iPhone: tap Save, then Add Contact. Android: open the downloaded file and tap Save.</p>
+
+<p class="section-label">Reach me</p>
+<div class="grid">
+<a class="btn" href="tel:+19499910379">Call mobile</a>
+<a class="btn" href="sms:+19499910379">Text</a>
+<a class="btn" href="tel:+19497750451">Call office</a>
+<a class="btn" href="mailto:hello@hamiltonpinto.com">Email</a>
+</div>
+<p class="small">Mobile (949) 991-0379 · Office (949) 775-0451<br>hello@hamiltonpinto.com</p>
+
+<p class="section-label">Follow me</p>
+<div class="grid">
+<a class="btn" href="https://www.instagram.com/hpintojr" target="_blank" rel="noopener me">Instagram</a>
+<a class="btn" href="https://www.linkedin.com/in/hamilton-pinto-jr" target="_blank" rel="noopener me">LinkedIn</a>
+<a class="btn" href="https://www.facebook.com/hpintojr419" target="_blank" rel="noopener me">Facebook</a>
+<a class="btn" href="https://x.com/hpintojr" target="_blank" rel="noopener me">X</a>
+</div>
+
+<p class="section-label">False Idols</p>
+<div class="fi">
+<h2>Freestyle athletics apparel</h2>
+<p>I'm a False Idols brand ambassador and create UGC for the brand. Use code <span class="code">BPCREW</span> for a discount.</p>
+<a class="btn primary" href="https://www.falseidols.us/discount/bpcrew" target="_blank" rel="noopener">Shop with code BPCREW</a>
+<a class="btn" href="https://www.instagram.com/bpcrew.falseidols/" target="_blank" rel="noopener">@bpcrew.falseidols on Instagram</a>
+<p class="small" style="margin:4px 0 0">The shop link applies my ambassador discount code.</p>
+</div>
+
+<p class="section-label">Work with me</p>
+<a class="btn primary" href="/card/book">Book a 1-hour strategy session</a>
+<a class="btn" href="/">Visit hamiltonpinto.com</a>
+</main>
+<script>
+// Visitors arriving from the share-your-info form see a thank-you line.
+if(new URLSearchParams(location.search).has('joined'))document.getElementById('thanks').hidden=false;
+</script>
+</body>
+</html>
