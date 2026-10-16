@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/config/site";
 import { Container, Eyebrow } from "@/components/site/ui";
 import { ContactForm } from "@/components/site/contact-form";
+import { SocialIcon, socialLinks } from "@/components/site/social-icons";
 
 export const metadata: Metadata = {
   title: `Contact ${site.name}`,
@@ -19,13 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-const elsewhere = [
-  { href: site.social.linkedin, label: "LinkedIn" },
-  { href: site.social.x, label: "X" },
-  { href: site.social.instagram, label: "Instagram" },
-  { href: site.social.facebook, label: "Facebook" },
-  { href: site.ugcInstagram, label: "UGC on Instagram" },
-];
+
 
 export default function Contact() {
   return (
@@ -47,16 +42,18 @@ export default function Contact() {
           >
             Elsewhere
           </h2>
-          <ul className="mt-4 flex flex-wrap gap-3">
-            {elsewhere.map((l) => (
+          <ul className="mt-4 flex flex-wrap items-center gap-3">
+            {socialLinks().map((l) => (
               <li key={l.label}>
                 <a
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer me"
-                  className="inline-flex h-10 items-center rounded-lg border bg-card px-4 text-sm font-semibold transition-colors hover:bg-muted"
+                  aria-label={l.label}
+                  title={l.label}
+                  className="inline-flex size-12 items-center justify-center rounded-xl border bg-card text-foreground transition-colors hover:bg-muted"
                 >
-                  {l.label}
+                  <SocialIcon label={l.label} className="size-6" />
                 </a>
               </li>
             ))}

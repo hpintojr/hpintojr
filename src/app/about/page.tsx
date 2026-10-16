@@ -6,6 +6,7 @@ import { bioParagraphs, education, personJsonLd } from "@/content/person";
 import { Card, Container, Eyebrow } from "@/components/site/ui";
 import { VentureCard } from "@/components/site/venture-card";
 import { PressSection } from "@/components/site/press-section";
+import { SocialIcon, socialLinks } from "@/components/site/social-icons";
 
 export const metadata: Metadata = {
   title: `About ${site.name}`,
@@ -104,22 +105,18 @@ export default function About() {
           <h2 id="connect" className="text-2xl font-bold tracking-tight">
             Connect
           </h2>
-          <ul className="mt-6 flex flex-wrap gap-3">
-            {[
-              { href: site.social.linkedin, label: "LinkedIn" },
-              { href: site.social.x, label: "X" },
-              { href: site.social.instagram, label: "Instagram" },
-              { href: site.social.facebook, label: "Facebook" },
-              { href: site.ugcInstagram, label: "UGC on Instagram" },
-            ].map((l) => (
+          <ul className="mt-6 flex flex-wrap items-center gap-3">
+            {socialLinks().map((l) => (
               <li key={l.label}>
                 <a
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer me"
-                  className="inline-flex h-10 items-center rounded-lg border bg-card px-4 text-sm font-semibold transition-colors hover:bg-muted"
+                  aria-label={l.label}
+                  title={l.label}
+                  className="inline-flex size-12 items-center justify-center rounded-xl border bg-card text-foreground transition-colors hover:bg-muted"
                 >
-                  {l.label}
+                  <SocialIcon label={l.label} className="size-6" />
                 </a>
               </li>
             ))}

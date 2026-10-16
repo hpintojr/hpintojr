@@ -5,6 +5,7 @@ import { Container, Monogram } from "@/components/site/ui";
 import { SiteNav } from "@/components/site/site-nav";
 import "./globals.css";
 import { site } from "@/config/site";
+import { SocialIcon, socialLinks } from "@/components/site/social-icons";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -83,57 +84,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 </ul>
               </nav>
               <nav aria-label="Social">
-                <ul className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
-                  <li>
-                    <a
-                      href={site.social.linkedin}
-                      target="_blank"
-                      rel="me noopener"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      LinkedIn
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={site.social.x}
-                      target="_blank"
-                      rel="me noopener"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      X
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={site.social.instagram}
-                      target="_blank"
-                      rel="me noopener"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={site.social.facebook}
-                      target="_blank"
-                      rel="me noopener"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                                  <li>
-                    <a
-                      href={site.ugcInstagram}
-                      target="_blank"
-                      rel="me noopener"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      UGC on Instagram
-                    </a>
-                  </li>
+                <ul className="flex flex-wrap items-center gap-2">
+                  {socialLinks().map((l) => (
+                    <li key={l.label}>
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="me noopener"
+                        aria-label={l.label}
+                        title={l.label}
+                        className="inline-flex size-10 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      >
+                        <SocialIcon label={l.label} />
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </nav>
             </div>
