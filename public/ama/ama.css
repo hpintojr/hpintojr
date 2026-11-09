@@ -18,7 +18,7 @@ a{color:inherit}
   radial-gradient(55% 60% at 88% 18%,rgba(128,0,0,.42),transparent 62%),
   radial-gradient(45% 45% at 6% 100%,rgba(128,0,0,.18),transparent 60%),
   linear-gradient(180deg,#000 0%,#05070b 38%,#0c1018 100%)}
-.mark-bg{position:absolute;left:77%;top:47%;height:104%;width:auto;max-width:none;transform:translate(-50%,-50%);opacity:.24;pointer-events:none;user-select:none;
+.mark-bg{position:absolute;left:79%;top:41%;height:100%;width:auto;max-width:none;transform:translate(-50%,-50%);opacity:.24;pointer-events:none;user-select:none;
   -webkit-mask-image:radial-gradient(60% 62% at 52% 50%,#000 30%,transparent 100%);mask-image:radial-gradient(60% 62% at 52% 50%,#000 30%,transparent 100%)}
 .hero-in{position:relative;z-index:1;padding-top:52px;padding-bottom:104px}
 .logos{display:flex;align-items:center;gap:22px;margin-bottom:34px}
