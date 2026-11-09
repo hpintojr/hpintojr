@@ -45,3 +45,11 @@ Static HTML in `public/card`, served through rewrites in `next.config.ts` (no si
 - `/card/saved`: phone, email, socials, False Idols (code BPCREW) and `public/hamilton.vcf` (with photo).
 
 If a URL changes, regenerate the matching QR code with the same path so printed cards keep working.
+
+## Event page (/ama)
+
+Static HTML in `public/ama`, served through a rewrite in `next.config.ts` (own dark design, `noindex`, not in the sitemap).
+
+- `/ama`: registration page for the Nov 9, 2026 member-hosted live AMA room (3:00 to 4:00 PM PT), with the MasterClass Executive and Chicago Booth context logos, the cohort question carousel and links to the official AMA space and Slido.
+- The form is the Mercury Call Desk **AMA Live Room - Nov 9 Registration** form (`z17dzkev0xvcwjz3kt5zmbpq018hxqec`) embedded from `crm.sulus.ai`; its dark styling lives in the form's theme CSS in the CRM.
+- The **AMA Nov 9: Registration to Meet Link (90 seats)** workflow counts seats in the custom value `ama_seat_count`, tags `ama-nov9-registered` and emails the Meet link stored in `ama_meet_link`. Past 90 seats it tags `ama-nov9-waitlist` and sends the waitlist email.
