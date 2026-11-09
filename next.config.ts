@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       { source: "/card/:page(join|book|saved)", destination: "/card/:page/index.html" },
       // Event landing pages are static HTML too (own dark design, noindex).
       { source: "/ama", destination: "/ama/index.html" },
+      { source: "/ama/confirmed", destination: "/ama/confirmed/index.html" },
     ];
   },
   async headers() {
