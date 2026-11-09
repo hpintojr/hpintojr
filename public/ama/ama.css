@@ -63,8 +63,9 @@ h3{margin:0 0 10px;font-size:19px;line-height:1.3;letter-spacing:-.01em}
 .reg-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:17px}
 .reg-head .seats{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
 .live-dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #22c55e2e}
-.form{display:block;width:100%;height:500px;border:0;background:transparent}
+.form{display:block;width:100%;height:470px;border:0;background:#fff;border-radius:14px;color-scheme:light}
 .reg-card a{color:var(--gold)}
+.reg-card .after{margin:14px 0 6px!important;color:var(--muted)!important}
 
 .q-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
 .q-nav{display:flex;align-items:center;gap:10px;flex:none}
