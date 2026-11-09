@@ -18,7 +18,7 @@ a{color:inherit}
   radial-gradient(55% 60% at 88% 18%,rgba(128,0,0,.42),transparent 62%),
   radial-gradient(45% 45% at 6% 100%,rgba(128,0,0,.18),transparent 60%),
   linear-gradient(180deg,#000 0%,#05070b 38%,#0c1018 100%)}
-.mark-bg{position:absolute;left:79%;top:41%;height:100%;width:auto;max-width:none;transform:translate(-50%,-50%);opacity:.24;pointer-events:none;user-select:none;
+.mark-bg{position:absolute;left:79%;top:33%;height:100%;width:auto;max-width:none;transform:translate(-50%,-50%);opacity:.24;pointer-events:none;user-select:none;
   -webkit-mask-image:radial-gradient(60% 62% at 52% 50%,#000 30%,transparent 100%);mask-image:radial-gradient(60% 62% at 52% 50%,#000 30%,transparent 100%)}
 .hero-in{position:relative;z-index:1;padding-top:52px;padding-bottom:104px}
 .logos{display:flex;align-items:center;gap:22px;margin-bottom:34px}
@@ -63,7 +63,7 @@ h3{margin:0 0 10px;font-size:19px;line-height:1.3;letter-spacing:-.01em}
 .reg-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:17px}
 .reg-head .seats{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
 .live-dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #22c55e2e}
-.form{display:block;width:100%;height:440px;border:0;background:transparent}
+.form{display:block;width:100%;height:500px;border:0;background:transparent}
 .reg-card a{color:var(--gold)}
 
 .q-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
@@ -122,7 +122,6 @@ h3{margin:0 0 10px;font-size:19px;line-height:1.3;letter-spacing:-.01em}
   .q{padding:22px 20px 18px;min-height:230px}
   .q::before{left:20px}
   .reg-card{padding:18px 16px 10px}
-  .form{height:450px}
   .chip{font-size:10px;padding:4px 10px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
