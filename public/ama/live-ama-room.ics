@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hamilton Pinto Jr.//Live AMA Room//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:live-ama-room-20261109@hamiltonpinto.com
+DTSTAMP:20261109T180000Z
+DTSTART:20261109T230000Z
+DTEND:20261110T000000Z
+SUMMARY:Live AMA Room with Hamilton Pinto Jr.
+DESCRIPTION:Member-hosted live Google Meet room alongside Parth Patil's text AMA.\nJoin: https://meet.google.com/oiv-tguz-pir\nAMA space: https://masterclass-executive.mn.co/spaces/25588357\nThis is a member-hosted companion session\, not an official MasterClass Executive or Chicago Booth event.
+LOCATION:https://meet.google.com/oiv-tguz-pir
+URL:https://meet.google.com/oiv-tguz-pir
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Live AMA Room starts in 15 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
