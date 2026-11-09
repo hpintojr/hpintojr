@@ -7,8 +7,14 @@
 <title>You're in | Live AMA Room | Hamilton Pinto Jr.</title>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;background:#fff;color:#0b0f17;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-text-size-adjust:100%}
-main{max-width:440px;margin:0 auto;padding:26px 20px 22px;text-align:center}
+html{background:#05070b}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 16px;background:radial-gradient(55% 60% at 88% 10%,rgba(128,0,0,.42),transparent 62%),linear-gradient(180deg,#000,#0c1018);color:#0b0f17;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-text-size-adjust:100%}
+main{width:100%;max-width:460px;margin:0 auto;padding:30px 24px 24px;text-align:center;background:#fff;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.logos{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 0 22px}
+.logos img{height:auto}
+.logos span{color:#f5c400;font-size:20px}
+.back{margin:18px 0 0;font-size:14px}
+.back a{color:#d3d9e3}
 .tick{width:52px;height:52px;border-radius:50%;background:#f5c400;display:grid;place-items:center;margin:0 auto 14px;font-size:26px;font-weight:800}
 h1{margin:0 0 8px;font-size:28px;letter-spacing:-.02em;line-height:1.15}
 p{margin:0 0 14px;font-size:15px;line-height:1.55;color:#3d4757}
@@ -26,10 +32,11 @@ a:focus-visible{outline:2px solid #0b0f17;outline-offset:2px}
 </style>
 </head>
 <body>
+<div class="logos"><img src="/ama/masterclass-executive.png" alt="MasterClass Executive" width="120" height="41"><span aria-hidden="true">&times;</span><img src="/ama/chicago-booth.png" alt="The University of Chicago Booth School of Business" width="166" height="42"></div>
 <main>
   <div class="tick" aria-hidden="true">&#10003;</div>
   <h1>You're in!</h1>
-  <p>Your seat is confirmed for today, Monday, Nov 9, 3:00 to 4:00 PM PT (6:00 to 7:00 PM ET). The link is also on its way to your inbox.</p>
+  <p>Your seat is confirmed for today, Monday, Nov 9, 3:00 to 4:00 PM PT (6:00 to 7:00 PM ET). Save the link now. I'll also email it to you before we start.</p>
   <a class="btn join" href="https://meet.google.com/oiv-tguz-pir" target="_blank" rel="noopener">Join the live room at 3:00 PM PT</a>
   <p class="link">https://meet.google.com/oiv-tguz-pir</p>
   <p class="cal-title">Add it to your calendar</p>
@@ -40,5 +47,6 @@ a:focus-visible{outline:2px solid #0b0f17;outline-offset:2px}
   </div>
   <p class="fine">Keep the <a href="https://masterclass-executive.mn.co/spaces/25588357?utm_source=manual" target="_blank" rel="noopener">AMA space</a> open in a second tab. Member-hosted session, not an official MasterClass Executive or Chicago Booth event.</p>
 </main>
+<p class="back"><a href="/ama">&larr; Back to the event page</a></p>
 </body>
 </html>
