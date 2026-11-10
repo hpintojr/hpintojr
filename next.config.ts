@@ -11,10 +11,19 @@ const nextConfig: NextConfig = {
       // Event landing pages are static HTML too (own dark design, noindex).
       { source: "/ama", destination: "/ama/index.html" },
       { source: "/ama/confirmed", destination: "/ama/confirmed/index.html" },
+      { source: "/strategy", destination: "/strategy/index.html" },
+      { source: "/strategy/confirmed", destination: "/strategy/confirmed/index.html" },
     ];
   },
   async headers() {
     return [
+      {
+        source: "/strategy/strategy-session.ics",
+        headers: [
+          { key: "Content-Type", value: "text/calendar; charset=utf-8" },
+          { key: "Content-Disposition", value: 'inline; filename="strategy-session.ics"' },
+        ],
+      },
       {
         source: "/hamilton.vcf",
         headers: [

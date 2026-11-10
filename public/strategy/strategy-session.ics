@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hamilton Pinto Jr.//Strategy Session//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:strategy-session-20261116@hamiltonpinto.com
+DTSTAMP:20261110T040000Z
+DTSTART:20261116T230000Z
+DTEND:20261117T010000Z
+SUMMARY:Strategy Session with Hamilton Pinto Jr.
+DESCRIPTION:Two hour member-hosted Strategy Session for the MasterClass Executive Fall 2026 cohort.\nHour one: the new project\, AI Lab customer research with synthetic users.\nHour two: open strategy on your projects and AI setups.\nJoin: https://meet.google.com/mjv-rpur-qxk\nDetails: https://hamiltonpinto.com/strategy\nMember-hosted session\, not an official MasterClass Executive or Chicago Booth event.
+LOCATION:https://meet.google.com/mjv-rpur-qxk
+URL:https://meet.google.com/mjv-rpur-qxk
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Strategy Session starts in 15 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
