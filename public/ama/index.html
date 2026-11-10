@@ -182,6 +182,62 @@
   </div>
 </footer>
 
+<script src="/ama/answers.js"></script>
+<script>
+(function(){
+  // Attach Parth's written answers to the matching question cards (matched by community post link).
+  var A=window.AMA_ANSWERS||{}, dlg;
+  function idOf(href){var m=/\/posts\/([^/?#]+)/.exec(href||''); return m?m[1]:null;}
+  function paras(t){return t.split(/\n\n+/).map(function(x){return x.split(/\n/)});}
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+  function openDialog(q,who,link,text){
+    if(!dlg){
+      dlg=document.createElement('dialog'); dlg.className='ans-dialog';
+      dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+      document.body.appendChild(dlg);
+    }
+    var body=paras(text).map(function(lines){
+      return lines.map(function(l){var b=/^[•\-]\s/.test(l); return '<p'+(b?' class="bullet"':'')+'>'+esc(l)+'</p>'}).join('');
+    }).join('');
+    dlg.innerHTML='<div class="ad-in"><div class="ad-top"><div><p class="eyebrow">Question from '+esc(who)+'</p><p class="qtext">'+esc(q)+'</p></div>'+
+      '<button type="button" class="close" aria-label="Close">&times;</button></div>'+
+      '<div class="ad-body"><div class="by"><span class="dot"></span>Parth Patil answered</div>'+body+'</div>'+
+      '<div class="ad-foot"><span>Answer posted in the AMA space. Links Parth mentioned are in the original post.</span>'+
+      (link?'<a href="'+esc(link)+'" target="_blank" rel="noopener">Open the post &rarr;</a>':'')+'</div></div>';
+    dlg.querySelector('.close').addEventListener('click',function(){dlg.close()});
+    dlg.showModal();
+  }
+  var n=0;
+  [].forEach.call(document.querySelectorAll('#q-track .q'),function(card){
+    var a=card.querySelector('a[href*="/posts/"]'), id=idOf(a&&a.href), text=A[id];
+    if(!text) return;
+    n++;
+    card.classList.add('has-answer');
+    var q=(card.querySelector('blockquote')||{}).textContent||'', who=(card.querySelector('.name')||{}).textContent||'A cohort member';
+    var box=document.createElement('div'); box.className='ans';
+    box.innerHTML='<div class="ans-head">Parth answered</div><p>'+esc(text.replace(/\s+/g,' '))+'</p><button type="button">Read the full answer &rarr;</button>';
+    box.querySelector('button').addEventListener('click',function(){openDialog(q,who,a&&a.href,text)});
+    var cap=card.querySelector('figcaption');
+    card.insertBefore(box,cap);
+    // Make sure every answered card carries the badge, even if the card HTML was generated before the answer landed.
+    if(cap && !cap.querySelector('.answered')){var b=document.createElement('span'); b.className='answered'; b.textContent='Answered'; cap.appendChild(b);}
+  });
+  // Comment counts (all comments on the post, Parth's included), without adding the comments themselves.
+  var M=window.AMA_META||{};
+  [].forEach.call(document.querySelectorAll('#q-track .q'),function(card){
+    var a=card.querySelector('a[href*="/posts/"]'), id=idOf(a&&a.href), m=M[id], cap=card.querySelector('figcaption');
+    if(!m||!m.comments||!cap||cap.querySelector('.comments')) return;
+    var c=document.createElement('span'); c.className='comments'; c.title=m.comments+(m.comments===1?' comment':' comments')+' on the post';
+    c.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/></svg>'+m.comments;
+    cap.appendChild(c);
+  });
+  // Answered questions first, each group keeping its upvote order.
+  var track=document.getElementById('q-track'), all=[].slice.call(track.querySelectorAll('.q'));
+  all.filter(function(c){return c.classList.contains('has-answer')}).concat(all.filter(function(c){return !c.classList.contains('has-answer')})).forEach(function(c){track.appendChild(c)});
+  var sub=document.querySelector('.q-head .sub');
+  if(sub && n) sub.textContent='Parth has answered '+n+' of these in writing. Answered questions come first; open any card to read his full answer.';
+})();
+</script>
 <script>
 (function(){
   // Countdown to Monday Nov 9, 2026, 3:00 PM Pacific (23:00 UTC), ending 4:00 PM Pacific.
@@ -225,49 +281,6 @@
   }
 })();
 </script>
-<script src="/ama/answers.js"></script>
-<script>
-(function(){
-  // Attach Parth's written answers to the matching question cards (matched by community post link).
-  var A=window.AMA_ANSWERS||{}, dlg;
-  function idOf(href){var m=/\/posts\/([^/?#]+)/.exec(href||''); return m?m[1]:null;}
-  function paras(t){return t.split(/\n\n+/).map(function(x){return x.split(/\n/)});}
-  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
-  function openDialog(q,who,link,text){
-    if(!dlg){
-      dlg=document.createElement('dialog'); dlg.className='ans-dialog';
-      dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
-      document.body.appendChild(dlg);
-    }
-    var body=paras(text).map(function(lines){
-      return lines.map(function(l){var b=/^[•\-]\s/.test(l); return '<p'+(b?' class="bullet"':'')+'>'+esc(l)+'</p>'}).join('');
-    }).join('');
-    dlg.innerHTML='<div class="ad-in"><div class="ad-top"><div><p class="eyebrow">Question from '+esc(who)+'</p><p class="qtext">'+esc(q)+'</p></div>'+
-      '<button type="button" class="close" aria-label="Close">&times;</button></div>'+
-      '<div class="ad-body"><div class="by"><span class="dot"></span>Parth Patil answered</div>'+body+'</div>'+
-      '<div class="ad-foot"><span>Answer posted in the AMA space. Links Parth mentioned are in the original post.</span>'+
-      (link?'<a href="'+esc(link)+'" target="_blank" rel="noopener">Open the post &rarr;</a>':'')+'</div></div>';
-    dlg.querySelector('.close').addEventListener('click',function(){dlg.close()});
-    dlg.showModal();
-  }
-  var n=0;
-  [].forEach.call(document.querySelectorAll('#q-track .q'),function(card){
-    var a=card.querySelector('a[href*="/posts/"]'), id=idOf(a&&a.href), text=A[id];
-    if(!text) return;
-    n++;
-    card.classList.add('has-answer');
-    var q=(card.querySelector('blockquote')||{}).textContent||'', who=(card.querySelector('.name')||{}).textContent||'A cohort member';
-    var box=document.createElement('div'); box.className='ans';
-    box.innerHTML='<div class="ans-head">Parth answered</div><p>'+esc(text.replace(/\s+/g,' '))+'</p><button type="button">Read the full answer &rarr;</button>';
-    box.querySelector('button').addEventListener('click',function(){openDialog(q,who,a&&a.href,text)});
-    var cap=card.querySelector('figcaption');
-    card.insertBefore(box,cap);
-    // Make sure every answered card carries the badge, even if the card HTML was generated before the answer landed.
-    if(cap && !cap.querySelector('.answered')){var b=document.createElement('span'); b.className='answered'; b.textContent='Answered'; cap.appendChild(b);}
-  });
-  var sub=document.querySelector('.q-head .sub');
-  if(sub && n) sub.textContent='Parth has answered '+n+' of these in writing. Open any card to read his full answer.';
-})();
-</script>
+
 </body>
 </html>
