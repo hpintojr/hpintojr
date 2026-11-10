@@ -82,7 +82,7 @@
     <div class="q-head">
       <div>
         <p class="eyebrow">From the cohort</p>
-        <h2 id="q-title">Questions already waiting for Parth</h2>
+        <h2 id="q-title">The cohort's questions, with Parth's answers</h2>
         <p class="sub">These are in the AMA space now, most upvoted first. We'll use them as our agenda in the live room.</p>
       </div>
       <div class="q-nav">
@@ -92,7 +92,7 @@
       </div>
     </div>
   </div>
-  <div class="q-track" id="q-track" tabindex="0" aria-roledescription="carousel" aria-label="Questions waiting to be answered">
+  <div class="q-track" id="q-track" tabindex="0" aria-roledescription="carousel" aria-label="Cohort questions and Parth's answers">
     <figure class="q"><blockquote>When we upload real company financials into ChatGPT or Claude, what actually happens to that data? Is it retained, used for training, or visible to someone else or to the resource provider? I am concerned about security and confidentiality.</blockquote><figcaption><span class="name">Hamilton P.</span><span class="votes">9 upvotes</span><span class="answered">Answered</span><span class="new">New</span></figcaption><a class="q-link" href="https://masterclass-executive.mn.co/posts/109916988" target="_blank" rel="noopener">View post in the community &rarr;</a></figure>
 <figure class="q"><blockquote>We saw how effectively you prompted AI to create accurate spreadsheets and analysis. How do you then turn that into a polished, on-brand presentation? It would be great if the Agent could produce pages that are ready to present to the Finance Committee. Do you have a way to upload a template/design language and prompt a specific deliverable? I personally don't love the look of Google Slides, so I'd prefer something better. Is the idea to import the ChatGPT deliverable into a standard package like Google Slides or Microsoft PowerPoint?</blockquote><figcaption><span class="name">Jocelyn T.</span><span class="votes">5 upvotes</span><span class="answered">Answered</span><span class="new">New</span></figcaption><a class="q-link" href="https://masterclass-executive.mn.co/posts/109916865" target="_blank" rel="noopener">View post in the community &rarr;</a></figure>
 <figure class="q"><blockquote>How secure is the data that is uploaded? What happens to retention of it? Also when you did the second agent to work at the same time….how did you have it open the same files that the first agent made? And when the second agent made its own version of the site, while the first one had its own, how did you combine the two?</blockquote><figcaption><span class="name">Mariel D.</span><span class="votes">5 upvotes</span><span class="answered">Answered</span><span class="new">New</span></figcaption><a class="q-link" href="https://masterclass-executive.mn.co/posts/109918379" target="_blank" rel="noopener">View post in the community &rarr;</a></figure>
@@ -223,6 +223,50 @@
       if(!paused && r.top<innerHeight && r.bottom>0) go(i+1);
     },6000);
   }
+})();
+</script>
+<script src="/ama/answers.js"></script>
+<script>
+(function(){
+  // Attach Parth's written answers to the matching question cards (matched by community post link).
+  var A=window.AMA_ANSWERS||{}, dlg;
+  function idOf(href){var m=/\/posts\/([^/?#]+)/.exec(href||''); return m?m[1]:null;}
+  function paras(t){return t.split(/\n\n+/).map(function(x){return x.split(/\n/)});}
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+  function openDialog(q,who,link,text){
+    if(!dlg){
+      dlg=document.createElement('dialog'); dlg.className='ans-dialog';
+      dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+      document.body.appendChild(dlg);
+    }
+    var body=paras(text).map(function(lines){
+      return lines.map(function(l){var b=/^[•\-]\s/.test(l); return '<p'+(b?' class="bullet"':'')+'>'+esc(l)+'</p>'}).join('');
+    }).join('');
+    dlg.innerHTML='<div class="ad-in"><div class="ad-top"><div><p class="eyebrow">Question from '+esc(who)+'</p><p class="qtext">'+esc(q)+'</p></div>'+
+      '<button type="button" class="close" aria-label="Close">&times;</button></div>'+
+      '<div class="ad-body"><div class="by"><span class="dot"></span>Parth Patil answered</div>'+body+'</div>'+
+      '<div class="ad-foot"><span>Answer posted in the AMA space. Links Parth mentioned are in the original post.</span>'+
+      (link?'<a href="'+esc(link)+'" target="_blank" rel="noopener">Open the post &rarr;</a>':'')+'</div></div>';
+    dlg.querySelector('.close').addEventListener('click',function(){dlg.close()});
+    dlg.showModal();
+  }
+  var n=0;
+  [].forEach.call(document.querySelectorAll('#q-track .q'),function(card){
+    var a=card.querySelector('a[href*="/posts/"]'), id=idOf(a&&a.href), text=A[id];
+    if(!text) return;
+    n++;
+    card.classList.add('has-answer');
+    var q=(card.querySelector('blockquote')||{}).textContent||'', who=(card.querySelector('.name')||{}).textContent||'A cohort member';
+    var box=document.createElement('div'); box.className='ans';
+    box.innerHTML='<div class="ans-head">Parth answered</div><p>'+esc(text.replace(/\s+/g,' '))+'</p><button type="button">Read the full answer &rarr;</button>';
+    box.querySelector('button').addEventListener('click',function(){openDialog(q,who,a&&a.href,text)});
+    var cap=card.querySelector('figcaption');
+    card.insertBefore(box,cap);
+    // Make sure every answered card carries the badge, even if the card HTML was generated before the answer landed.
+    if(cap && !cap.querySelector('.answered')){var b=document.createElement('span'); b.className='answered'; b.textContent='Answered'; cap.appendChild(b);}
+  });
+  var sub=document.querySelector('.q-head .sub');
+  if(sub && n) sub.textContent='Parth has answered '+n+' of these in writing. Open any card to read his full answer.';
 })();
 </script>
 </body>
