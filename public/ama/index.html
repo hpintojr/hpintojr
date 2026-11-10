@@ -43,12 +43,12 @@
 
     <dl class="facts">
       <div><dt>When</dt><dd>Monday, Nov 9<br>3:00 to 4:00 PM PT <span class="dim">(6:00 to 7:00 PM ET)</span></dd></div>
-      <div><dt>Where</dt><dd>Google Meet<br><span class="dim">Session ended. Replay coming soon</span></dd></div>
+      <div><dt>Where</dt><dd>Google Meet<br><span class="dim">Session ended. <a href="#replay">Replay below</a></span></dd></div>
       <div><dt>Seats</dt><dd>150 live seats<br><span class="dim">Open to the whole cohort</span></dd></div>
     </dl>
 
     <div class="cta-row">
-      <span class="btn primary is-soon" aria-disabled="true">Replay coming soon</span>
+      <a class="btn primary" href="#replay">Watch the replay</a>
       <a class="btn ghost" href="https://masterclass-executive.mn.co/spaces/25588357?utm_source=manual" target="_blank" rel="noopener">Open the AMA space</a>
       <span class="count" id="countdown" role="status" aria-live="polite"></span>
     </div>
@@ -62,8 +62,8 @@
   <div class="wrap reg">
     <div class="reg-copy">
       <p class="eyebrow">Live room</p>
-      <h2>Replay coming soon</h2>
-      <p>The live room ran 3:00 to 4:00 PM PT. A replay is on its way; check back here soon.</p>
+      <h2>Missed it? Watch the replay</h2>
+      <p>The live room ran 3:00 to 4:15 PM PT. The recording and a full transcript are at the bottom of this page.</p>
     </div>
     <div class="reg-card">
       <div class="reg-head">
@@ -71,8 +71,8 @@
         <strong>Session ended</strong>
         <span class="seats">150 seats</span>
       </div>
-      <span class="btn primary is-soon" aria-disabled="true">Replay coming soon</span>
-      <p class="fine center after">The replay will be posted on this page.</p>
+      <a class="btn primary" href="#replay">Watch the replay</a>
+      <p class="fine center after">Recording plus transcript, 1 hour 14 minutes.</p>
     </div>
   </div>
 </section>
@@ -170,6 +170,26 @@
         <a href="#register">Reserve my seat &rarr;</a>
       </article>
     </div>
+  </div>
+</section>
+
+<section class="band alt replay" id="replay" aria-labelledby="r-title">
+  <div class="wrap">
+    <p class="eyebrow">Replay</p>
+    <h2 id="r-title">Watch the live room</h2>
+    <p class="sub">The full 1 hour 14 minute session, recorded with Fireflies. Audio plus the AI notes; the transcript is below if you would rather read.</p>
+    <div class="player">
+      <iframe src="https://share.fireflies.ai/embed/meetings/01M70R0G7C3C6Q0KCZWSAB32WR" title="Replay: AMA Live Room with Hamilton Pinto Jr." loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="fine">Player not loading? <a href="https://app.fireflies.ai/view/AMA-Live-Room-with-Hamilton-Pinto-Jr-::01M70R0G7C3C6Q0KCZWSAB32WR" target="_blank" rel="noopener">Open the recording in Fireflies &rarr;</a></p>
+
+    <details class="transcript" id="transcript">
+      <summary><span class="sum-title">Transcript</span><span class="sum-meta">219 segments &middot; 10 speakers &middot; auto-generated</span><span class="sum-chev" aria-hidden="true">&#9662;</span></summary>
+      <div class="tx-body">
+        <p class="fine">Generated automatically by Fireflies, so names and some words may be off. Timestamps match the player above.</p>
+        <div class="tx-list" id="tx-list" aria-live="polite"><p class="fine">Loading transcript&hellip;</p></div>
+      </div>
+    </details>
   </div>
 </section>
 </main>
@@ -282,5 +302,26 @@
 })();
 </script>
 
+<script>
+(function(){
+  var d=document.getElementById('transcript'), list=document.getElementById('tx-list'), loaded=false;
+  function esc(t){return t.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function render(rows){
+    var html='', last='';
+    rows.forEach(function(r){
+      var who=r.s!==last; last=r.s;
+      html+='<div class="tx-row'+(who?' new-speaker':'')+'"><span class="tx-t">'+esc(r.t)+'</span><div><span class="tx-s">'+(who?esc(r.s):'')+'</span><p>'+esc(r.x)+'</p></div></div>';
+    });
+    list.innerHTML=html;
+  }
+  d.addEventListener('toggle',function(){
+    if(!d.open||loaded) return; loaded=true;
+    fetch('/ama/transcript.json').then(function(r){return r.json()}).then(render).catch(function(){
+      loaded=false; list.innerHTML='<p class="fine">The transcript could not be loaded. <a href="https://app.fireflies.ai/view/AMA-Live-Room-with-Hamilton-Pinto-Jr-::01M70R0G7C3C6Q0KCZWSAB32WR" target="_blank" rel="noopener">Read it in Fireflies &rarr;</a></p>';
+    });
+  });
+  if(location.hash==='#transcript'){d.open=true;}
+})();
+</script>
 </body>
 </html>
