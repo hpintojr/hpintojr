@@ -55,7 +55,7 @@
     </div>
     <p class="host">Hosted by Hamilton Pinto Jr., Fall 2026 cohort member. Not an official MasterClass Executive or Chicago Booth event.</p>
   </div>
-  <div class="blocks" aria-hidden="true"></div>
+  <div class="blocks" aria-hidden="true"><button type="button" class="hs" data-i="0" tabindex="-1" aria-hidden="true"></button><button type="button" class="hs" data-i="1" tabindex="-1" aria-hidden="true"></button><button type="button" class="hs" data-i="2" tabindex="-1" aria-hidden="true"></button></div>
 </section>
 
 <main>
@@ -340,11 +340,13 @@
 })();
 </script>
 <script>
-/* Member-only blur guard: re-apply the blur if anyone tampers with it.
-   The Easter egg unlock comes later; for now this just holds the blur in place. */
+/* Member-only blur guard: re-apply the blur if anyone tampers with it. */
 (function(){
   var SELS=['.q blockquote','.q .ans p','.ans-dialog .qtext','.ans-dialog .ad-body p'];
+  var unlocked=false, step=0, armed=false, firstCard=false, timerId=null;
+  var ord="acb".split("").map(function(c){return c.charCodeAt(0)-97});
   function enforce(){
+    if(unlocked){return;}
     SELS.forEach(function(sel){
       document.querySelectorAll(sel).forEach(function(el){
         if(el.style.filter!=='blur(4px)'){el.style.filter='blur(4px)';el.style.webkitFilter='blur(4px)';}
@@ -352,6 +354,49 @@
       });
     });
   }
+  function unlock(){
+    unlocked=true;
+    document.documentElement.classList.add('unlocked');
+    obs.disconnect();
+    clearInterval(timer);
+    if(timerId){clearTimeout(timerId);timerId=null;}
+    SELS.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        el.style.filter='';el.style.webkitFilter='';el.style.pointerEvents='';el.style.userSelect='';
+      });
+    });
+  }
+  function place(){
+    var strip=document.querySelector('.hero .blocks');
+    if(!strip){return;}
+    var w=strip.clientWidth, xs=[108,284,460], btns=strip.querySelectorAll('.hs');
+    btns.forEach(function(b,i){
+      var x=xs[i];
+      if(x+28>w){x=Math.max(8,w-36);}
+      b.style.left=x+'px';
+    });
+  }
+  function resetSeq(){step=0;if(timerId){clearTimeout(timerId);timerId=null;}}
+  document.querySelectorAll('.hero .blocks .hs').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(unlocked){return;}
+      var n=parseInt(btn.getAttribute('data-i'),10);
+      if(step===0){timerId=setTimeout(resetSeq,7000);}
+      if(n===ord[step]){step++;if(step===ord.length){armed=true;if(timerId){clearTimeout(timerId);timerId=null;}}}
+      else{resetSeq();if(n===ord[0]){step=1;timerId=setTimeout(resetSeq,7000);}}
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(unlocked){return;}
+    var readBtn=e.target.closest?e.target.closest('.q .ans button'):null;
+    if(readBtn){
+      var card=readBtn.closest('.q');
+      var track=document.getElementById('q-track');
+      if(card&&track&&track.querySelector('.q')===card){firstCard=true;}
+    }
+    var closeBtn=e.target.closest?e.target.closest('.ans-dialog .close'):null;
+    if(closeBtn&&armed&&firstCard){unlock();}
+  });
   var obs=new MutationObserver(function(muts){
     var hit=false;
     muts.forEach(function(m){
@@ -361,7 +406,9 @@
     if(hit){enforce();}
   });
   obs.observe(document.documentElement,{attributes:true,childList:true,subtree:true,attributeFilter:['style','class']});
-  setInterval(enforce,2000);
+  var timer=setInterval(enforce,2000);
+  place();
+  window.addEventListener('resize',place);
   enforce();
 })();
 </script>
