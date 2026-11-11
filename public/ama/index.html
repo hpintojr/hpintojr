@@ -243,6 +243,12 @@
     var box=document.createElement('div'); box.className='ans';
     box.innerHTML='<div class="ans-head">Parth answered</div><p>'+esc(text.replace(/\s+/g,' '))+'</p><button type="button">Read the full answer &rarr;</button>';
     box.querySelector('button').addEventListener('click',function(){openDialog(q,who,a&&a.href,text)});
+    // Whole card opens the answer; links inside the card still navigate.
+    card.addEventListener('click',function(e){
+      if(e.target.closest('a,button')) return;
+      openDialog(q,who,a&&a.href,text);
+    });
+    card.style.cursor='pointer';
     var cap=card.querySelector('figcaption');
     card.insertBefore(box,cap);
     // Make sure every answered card carries the badge, even if the card HTML was generated before the answer landed.
