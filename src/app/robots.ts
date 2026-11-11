@@ -4,9 +4,9 @@ import { site } from "@/config/site";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      // Permit every crawler, including search engines and AI crawlers.
       userAgent: "*",
       allow: "/",
+      disallow: "/ama/",
     },
     sitemap: `${site.url}/sitemap.xml`,
   };
