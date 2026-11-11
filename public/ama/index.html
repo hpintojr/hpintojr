@@ -339,5 +339,31 @@
   if(location.hash==='#transcript'){d.open=true;}
 })();
 </script>
+<script>
+/* Member-only blur guard: re-apply the blur if anyone tampers with it.
+   The Easter egg unlock comes later; for now this just holds the blur in place. */
+(function(){
+  var SELS=['.q blockquote','.q .ans p','.ans-dialog .qtext','.ans-dialog .ad-body p'];
+  function enforce(){
+    SELS.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        if(el.style.filter!=='blur(4px)'){el.style.filter='blur(4px)';el.style.webkitFilter='blur(4px)';}
+        el.style.pointerEvents='none';el.style.userSelect='none';
+      });
+    });
+  }
+  var obs=new MutationObserver(function(muts){
+    var hit=false;
+    muts.forEach(function(m){
+      if(m.type==='attributes'&&(m.attributeName==='style'||m.attributeName==='class')){hit=true;}
+      if(m.type==='childList'){hit=true;}
+    });
+    if(hit){enforce();}
+  });
+  obs.observe(document.documentElement,{attributes:true,childList:true,subtree:true,attributeFilter:['style','class']});
+  setInterval(enforce,2000);
+  enforce();
+})();
+</script>
 </body>
 </html>
