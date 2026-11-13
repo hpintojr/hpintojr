@@ -14,7 +14,14 @@ const services = [
   { number: "02", title: "Brand & creative direction", body: "Give your business a clear identity and a consistent voice, from positioning and design to the marketing systems behind them.", detail: "Positioning · Identity · Marketing", Visual: BrandVisual },
   { number: "03", title: "CRM & AI phone systems", body: "Connect the customer journey with systems that answer, route, book, and follow up, built through Mercury Call Desk.", detail: "CRM · Automation · AI assistants", Visual: PhoneVisual },
 ];
-const clients = ["Johnson & Johnson", "Nestle", "Anchor Blue", "Bimbo Bakeries", "Lancome"];
+const clients: { name: string; logo?: string; width: number; height: number }[] = [
+  { name: "Johnson & Johnson", logo: "/clients/johnson-and-johnson.svg", width: 143, height: 26 },
+  { name: "Nestlé", logo: "/clients/nestle.svg", width: 87, height: 24 },
+  { name: "Anchor Blue", width: 0, height: 0 },
+  { name: "Bimbo Bakeries", logo: "/clients/bimbo.svg", width: 82, height: 38 },
+  { name: "Lancôme", logo: "/clients/lancome.svg", width: 104, height: 25 },
+  { name: "MTV", logo: "/clients/mtv.svg", width: 58, height: 36 },
+];
 
 export default function Home() {
   return (
@@ -52,7 +59,13 @@ export default function Home() {
         <Container>
           <div className="client-inner">
             <h2 id="clients" className="client-label">Selected client experience<br /><span>through Benny &amp; Penny</span></h2>
-            <ul className="client-list">{clients.map((client) => <li key={client}>{client}</li>)}</ul>
+            <ul className="client-list">
+              {clients.map(({ name, logo, width, height }) => (
+                <li key={name} className="client-logo">
+                  {logo ? <Image src={logo} alt={name} width={width} height={height} unoptimized className="client-logo-img" style={{ height, width: "auto" }} /> : <span className="client-logo-text">{name}</span>}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>
