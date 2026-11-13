@@ -10,7 +10,7 @@ Run `npm ci`, then `npm run dev`. Before release, run `npm test`, `npm run lint`
 
 The canonical production domain is `https://hamiltonpinto.com`.
 
-- `src/app/sitemap.xml` is served by Next.js at `https://hamiltonpinto.com/sitemap.xml` and lists all five public pages. Update it whenever a public page is added, removed, or renamed. Only add `lastmod` when the actual significant content-change date is known; do not use deployment or request timestamps.
+- `src/app/sitemap.xml` is served by Next.js at `https://hamiltonpinto.com/sitemap.xml` and lists all public pages. Update it whenever a public page is added, removed, or renamed. Only add `lastmod` when the actual significant content-change date is known; do not use deployment or request timestamps.
 - `src/app/robots.ts` serves `/robots.txt`, allows all search and AI crawlers through the wildcard rule, and advertises the sitemap.
 - The root metadata explicitly allows indexing and following links. Each page has a canonical URL.
 - `public/llms.txt` serves an optional plain-text page directory for AI tools. Support varies; it is not a universal AI registration mechanism or a replacement for the sitemap.
@@ -53,3 +53,13 @@ Static HTML in `public/ama`, served through a rewrite in `next.config.ts` (own d
 - `/ama`: registration page for the Nov 9, 2026 member-hosted live AMA room (3:00 to 4:00 PM PT), with the MasterClass Executive and Chicago Booth context logos, the cohort question carousel and links to the official AMA space and Slido.
 - The form is the Mercury Call Desk **AMA Live Room - Nov 9 Registration** form (`z17dzkev0xvcwjz3kt5zmbpq018hxqec`) embedded from `crm.sulus.ai`; its dark styling lives in the form's theme CSS in the CRM.
 - The **AMA Nov 9: Registration to Meet Link (90 seats)** workflow counts seats in the custom value `ama_seat_count`, tags `ama-nov9-registered` and emails the Meet link stored in `ama_meet_link`. Past 90 seats it tags `ama-nov9-waitlist` and sends the waitlist email.
+
+## MCX AI Labs portfolio (/MCX-AI-Labs)
+
+Static HTML in `public/MCX-AI-Labs`, generated from `scripts/mcx-ai-labs/labs.json` by `npm run labs` and served through rewrites in `next.config.ts`. It uses the /ama dark theme and is indexed (listed in the sitemap and `llms.txt`).
+
+- `/MCX-AI-Labs`: hub listing all 12 labs with status and progress.
+- `/MCX-AI-Labs/<slug>`: one page per completed lab: summary, recording, approach, deliverable, and proof-of-work files.
+- Each lab keeps its own GitHub repo and Vercel deployment. Lab pages load videos, slides, decks and Markdown files from that deployment (`assetBase` in `labs.json`), so heavy files never enter this repo.
+
+To publish a new lab: build it in its own repo with the same `public/media`, `public/files` and `public/docs` layout, deploy it on Vercel, add its entry (status `completed`, `assetBase`, video, approach, proof groups) to `labs.json`, run `npm run labs`, then add its URL to the sitemap. To update an upcoming lab's date, edit its `when` field and rebuild. Do not edit the generated HTML by hand.
