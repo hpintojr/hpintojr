@@ -121,6 +121,10 @@ a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 .client-label { flex-shrink: 0; font-family: inherit; font-size: 10px; font-weight: 600; line-height: 1.9; letter-spacing: .02em; text-transform: uppercase; }
 .client-label span { font-size: 9px; font-weight: 400; color: var(--muted-foreground); }
 .client-list { width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 25px; font-family: Georgia, serif; font-size: 20px; letter-spacing: -.04em; color: #45544e; }
+.client-logo { display: flex; align-items: center; min-height: 44px; }
+.client-logo-img { display: block; max-width: 160px; object-fit: contain; filter: grayscale(1) brightness(.55) contrast(1.1); opacity: .8; transition: filter .25s ease, opacity .25s ease; }
+.client-logo:hover .client-logo-img { filter: none; opacity: 1; }
+.client-logo-text { font-family: Georgia, serif; font-size: 20px; letter-spacing: -.04em; color: #45544e; white-space: nowrap; }
 .section-space { padding-top: 88px; padding-bottom: 88px; }
 .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 38px; }
 .section-heading h2 { margin-top: 14px; font-size: clamp(36px, 4vw, 48px); line-height: 1.12; }
