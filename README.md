@@ -60,6 +60,7 @@ Static HTML in `public/MCX-AI-Labs`, generated from `scripts/mcx-ai-labs/labs.js
 
 - `/MCX-AI-Labs`: hub listing all 12 labs with status and progress.
 - `/MCX-AI-Labs/<slug>`: one page per completed lab: summary, recording, approach, deliverable, and proof-of-work files.
-- Each lab keeps its own GitHub repo and Vercel deployment. Lab pages load videos, slides, decks and Markdown files from that deployment (`assetBase` in `labs.json`), so heavy files never enter this repo.
+- Lab pages load videos, slides, decks and Markdown files from `assetBase` in `labs.json`. That is either the lab's own Vercel deployment (Lab 02: button-bear-ai-lab.vercel.app) or `public/MCX-AI-Labs/files/<slug>` in this repo (Lab 01). `npm run labs` never deletes `files/` or `brand/`.
+- `.md` files under `/MCX-AI-Labs/files` are served as plain text so they open in the browser.
 
 To publish a new lab: build it in its own repo with the same `public/media`, `public/files` and `public/docs` layout, deploy it on Vercel, add its entry (status `completed`, `assetBase`, video, approach, proof groups) to `labs.json`, run `npm run labs`, then add its URL to the sitemap. To update an upcoming lab's date, edit its `when` field and rebuild. Do not edit the generated HTML by hand.
