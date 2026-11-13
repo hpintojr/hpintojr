@@ -28,6 +28,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // MCX AI Labs proof-of-work Markdown opens as readable text instead of downloading.
+        source: "/MCX-AI-Labs/files/:path*.md",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+        ],
+      },
+      {
         source: "/hamilton.vcf",
         headers: [
           { key: "Content-Type", value: "text/vcard; charset=utf-8" },

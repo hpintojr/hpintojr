@@ -2,7 +2,8 @@
 // Run: node scripts/mcx-ai-labs/build.mjs   (no dependencies)
 // Hub:  /MCX-AI-Labs            -> public/MCX-AI-Labs/index.html
 // Lab:  /MCX-AI-Labs/<slug>     -> public/MCX-AI-Labs/<slug>/index.html (completed labs only)
-// Assets (videos, decks, MD files) stay in each lab's own repo and Vercel deployment (assetBase).
+// Assets (videos, decks, MD files) load from assetBase: a lab's own Vercel deployment,
+// or public/MCX-AI-Labs/files/<slug> when hosted here.
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -193,8 +194,7 @@ function labPage(lab) {
       <div class="gallery-head">
         <div><h3>${esc(d.title)}</h3><span class="dim">${esc(d.subtitle)} &middot; ${d.slides.length} cards</span></div>
         <div class="gallery-links">
-          <a class="btn ghost small" href="${d.gamma}" target="_blank" rel="noopener">Open in Gamma</a>
-          <a class="btn ghost small" href="${abs(lab, d.pptx)}">Download PPTX</a>
+          ${d.pdf ? `<a class="btn ghost small" href="${abs(lab, d.pdf)}" target="_blank" rel="noopener">Download PDF</a>` : ''}
         </div>
       </div>
       <div class="track" tabindex="0" aria-label="${esc(d.title)} deck cards">
@@ -207,7 +207,7 @@ function labPage(lab) {
     const xv = lab.extraVideo ? `
     <div class="gallery">
       <div class="gallery-head"><div><h3>${esc(lab.extraVideo.title)}</h3><span class="dim">${esc(lab.extraVideo.caption)}</span></div></div>
-      <div class="player" style="max-width:720px"><video controls playsinline muted loop preload="metadata"><source src="${abs(lab, lab.extraVideo.src)}" type="video/mp4"></video></div>
+      <div class="player" style="max-width:720px"><video controls playsinline muted loop preload="metadata"${lab.extraVideo.poster ? ` poster="${abs(lab, lab.extraVideo.poster)}"` : ''}><source src="${abs(lab, lab.extraVideo.src)}" type="video/mp4"></video></div>
     </div>` : '';
     work = `
 <section class="band" id="work" aria-labelledby="work-title">
@@ -238,7 +238,7 @@ function labPage(lab) {
       <section><h3>Related</h3><ul>
         ${lab.related.map((r) => `<li><a href="${r.href}"><span class="pl">${esc(r.label)}</span><span class="pm">${esc(r.meta)}</span></a></li>`).join('\n        ')}
       </ul></section>` : '';
-  const repo = lab.repo.private
+  const repo = !lab.repo ? '' : lab.repo.private
     ? `Source repository: ${esc(lab.repo.name)} (private).`
     : `Source repository: <a href="https://github.com/${lab.repo.name}" target="_blank" rel="noopener">github.com/${esc(lab.repo.name)}</a>.`;
   const proof = `
@@ -249,7 +249,7 @@ function labPage(lab) {
     <p class="sub">The files behind the deliverable, exactly as used. Markdown files open as plain text.</p>
     <div class="proof">${proofGroups}${related}
     </div>
-    <p class="fine" style="margin-top:22px">${repo} Files are hosted at <a href="${lab.assetBase}" target="_blank" rel="noopener">${esc(lab.assetBase.replace('https://', ''))}</a>.</p>
+    <p class="fine" style="margin-top:22px">${repo}${/^https?:/.test(lab.assetBase) ? ` Files are hosted at <a href="${lab.assetBase}" target="_blank" rel="noopener">${esc(lab.assetBase.replace('https://', ''))}</a>.` : ''}</p>
   </div>
 </section>`;
 
@@ -277,10 +277,10 @@ ${heroOpen}
 ${footer}`;
 }
 
-// Clean previously generated lab folders (keep brand/ and labs.css).
+// Clean previously generated lab folders (keep brand/, files/ and labs.css).
 if (existsSync(OUT)) {
   for (const entry of readdirSync(OUT, { withFileTypes: true })) {
-    if (entry.isDirectory() && entry.name !== 'brand') rmSync(join(OUT, entry.name), { recursive: true });
+    if (entry.isDirectory() && !['brand', 'files'].includes(entry.name)) rmSync(join(OUT, entry.name), { recursive: true });
   }
 }
 mkdirSync(OUT, { recursive: true });
