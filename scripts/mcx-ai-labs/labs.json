@@ -1,0 +1,199 @@
+{
+  "program": "MasterClass Executive AI Labs",
+  "cohort": "Fall 2026 cohort",
+  "basePath": "/MCX-AI-Labs",
+  "labs": [
+    {
+      "slug": "storytelling-slide-decks",
+      "number": "01",
+      "title": "Storytelling & Slide Decks with AI",
+      "status": "completed",
+      "when": "Completed October 2026",
+      "cardSummary": "One XBeton story told three ways: ten-card Gamma decks for homeowners, builders and specifiers, with a recorded walkthrough in my own voice.",
+      "assetBase": "https://mcx-lab-01-slide-decks.vercel.app",
+      "repo": { "name": "hpintojr/mcx-lab-01-slide-decks", "private": false },
+      "officialUrl": "https://www.masterclass.com/executive/ai-labs/storytelling-slide-decks-with-ai-booth-presentation-prep",
+      "hero": { "a": "One company, three audiences.", "b": "Three decks that each answer a different question." },
+      "lede": "XBeton sells an AAC (autoclaved aerated concrete) building system. Homeowners, builders and architects all ask different questions about it, so one generic deck would not work for any of them. I built a separate ten-card deck for each audience in Gamma, kept one brand and one evidence register across all three, and recorded a walkthrough explaining the choices.",
+      "facts": [
+        ["Case", "XBeton, AAC blocks and panels<br><span class=\"dim\">Real company marketing need</span>"],
+        ["Built with", "Gamma, Claude and Codex<br><span class=\"dim\">Generation, refinement, Freeform edits</span>"],
+        ["Deliverable", "3 decks &times; 10 cards<br><span class=\"dim\">PowerPoint, PNG and live Gamma</span>"]
+      ],
+      "cta": [
+        { "label": "Watch my presentation", "href": "#recording", "primary": true },
+        { "label": "See the decks", "href": "#work" }
+      ],
+      "video": {
+        "src": "/media/presentation.mp4",
+        "poster": "/media/presentation-poster.jpg",
+        "title": "My walkthrough",
+        "meta": "3 min 50 s &middot; recorded in my own voice",
+        "caption": "Submitted to MasterClass as my lab deliverable. Recorded in my own voice with the finished decks on screen."
+      },
+      "approach": [
+        "<strong>Split the audience first.</strong> Homeowners care about comfort and design, builders about scope and crew planning, specifiers about evidence and assembly detail. Each deck opens with that audience's question and closes on its own next step.",
+        "<strong>One evidence register for all three decks.</strong> Every quantified claim was checked against the source documents. The six-hour fire rating conflicts with the 2025 FAQ (four hours), so it stays visibly marked <em>[NEEDS VERIFY]</em> on every deck that mentions it.",
+        "<strong>AI drafted, I directed.</strong> Gamma generated the first versions from detailed briefs. Sixteen rounds of saved prompts then fixed the theme, logo, image sharpness and labels, and I finished placement in Freeform.",
+        "<strong>Built to reuse.</strong> The brand system, prompts and module plan are portable. Swap the brand variables, evidence and calls to action to build a new client's decks."
+      ],
+      "galleries": [
+        {
+          "id": "homeowners",
+          "title": "Homeowners",
+          "subtitle": "A new perspective on home",
+          "gamma": "https://gamma.app/docs/v0p5nnqki3jpxpi",
+          "pptx": "/files/XBeton-Homeowners.pptx",
+          "slides": ["A new perspective on home", "The choices behind your walls", "AAC", "One XBeton product story", "Comfort starts with the assembly", "6-hour fire rating [NEEDS VERIFY]", "A useful cost comparison covers the whole wall", "Sustainability through project decisions", "Your project team and next decisions", "Let's discuss your home"]
+        },
+        {
+          "id": "builders",
+          "title": "Builders",
+          "subtitle": "Building with XBeton",
+          "gamma": "https://gamma.app/docs/kyticsef6tcbq4g",
+          "pptx": "/files/XBeton-Builders.pptx",
+          "slides": ["Building with XBeton", "The planning questions that shape the job", "The XBeton product system", "Blocks and panels change different tasks", "Installation planning", "30 to 40 percent (supplier-reported)", "The installed cost scope", "Fire performance starts with the tested assembly", "What to bring to a project review", "Request a project review"]
+        },
+        {
+          "id": "specifiers",
+          "title": "Architects & specifiers",
+          "subtitle": "Design with intent. Specify with clarity.",
+          "gamma": "https://gamma.app/docs/fovi0o7x3mmeavi",
+          "pptx": "/files/XBeton-Specifiers.pptx",
+          "slides": ["Design with intent. Specify with clarity.", "The specification starts with the application", "Product families and design responsibility", "Material properties as an evaluation starting point", "Fire performance and the evidence gap", "Thermal and acoustic performance need assembly context", "Connections, openings and moisture detailing", "A clear submittal and compliance path", "Sustainability documentation for the selected product", "Request a technical review"]
+        }
+      ],
+      "extraVideo": {
+        "src": "/media/before-after-concept.mp4",
+        "title": "Before and after concept animation",
+        "caption": "Custom motion piece made for the homeowner deck. Labeled as architectural visualization, not a completed XBeton project."
+      },
+      "proof": [
+        {
+          "group": "Script and submission",
+          "items": [
+            { "label": "Recording script", "href": "/docs/Recording_Script.md", "meta": "MD &middot; timed four-minute walkthrough" },
+            { "label": "Lab checklist and rubric mapping", "href": "/docs/Lab_Checklist_Mapping.md", "meta": "MD &middot; every requirement and how it was met" },
+            { "label": "Presentation video", "href": "/media/presentation.mp4", "meta": "MP4 &middot; 16 MB" }
+          ]
+        },
+        {
+          "group": "Strategy and evidence",
+          "items": [
+            { "label": "Package narrative", "href": "/docs/Package_Narrative.md", "meta": "MD &middot; story arc and how the three decks connect" },
+            { "label": "Claims register", "href": "/docs/Claims_Register.md", "meta": "MD &middot; every claim, its source and how it was treated" },
+            { "label": "Image approval audit", "href": "/docs/Image_Approval_Audit.md", "meta": "MD &middot; rejected images and replacements" },
+            { "label": "Design direction", "href": "/docs/Design_Direction.md", "meta": "MD" },
+            { "label": "Brand system", "href": "/docs/Brand_System.md", "meta": "MD &middot; colors, type, logo rules" }
+          ]
+        },
+        {
+          "group": "Deck outlines and speaker notes",
+          "items": [
+            { "label": "Homeowners outline", "href": "/docs/Outline_Homeowners.md", "meta": "MD &middot; card text and speaker notes" },
+            { "label": "Builders outline", "href": "/docs/Outline_Builders.md", "meta": "MD &middot; card text and speaker notes" },
+            { "label": "Specifiers outline", "href": "/docs/Outline_Specifiers.md", "meta": "MD &middot; card text and speaker notes" }
+          ]
+        },
+        {
+          "group": "Prompts",
+          "items": [
+            { "label": "Master build brief", "href": "/docs/prompts/codex-prompt-xbeton-package.md", "meta": "MD &middot; the brief that started the package" },
+            { "label": "Portable template", "href": "/docs/prompts/portable-template.md", "meta": "MD &middot; reuse the system for another brand" },
+            { "label": "All 32 generation and refinement prompts", "href": "/docs/prompts/", "meta": "Folder &middot; in order, per deck" }
+          ]
+        },
+        {
+          "group": "Downloads",
+          "items": [
+            { "label": "Homeowners deck", "href": "/files/XBeton-Homeowners.pptx", "meta": "PPTX &middot; 3.7 MB" },
+            { "label": "Builders deck", "href": "/files/XBeton-Builders.pptx", "meta": "PPTX &middot; 21 MB" },
+            { "label": "Specifiers deck", "href": "/files/XBeton-Specifiers.pptx", "meta": "PPTX &middot; 4.8 MB" }
+          ]
+        }
+      ],
+      "related": []
+    },
+    {
+      "slug": "data-financial-analysis",
+      "number": "02",
+      "title": "Data & Financial Analysis & Dashboards with AI",
+      "status": "completed",
+      "when": "Completed November 5, 2026",
+      "cardSummary": "A Q4 decision dashboard for a fictional DTC brand: 10,800 orders reconciled, nine scenarios, and a recommendation I changed when the numbers pushed back.",
+      "assetBase": "https://button-bear-ai-lab.vercel.app",
+      "repo": { "name": "hpintojr/button-bear-ai-lab", "private": true },
+      "officialUrl": "https://www.masterclass.com/executive/ai-labs/data-financial-analysis-fall2026",
+      "hero": { "a": "More orders didn't mean more profit.", "b": "So I changed my recommendation." },
+      "lede": "Button &amp; Bear, a fictional online teddy-bear business, had to pick its Q4 offer: keep the promotion, reset prices and shipping, or launch a bundle. I used AI to reconcile the data, model nine scenarios and stress-test the answer. The bundle looked best on profit alone, but its lead disappeared once customers could switch to it, so I recommended piloting the reset first.",
+      "facts": [
+        ["Case", "Button &amp; Bear, fictional DTC<br><span class=\"dim\">Q4 offer decision</span>"],
+        ["Evidence", "10,800 orders reconciled<br><span class=\"dim\">67 checks &middot; 9 scenarios</span>"],
+        ["Deliverable", "Interactive dashboard<br><span class=\"dim\">plus a 10-sheet working model</span>"]
+      ],
+      "cta": [
+        { "label": "Watch my presentation", "href": "#recording", "primary": true },
+        { "label": "Open the dashboard", "href": "https://button-bear-ai-lab.vercel.app/", "external": true }
+      ],
+      "video": {
+        "src": "/media/button-bear-project-presentation.mp4",
+        "poster": "/media/button-bear-project-poster.jpg",
+        "title": "My presentation",
+        "meta": "4 min 22 s &middot; recorded in my own voice",
+        "caption": "An executive walkthrough of the decision, the verified findings and the recommendation, recorded over the finished dashboard."
+      },
+      "approach": [
+        "<strong>Check the data before trusting it.</strong> Every order and item line was audited and reconciled to the monthly records. Shipping was calculated per order, not per line, so it was not counted twice. The original workbooks stayed unchanged.",
+        "<strong>Explain the gap.</strong> Q3 orders beat budget by 20%, yet operating profit was about $5,500 against a $31,400 plan. Discounts removed about $21,000 and higher shipping cost per order another $9,000.",
+        "<strong>Challenge the first answer.</strong> In the base case the bundle led the reset by only about $2,200. When customers who planned to buy both bears switched to the cheaper bundle, its profit fell below the reset.",
+        "<strong>Recommend a pilot, not a leap.</strong> Pilot the price and shipping reset, track contribution per visitor, then test the bundle against it with limited stock exposure."
+      ],
+      "showcase": {
+        "title": "The deliverable",
+        "cards": [
+          { "tag": "Live app", "title": "Q4 decision dashboard", "body": "Reviewed data, scenario comparisons, the profit bridge, inventory and cash by day, and the sources behind each number.", "href": "https://button-bear-ai-lab.vercel.app/", "link": "Open the dashboard" },
+          { "tag": "Working model &middot; XLSX", "title": "Supporting analysis workbook", "body": "Ten sheets with editable formulas, a scenario selector, daily cash schedules, competitor pricing and 67 reconciliation checks.", "href": "/files/Button_Bear_Supporting_Analysis.xlsx", "link": "Download the workbook" },
+          { "tag": "Reader", "title": "Recording script", "body": "The timed script with screen cues and reading controls, as used for the recording.", "href": "/script/", "link": "Read the script" }
+        ]
+      },
+      "proof": [
+        {
+          "group": "Script and submission",
+          "items": [
+            { "label": "Recording script (reader)", "href": "/script/", "meta": "Web page &middot; with screen cues" },
+            { "label": "Recording script", "href": "/files/Recording_Script.md", "meta": "MD" },
+            { "label": "Presentation video", "href": "/media/button-bear-project-presentation.mp4", "meta": "MP4 &middot; 11 MB" }
+          ]
+        },
+        {
+          "group": "Analysis and verification",
+          "items": [
+            { "label": "Leadership brief", "href": "/files/Leadership_Brief.md", "meta": "MD &middot; the recommendation and why" },
+            { "label": "Verification record", "href": "/files/Verification_Record.md", "meta": "MD &middot; every check and what remains unvalidated" }
+          ]
+        },
+        {
+          "group": "Downloads",
+          "items": [
+            { "label": "Supporting analysis workbook", "href": "/files/Button_Bear_Supporting_Analysis.xlsx", "meta": "XLSX &middot; 187 KB" },
+            { "label": "All workbooks", "href": "/files/Button_Bear_All_Workbooks.zip", "meta": "ZIP &middot; analysis plus both original source workbooks" },
+            { "label": "Downloads page", "href": "/downloads/", "meta": "Web page" }
+          ]
+        }
+      ],
+      "related": [
+        { "label": "Live AMA room replay, Nov 9", "href": "/ama", "meta": "The 150-seat companion room I hosted for this lab's AMA, with recording and transcript" }
+      ]
+    },
+    { "slug": "synthetic-research-cx-discovery", "number": "03", "title": "Synthetic Research and CX Discovery", "status": "upcoming", "when": "Up next" },
+    { "slug": "ai-powered-marketing", "number": "04", "title": "AI-Powered Marketing: Campaigns, Voice, and Video", "status": "upcoming", "when": "Coming November" },
+    { "slug": "agent-workforce", "number": "05", "title": "Build Your Agent Workforce", "status": "upcoming", "when": "Coming soon" },
+    { "slug": "answer-engine-optimization", "number": "06", "title": "Answer Engine Optimization", "status": "upcoming", "when": "Coming December" },
+    { "slug": "ai-governance-safety-quality", "number": "07", "title": "AI Governance, Safety, and Quality", "status": "upcoming", "when": "Coming soon" },
+    { "slug": "prototype-in-90-minutes", "number": "08", "title": "Build a Working Prototype in 90 Minutes", "status": "upcoming", "when": "Coming soon" },
+    { "slug": "training-ai-agents", "number": "09", "title": "Training AI Agents: From Domain Expertise to Working Agent", "status": "upcoming", "when": "Coming January" },
+    { "slug": "ai-agents-sales-gtm", "number": "10", "title": "Build AI Agents for Sales and GTM", "status": "upcoming", "when": "Coming January" },
+    { "slug": "vision-into-video", "number": "11", "title": "Turn Your Vision Into Video with AI", "status": "upcoming", "when": "Coming soon" },
+    { "slug": "data-into-decisions-google-scripts", "number": "12", "title": "Turn Data Into Decisions with Google Scripts", "status": "upcoming", "when": "Coming soon" }
+  ]
+}

@@ -9,6 +9,7 @@
 - [Consulting](https://hamiltonpinto.com/consulting): Technology advisory, marketing and growth, brand and creative direction, and CRM and AI phone systems.
 - [UGC and brand partnerships](https://hamiltonpinto.com/ugc): Content services for apparel, fitness, lifestyle, and technology brands.
 - [Contact](https://hamiltonpinto.com/contact): Consulting inquiries, brand partnerships, press, and project inquiries.
+- [MCX AI Labs](https://hamiltonpinto.com/MCX-AI-Labs): Portfolio of Hamilton's MasterClass Executive AI Labs, with recordings, scripts, deliverables and proof-of-work files for each lab.
 
 ## Discovery
 

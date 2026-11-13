@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "labs": "node scripts/mcx-ai-labs/build.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
