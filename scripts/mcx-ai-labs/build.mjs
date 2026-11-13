@@ -96,6 +96,7 @@ function hub() {
   const next = labs.find((l) => l.status !== 'completed');
   const cards = labs.map((l) => {
     const inner = `
+        <img class="tile" src="${BASE}/brand/labs/${l.number}.jpg" alt="" width="640" height="640" loading="lazy">
         <span class="num">LAB ${l.number}</span>
         <h3>${esc(l.title)}</h3>
         ${l.cardSummary ? `<p>${l.cardSummary}</p>` : ''}
