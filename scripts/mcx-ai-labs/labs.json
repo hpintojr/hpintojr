@@ -384,8 +384,132 @@
       "slug": "synthetic-research-cx-discovery",
       "number": "03",
       "title": "Synthetic Research and CX Discovery",
-      "status": "upcoming",
-      "when": "Up next"
+      "status": "completed",
+      "when": "Completed November 13, 2026",
+      "cardSummary": "Evidence-linked B2B personas, a 40-buyer synthetic usability test, and a diagnosis-first offer pivot for Mercury CRM.",
+      "assetBase": "/MCX-AI-Labs/files/synthetic-research-cx-discovery",
+      "repo": {
+        "name": "hpintojr/-AI-Lab-CX-Discovery",
+        "private": false
+      },
+      "officialUrl": "https://www.masterclass.com/executive/ai-labs",
+      "hero": {
+        "a": "Stop selling empty tools.",
+        "b": "Diagnose the revenue leak first."
+      },
+      "lede": "As we rebrand Mercury Call Desk into Mercury CRM, I used synthetic user research to find our highest-leverage B2B personas and pressure-test our onboarding flow. Walking 40 synthetic buyers through a standard 14-day DIY trial exposed a 65% drop-off at technical setup, leading us to replace the blank trial with a 60-second live AI phone test and a 5-day Revenue Diagnostic.",
+      "facts": [
+        [
+          "Case",
+          "Mercury CRM, B2B SaaS<br><span class=\"dim\">Rebrand &amp; GTM discovery</span>"
+        ],
+        [
+          "Evidence",
+          "4 personas &middot; 40 synthetic buyers<br><span class=\"dim\">80/20 friction rank &middot; A/B split test</span>"
+        ],
+        [
+          "Deliverable",
+          "Interactive CX dashboard<br><span class=\"dim\">plus reusable persona-builder skill</span>"
+        ]
+      ],
+      "cta": [
+        {
+          "label": "Watch my presentation",
+          "href": "#recording",
+          "primary": true
+        },
+        {
+          "label": "See the deliverables",
+          "href": "#work"
+        }
+      ],
+      "video": {
+        "src": "/media/mercury-cx-discovery-presentation.mp4",
+        "poster": "/media/mercury-cx-discovery-poster.jpg",
+        "title": "My presentation",
+        "meta": "4 min 15 s &middot; recorded in my own voice",
+        "caption": "An executive walkthrough of the Mercury CRM persona discovery, 40-buyer usability test, CRO split test, and GTM shift."
+      },
+      "approach": [
+        "<strong>Ground personas in evidence, not guesses.</strong> I configured ux-persona-builder with an evidence linter so every persona claim maps to MIT/RAND studies, Reddit threads, or G2 reviews\u2014and flagged freebie-hunting blog traffic to exclude from ad spend.",
+        "<strong>Converge on volume, diverge for leverage.</strong> Convergence identified busy inbound sales managers (Mortgage/Lending) and home service crews, while divergence surfaced B2B systems consultants who bring 5 to 20 client sub-accounts at once.",
+        "<strong>Expose onboarding friction at scale.</strong> Walking 40 synthetic buyers through a standard 14-day DIY trial revealed a 65% drop-off when asking busy owners for phone carrier API keys and a blank AI prompt box.",
+        "<strong>Lead with a diagnostic and live proof.</strong> In split testing, a 60-second live AI phone call paired with a 5-day Revenue Diagnostic beat the empty DIY trial across our core revenue personas."
+      ],
+      "showcase": {
+        "title": "The deliverable",
+        "cards": [
+          {
+            "tag": "Live app",
+            "title": "CX discovery &amp; persona dashboard",
+            "body": "Interactive persona cards, scenario matrix, 80/20 friction stack-rank, 40-buyer panel distribution, CRO split test, and DVF scorecard.",
+            "href": "https://github.com/hpintojr/-AI-Lab-CX-Discovery",
+            "link": "Open the repository &amp; app"
+          },
+          {
+            "tag": "Reusable skill &middot; MD",
+            "title": "ux-persona-builder &amp; market packet",
+            "body": "The portable ChatGPT/Claude skill specification plus the 5-source B2B market discovery packet.",
+            "href": "/MCX-AI-Labs/files/synthetic-research-cx-discovery/ux-persona-builder-skill.md",
+            "link": "Download the skill"
+          },
+          {
+            "tag": "Reader",
+            "title": "Recording script",
+            "body": "The timed script with screen cues and reading controls, as used for the recording.",
+            "href": "/MCX-AI-Labs/files/synthetic-research-cx-discovery/Recording_Script.md",
+            "link": "Read the script"
+          }
+        ]
+      },
+      "proof": [
+        {
+          "group": "Script and submission",
+          "items": [
+            {
+              "label": "Recording script",
+              "href": "/files/Recording_Script.md",
+              "meta": "MD &middot; timed four-minute walkthrough"
+            },
+            {
+              "label": "All 11 step prompts",
+              "href": "/files/All_11_Step_Prompts.md",
+              "meta": "MD &middot; complete prompt chain"
+            }
+          ]
+        },
+        {
+          "group": "Analysis and verification",
+          "items": [
+            {
+              "label": "Leadership brief",
+              "href": "/files/Leadership_Brief.md",
+              "meta": "MD &middot; the recommendation and why"
+            },
+            {
+              "label": "Verification record",
+              "href": "/files/Verification_Record.md",
+              "meta": "MD &middot; every check and what remains unvalidated"
+            },
+            {
+              "label": "Reusable ux-persona-builder skill",
+              "href": "/files/ux-persona-builder-skill.md",
+              "meta": "MD &middot; portable skill workflow"
+            }
+          ]
+        },
+        {
+          "group": "Downloads",
+          "items": [
+            {
+              "label": "Mercury CRM market packet",
+              "href": "/files/Mercury_CRM_Market_Packet.txt",
+              "meta": "TXT &middot; 5-source evidence packet"
+            }
+          ]
+        }
+      ],
+      "related": []
     },
     {
       "slug": "ai-powered-marketing",
