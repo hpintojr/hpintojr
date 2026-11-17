@@ -57,6 +57,14 @@ const EXTRA_CSS = `<style>
 .pill.past{color:var(--dim);background:var(--soft)}
 .ended{max-width:760px;margin:0 0 26px;padding:14px 18px;border-radius:12px;background:var(--accent);color:var(--text);font-size:15px}
 .ended a{color:var(--brand);font-weight:600}
+.facts .when-cell dd{display:flex;align-items:center;gap:16px}
+.date-tile{flex:none;display:flex;flex-direction:column;align-items:center;width:78px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:0 6px 18px rgba(23,43,52,.08)}
+.dt-mon{display:block;width:100%;text-align:center;background:var(--brand);color:#fff;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 0}
+.dt-day{font-family:Georgia,"Times New Roman",serif;font-size:38px;line-height:1;color:var(--text);padding:8px 0 2px}
+.dt-wd{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding-bottom:8px}
+.when-txt{display:flex;flex-direction:column;line-height:1.35}
+.when-day{font-family:Georgia,"Times New Roman",serif;font-size:21px;color:var(--text);font-weight:400}
+.when-time{font-size:16px;font-weight:700;color:var(--brand);margin-top:2px}
 @media (max-width:900px){.lineup{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.lineup{grid-template-columns:1fr}.catalog li{flex-direction:column;align-items:flex-start;gap:6px}}
 </style>`;
@@ -106,6 +114,12 @@ const footer = `
   </div>
 </footer>`;
 
+function dateTile(s) {
+  const d = new Date(s.startUtc.replace('Z', '-08:00').replace(/T\d{2}:\d{2}:\d{2}-08:00$/, 'T12:00:00-08:00'));
+  const [wd, mon, day] = [d.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'America/Los_Angeles' }), d.toLocaleDateString('en-US', { month: 'short', timeZone: 'America/Los_Angeles' }), d.toLocaleDateString('en-US', { day: 'numeric', timeZone: 'America/Los_Angeles' })];
+  return `<span class="date-tile" aria-hidden="true"><span class="dt-mon">${mon}</span><span class="dt-day">${day}</span><span class="dt-wd">${wd}</span></span>`;
+}
+
 function hero(s, isNext) {
   const ended = isNext ? '' : `\n    <p class="ended">This session took place on ${esc(s.dateLabel)}. It was live only and not recorded. <a href="${BASE}">See the next Strategy Session &rarr;</a></p>`;
   const cta = isNext
@@ -126,7 +140,7 @@ function hero(s, isNext) {
     <p class="lede">${esc(s.lede)}</p>
 
     <dl class="facts">
-      <div><dt>When</dt><dd>${esc(s.dateLabel)}<br>${esc(s.timeLabel)} <span class="dim">(${esc(s.etLabel)})</span></dd></div>
+      <div class="when-cell"><dt>When</dt><dd>${dateTile(s)}<span class="when-txt"><span class="when-day">${esc(s.dateLabel)}</span><span class="when-time">${esc(s.timeLabel)}</span><span class="dim">${esc(s.etLabel)}</span></span></dd></div>
       <div><dt>Where</dt><dd>Google Meet<br><span class="dim">${isNext ? 'Link emailed when you register' : 'Live only, not recorded'}</span></dd></div>
       <div><dt>Seats</dt><dd>Open to the whole cohort<br><span class="dim">No seat limit</span></dd></div>
     </dl>
