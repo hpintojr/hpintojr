@@ -5,7 +5,7 @@
 //   /strategy/strategy-session.ics                                         (calendar file for the upcoming session)
 //   /strategy/archive/<slug>     -> public/strategy/archive/<slug>/index.html (every session, kept in Git)
 // Compliance (MCX, Nov 13): no MasterClass / Chicago Booth logos or artwork, noindex,
-// "Live only" notice, member-hosted disclaimer. No replays or recordings.
+// recording notice (recorded for Hamilton's private notes only, never shared or posted), member-hosted disclaimer.
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -204,7 +204,7 @@ function dateTile(s) {
 }
 
 function hero(s, isNext) {
-  const ended = isNext ? '' : `\n      <p class="ended">This session took place on ${esc(s.dateLabel)}. It was live only and not recorded. <a href="${BASE}">See the next Strategy Session &rarr;</a></p>`;
+  const ended = isNext ? '' : `\n      <p class="ended">This session took place on ${esc(s.dateLabel)}. It was a live session with no public replay. <a href="${BASE}">See the next Strategy Session &rarr;</a></p>`;
   const cta = isNext
     ? `<div class="cd" id="countdown" role="timer" aria-live="off" aria-label="Time until the session starts"><div><b data-u="d">0</b><small>Days</small></div><div><b data-u="h">0</b><small>Hours</small></div><div><b data-u="m">0</b><small>Min</small></div></div>
         <p class="cd-note" id="cd-note" aria-live="polite"></p>
@@ -218,7 +218,7 @@ function hero(s, isNext) {
       <h1>${esc(s.headlineA)}<br><span class="hl">${esc(s.headlineB)}</span></h1>
       <p class="lede">${esc(s.lede)}</p>
       <ul class="badges">
-        <li class="live">Live only, not recorded</li>
+        <li class="live">Live session &middot; no public replay</li>
         <li>Open to the whole cohort</li>
         <li>Free, no seat limit</li>
       </ul>
@@ -235,7 +235,7 @@ function hero(s, isNext) {
       </div>
       <ul class="ticket-rows">
         <li><span class="ico">${ICONS.clock}</span><div><strong>Two hours</strong><span>Hour one recap, hour two open floor</span></div></li>
-        <li><span class="ico">${ICONS.video}</span><div><strong>Google Meet</strong><span>${isNext ? 'Link emailed the moment you register' : 'Live only, not recorded'}</span></div></li>
+        <li><span class="ico">${ICONS.video}</span><div><strong>Google Meet</strong><span>${isNext ? 'Link emailed the moment you register' : 'Live session, no public replay'}</span></div></li>
         <li><span class="ico">${ICONS.users}</span><div><strong>Open to the whole cohort</strong><span>No seat limit, no waiting room</span></div></li>
       </ul>
       <div class="ticket-cta">
@@ -292,7 +292,7 @@ function register(s) {
         <li><strong>Save it to your calendar.</strong> The next screen and your confirmation email both have one-tap buttons for Apple, Google and Outlook.</li>
         <li><strong>Join at 3:00 PM PT.</strong> No waiting room. Click the link and you're in. We wrap at 5:00 PM PT.</li>
       </ol>
-      <p class="notice"><strong>Live only.</strong> These sessions are not recorded, so come join us live.</p>
+      <p class="notice"><strong>Heads up:</strong> sessions are recorded for Hamilton&#39;s private notes only. Recordings are never shared or posted, so come join us live.</p>
     </div>
     <div class="reg-card">
       <div class="reg-head">
@@ -317,7 +317,7 @@ function plan(s, isNext, alt) {
         <p class="eyebrow">The two-hour plan</p>
         <h2 id="a-title">${isNext ? 'What we cover' : 'What we covered'}</h2>
       </div>
-      <p>${isNext ? 'One hour on what the program just taught us, one hour on what the cohort is actually doing with it.' : 'Live only. Nothing from this session was recorded.'}</p>
+      <p>${isNext ? 'One hour on what the program just taught us, one hour on what the cohort is actually doing with it.' : 'Live session. There is no public replay.'}</p>
     </div>
     <div class="plan">
       <article class="hour one">
@@ -447,7 +447,7 @@ a:focus-visible{outline:2px solid #346459;outline-offset:2px}
     <a href="${esc(c.google)}" target="_blank" rel="noopener">Google</a>
     <a href="${esc(c.outlook)}" target="_blank" rel="noopener">Outlook</a>
   </div>
-  <p class="fine">Using Outlook at work (Microsoft 365)? Tap Apple instead; the .ics file opens in any calendar app. Live only, not recorded. Member-hosted session, not an official MasterClass Executive or Chicago Booth event.</p>
+  <p class="fine">Using Outlook at work (Microsoft 365)? Tap Apple instead; the .ics file opens in any calendar app. Recorded for Hamilton's private notes only, never shared or posted. Member-hosted session, not an official MasterClass Executive or Chicago Booth event.</p>
 </main>
 <p class="back"><a href="${BASE}">&larr; Back to the event page</a></p>
 </body>
@@ -457,7 +457,7 @@ a:focus-visible{outline:2px solid #346459;outline-offset:2px}
 
 function ics(s) {
   const icsText = (v) => String(v).replace(/\\/g, '\\\\').replace(/,/g, '\\,').replace(/;/g, '\\;').replace(/\n/g, '\\n');
-  const desc = `Two hour member-hosted Strategy Session for the MasterClass Executive Fall 2026 cohort.\nHour one: ${s.hourOne.title}.\nHour two: ${s.hourTwo.title}.\nJoin: ${s.meetUrl}\nDetails: ${SITE}${BASE}\nLive only, not recorded. Member-hosted session, not an official MasterClass Executive or Chicago Booth event.`;
+  const desc = `Two hour member-hosted Strategy Session for the MasterClass Executive Fall 2026 cohort.\nHour one: ${s.hourOne.title}.\nHour two: ${s.hourTwo.title}.\nJoin: ${s.meetUrl}\nDetails: ${SITE}${BASE}\nRecorded for Hamilton's private notes only, never shared or posted. Member-hosted session, not an official MasterClass Executive or Chicago Booth event.`;
   const stamp = compact(new Date(Date.parse(s.startUtc) - 13 * 864e5).toISOString()).replace(/\d{4}Z$/, '0000Z');
   return [
     'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Hamilton Pinto Jr.//Strategy Session//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
