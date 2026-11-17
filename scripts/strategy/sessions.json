@@ -50,7 +50,9 @@
           "blurb": "Bring your questions, share ideas, and connect with your cohort."
         }
       ],
-      "ogImage": "og-2026-11-23.jpg"
+      "ogImage": "og-2026-11-23.jpg",
+      "ogHour1": "This week's labs & guest speaker",
+      "ogHour2": "Open floor: what you're building"
     },
     {
       "slug": "2026-11-16",

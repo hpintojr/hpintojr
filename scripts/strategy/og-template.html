@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;overflow:hidden;font-family:Inter,"Helvetica Neue",Arial,sans-serif;color:#fff;
+background:radial-gradient(700px 420px at 92% 0%,rgba(52,100,89,.55),transparent 65%),radial-gradient(600px 380px at 0% 105%,rgba(201,163,92,.22),transparent 60%),linear-gradient(135deg,#132530 0%,#1d3a44 100%);position:relative}
+body::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.2px,transparent 1.2px);background-size:24px 24px}
+.wrap{position:relative;padding:44px 64px;height:100%;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:16px}
+.top img{width:190px}.bar{width:1px;height:34px;background:#4d6670}.prog{font-size:19px;color:#c9d2d4}
+.chip{margin-left:auto;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#cfe3dc;border:1px solid rgba(207,227,220,.35);border-radius:999px;padding:8px 16px}
+.main{flex:1;display:flex;align-items:center;gap:56px}
+.tile{flex:none;width:200px;border-radius:30px;background:#fff;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35);text-align:center}
+.tile .m{background:#c94f3d;font-size:26px;font-weight:800;letter-spacing:.2em;padding:12px 0}
+.tile .d{font-family:Georgia,serif;font-size:118px;line-height:1;color:#172b34;padding:14px 0 0}
+.tile .w{font-size:22px;font-weight:700;letter-spacing:.18em;color:#7a8689;padding:6px 0 20px}
+.eyebrow{font-size:16px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9fc2b6;margin-bottom:12px}
+h1{font-family:Georgia,serif;font-weight:400;font-size:62px;line-height:1.05;letter-spacing:-.01em}
+h1 i{color:#a9d1c3}
+.time{margin-top:18px;font-size:26px;font-weight:700}.time span{font-weight:500;color:#9fb3b8}
+.hours{display:flex;gap:12px;margin-top:22px}
+.hours div{font-size:16px;font-weight:600;color:#e6efe9;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;line-height:1.35}
+.hours b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9fc2b6}
+.foot{display:flex;align-items:center;justify-content:space-between}
+.url{font-size:24px;font-weight:700;background:#fff;color:#172b34;border-radius:999px;padding:14px 26px}
+.url span{color:#346459}
+.fine{font-size:14px;color:#9fb3b8;text-align:right;line-height:1.5}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e0574c;margin-right:6px;box-shadow:0 0 0 4px rgba(224,87,76,.2)}
+</style></head><body><div class="wrap">
+<div class="top"><img src="{{SIG}}"><div class="bar"></div><div class="prog">MasterClass Executive</div><div class="chip">Member-hosted session</div></div>
+<div class="main">
+ <div class="tile"><div class="m">{{MON}}</div><div class="d">{{DAY}}</div><div class="w">{{WD}}</div></div>
+ <div>
+  <div class="eyebrow">{{EYEBROW}}</div>
+  <h1>{{HEADLINE_A}}<br><i>{{HEADLINE_B}}</i></h1>
+  <div class="time">{{TIME_PT}} <span>· {{TIME_ET}} · Google Meet</span></div>
+  <div class="hours"><div><b>Hour 1</b>{{HOUR1}}</div><div><b>Hour 2</b>{{HOUR2}}</div></div>
+ </div>
+</div>
+<div class="foot"><div class="url">Save your seat → <span>hamiltonpinto.com/strategy</span></div>
+<div class="fine"><span class="dot"></span>Live only · Open to the whole cohort<br>Not an official MasterClass Executive or Chicago Booth event</div></div>
+</div></body></html>
