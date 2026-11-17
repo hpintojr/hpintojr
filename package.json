@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "node --test tests/*.test.mjs",
     "labs": "node scripts/mcx-ai-labs/build.mjs",
-    "strategy": "node scripts/strategy/build.mjs"
+    "strategy": "node scripts/strategy/build.mjs",
+    "strategy:og": "node scripts/strategy/og.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
