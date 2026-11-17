@@ -1,0 +1,60 @@
+{
+  "basePath": "/strategy",
+  "sessions": [
+    {
+      "slug": "2026-11-23",
+      "status": "upcoming",
+      "dateLabel": "Monday, Nov 23",
+      "longDate": "Monday, November 23, 2026",
+      "shortDate": "Nov 23",
+      "timeLabel": "3:00 to 5:00 PM PT",
+      "etLabel": "6:00 to 8:00 PM ET",
+      "startUtc": "2026-11-23T23:00:00Z",
+      "endUtc": "2026-11-24T01:00:00Z",
+      "meetUrl": "https://meet.google.com/NOV23-LINK-PENDING",
+      "sulusFormId": "z17ajkss741cqqf279nvy8h3618jd37w",
+      "headlineA": "Two hours.",
+      "headlineB": "This week's labs, then yours.",
+      "lede": "Hour one is a recap of this week's MCX labs and guest speaker session, plus the projects behind them. Hour two is open discussion: what everyone else in the cohort is building, and how they are doing it.",
+      "hourOne": {
+        "title": "This week's labs, guest speaker and projects",
+        "body": "A walkthrough of what we did across this week's MCX labs and the guest speaker session, plus the projects involved: what worked, what didn't, and what you can reuse."
+      },
+      "hourTwo": {
+        "title": "Open discussion: what everyone else is doing, and how",
+        "body": "The floor is yours. Share what you're working on, compare workflows and AI setups, and hear how other members are executing."
+      },
+      "upcomingWeek": [
+        { "date": "11/16", "who": "Graphite", "kind": "AI Lab Office Hours", "blurb": "Follow-up questions from last week's AI lab." },
+        { "date": "11/18", "who": "Maggie Neale", "kind": "In Conversation", "blurb": "How to ask for more and negotiate with confidence, from a Stanford GSB expert." },
+        { "date": "11/19", "who": "ElevenLabs", "kind": "AI Lab", "blurb": "Use AI voice and video to build better campaigns faster, with Luke Harries." },
+        { "date": "11/20", "who": "Community", "kind": "Office Hours", "blurb": "Bring your questions, share ideas, and connect with your cohort." }
+      ]
+    },
+    {
+      "slug": "2026-11-16",
+      "status": "completed",
+      "dateLabel": "Monday, Nov 16",
+      "longDate": "Monday, November 16, 2026",
+      "shortDate": "Nov 16",
+      "timeLabel": "3:00 to 5:00 PM PT",
+      "etLabel": "6:00 to 8:00 PM ET",
+      "startUtc": "2026-11-16T23:00:00Z",
+      "endUtc": "2026-11-17T01:00:00Z",
+      "meetUrl": "https://meet.google.com/mjv-rpur-qxk",
+      "sulusFormId": "z17b9dqwvqsbjtj9jc2sdebtns8hysgr",
+      "headlineA": "Two hours.",
+      "headlineB": "One project, then your strategy.",
+      "lede": "Hour one was the AI Lab project: customer research with synthetic users. Hour two was open strategy, working through members' projects and AI setups.",
+      "hourOne": {
+        "title": "The new project: customer research with synthetic users",
+        "body": "How to run customer research with synthetic users on your own idea, what to trust in the results and what not to, and how to turn it into something you can hand in or act on."
+      },
+      "hourTwo": {
+        "title": "Open strategy",
+        "body": "Members brought real projects, AI setups and questions, and we worked them live."
+      },
+      "upcomingWeek": []
+    }
+  ]
+}
