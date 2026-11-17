@@ -155,11 +155,11 @@ function head(s, path, isNext) {
 <meta property="og:description" content="${esc(`Two hours on Google Meet. Hour one: ${s.hourOne.title}. Hour two: ${s.hourTwo.title}. Member-hosted by Hamilton Pinto Jr.`)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}${path}">
-<meta property="og:image" content="${SITE}${BASE}/og.jpg">
+<meta property="og:image" content="${SITE}${BASE}/${s.ogImage || 'og.jpg'}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="${SITE}${BASE}/og.jpg">
+<meta name="twitter:image" content="${SITE}${BASE}/${s.ogImage || 'og.jpg'}">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/ama/ama.css">
 ${EXTRA_CSS}
