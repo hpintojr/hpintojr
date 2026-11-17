@@ -25,11 +25,32 @@
         "body": "The floor is yours. Share what you're working on, compare workflows and AI setups, and hear how other members are executing."
       },
       "upcomingWeek": [
-        { "date": "11/16", "who": "Graphite", "kind": "AI Lab Office Hours", "blurb": "Follow-up questions from last week's AI lab." },
-        { "date": "11/18", "who": "Maggie Neale", "kind": "In Conversation", "blurb": "How to ask for more and negotiate with confidence, from a Stanford GSB expert." },
-        { "date": "11/19", "who": "ElevenLabs", "kind": "AI Lab", "blurb": "Use AI voice and video to build better campaigns faster, with Luke Harries." },
-        { "date": "11/20", "who": "Community", "kind": "Office Hours", "blurb": "Bring your questions, share ideas, and connect with your cohort." }
-      ]
+        {
+          "date": "11/16",
+          "who": "Graphite",
+          "kind": "AI Lab Office Hours",
+          "blurb": "Follow-up questions from last week's AI lab."
+        },
+        {
+          "date": "11/18",
+          "who": "Maggie Neale",
+          "kind": "In Conversation",
+          "blurb": "How to ask for more and negotiate with confidence, from a Stanford GSB expert."
+        },
+        {
+          "date": "11/19",
+          "who": "ElevenLabs",
+          "kind": "AI Lab",
+          "blurb": "Use AI voice and video to build better campaigns faster, with Luke Harries."
+        },
+        {
+          "date": "11/20",
+          "who": "Community",
+          "kind": "Office Hours",
+          "blurb": "Bring your questions, share ideas, and connect with your cohort."
+        }
+      ],
+      "ogImage": "og-2026-11-23.jpg"
     },
     {
       "slug": "2026-11-16",
