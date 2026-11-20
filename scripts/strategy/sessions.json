@@ -9,6 +9,7 @@
       "shortDate": "Nov 23",
       "timeLabel": "10:00 AM to 12:00 PM PT",
       "etLabel": "1:00 to 3:00 PM ET",
+      "timeUpdated": true,
       "startUtc": "2026-11-23T18:00:00Z",
       "endUtc": "2026-11-23T20:00:00Z",
       "meetUrl": "https://meet.google.com/pnf-bhve-vek",

@@ -62,6 +62,7 @@ const EXTRA_CSS = `<style>
 .tk-kicker{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#9fc2b6;margin:0 0 4px}
 .tk-day{font-family:Georgia,"Times New Roman",serif;font-size:26px;line-height:1.15;margin:0}
 .tk-time{font-size:16px;font-weight:600;color:#e6efe9;margin:6px 0 0}
+.tk-updated{display:inline-block;vertical-align:2px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:#c94f3d;border-radius:999px;padding:4px 10px;margin-left:8px}
 .tk-time span{display:block;color:#9fb3b8;font-weight:500;font-size:14px;margin-top:2px}
 .ticket-rows{list-style:none;margin:0;padding:6px 26px}
 .ticket-rows li{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px dashed var(--line)}
@@ -246,7 +247,7 @@ function hero(s, isNext) {
         <div>
           <p class="tk-kicker">${isNext ? 'Next session' : 'Archived session'}</p>
           <p class="tk-day">${esc(s.dateLabel)}</p>
-          <p class="tk-time">${esc(s.timeLabel)} <span>${esc(s.etLabel)}</span></p>
+          <p class="tk-time">${esc(s.timeLabel)}${s.timeUpdated ? ' <span class="tk-updated">Updated</span>' : ''} <span>${esc(s.etLabel)}</span></p>
         </div>
       </div>
       <ul class="ticket-rows">
