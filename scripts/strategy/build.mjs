@@ -62,6 +62,7 @@ const EXTRA_CSS = `<style>
 .tk-kicker{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#9fc2b6;margin:0 0 4px}
 .tk-day{font-family:Georgia,"Times New Roman",serif;font-size:26px;line-height:1.15;margin:0}
 .tk-time{font-size:16px;font-weight:600;color:#e6efe9;margin:6px 0 0}
+.tk-updated{display:inline-block;vertical-align:2px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:#c94f3d;border-radius:999px;padding:4px 10px;margin-left:8px}
 .tk-time span{display:block;color:#9fb3b8;font-weight:500;font-size:14px;margin-top:2px}
 .ticket-rows{list-style:none;margin:0;padding:6px 26px}
 .ticket-rows li{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px dashed var(--line)}
@@ -100,6 +101,10 @@ const EXTRA_CSS = `<style>
 .lu.k-lab{--c:#346459;--cb:#e7efeb}
 .lu.k-talk{--c:#a3532f;--cb:#f6e8e0}
 .lu.k-office{--c:#3d5a80;--cb:#e5ecf5}
+.lu.past{opacity:.72}
+.lu.past .lu-date b{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:#a3532f}
+.lu.past::after{content:"";position:absolute;left:-8%;top:54%;width:116%;height:2px;background:linear-gradient(90deg,transparent,#a3532f 14%,#a3532f 86%,transparent);transform:rotate(-9deg);pointer-events:none}
+.lu .done{display:inline-flex;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#346459;background:#e7efeb;border-radius:999px;padding:4px 10px;margin-top:10px}
 .reg-wrap{background:linear-gradient(180deg,var(--bg),#f3f1ea)}
 .plan{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .hour{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 30px 32px;overflow:hidden}
@@ -140,7 +145,8 @@ const EXTRA_CSS = `<style>
 </style>`;
 
 function head(s, path, isNext) {
-  const t = isNext ? `Strategy Session | ${s.shortDate}, 3:00 PM PT | Hamilton Pinto Jr.` : `Strategy Session | ${s.shortDate} (archived) | Hamilton Pinto Jr.`;
+  const cl = clockLabels(s);
+  const t = isNext ? `Strategy Session | ${s.shortDate}, ${cl.start} | Hamilton Pinto Jr.` : `Strategy Session | ${s.shortDate} (archived) | Hamilton Pinto Jr.`;
   const d = `A two hour member-hosted Strategy Session for the MasterClass Executive Fall 2026 cohort. Hour one: ${s.hourOne.title}. Hour two: ${s.hourTwo.title}. ${s.dateLabel}, ${s.timeLabel} on Google Meet.`;
   return `<!doctype html>
 <html lang="en">
@@ -151,7 +157,7 @@ function head(s, path, isNext) {
 <meta name="robots" content="noindex">
 <title>${esc(t)}</title>
 <meta name="description" content="${esc(d)}">
-<meta property="og:title" content="${esc(`Strategy Session: ${s.shortDate}, 3:00 PM PT`)}">
+<meta property="og:title" content="${esc(`Strategy Session: ${s.shortDate}, ${cl.start}`)}">
 <meta property="og:description" content="${esc(`Two hours on Google Meet. Hour one: ${s.hourOne.title}. Hour two: ${s.hourTwo.title}. Member-hosted by Hamilton Pinto Jr.`)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}${path}">
@@ -192,6 +198,17 @@ const ICONS = {
 };
 
 // Day-of-week and month for a session (dates are Pacific; noon avoids any UTC edge).
+// Start/end clock labels come from the session's timeLabel, e.g. "10:00 AM PT" / "12:00 PM PT".
+function clockLabels(s) {
+  const [a, b] = s.timeLabel.split(' to ');
+  return { start: `${a} PT`, end: b };
+}
+function hourLabel(iso) {
+  return new Date(iso).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles' });
+}
+function plusHour(iso) {
+  return new Date(Date.parse(iso) + 3600000).toISOString();
+}
 function parts(slug) {
   const d = new Date(`${slug}T12:00:00-08:00`);
   const f = (o) => d.toLocaleDateString('en-US', { ...o, timeZone: 'America/Los_Angeles' });
@@ -230,7 +247,7 @@ function hero(s, isNext) {
         <div>
           <p class="tk-kicker">${isNext ? 'Next session' : 'Archived session'}</p>
           <p class="tk-day">${esc(s.dateLabel)}</p>
-          <p class="tk-time">${esc(s.timeLabel)} <span>${esc(s.etLabel)}</span></p>
+          <p class="tk-time">${esc(s.timeLabel)}${s.timeUpdated ? ' <span class="tk-updated">Updated</span>' : ''} <span>${esc(s.etLabel)}</span></p>
         </div>
       </div>
       <ul class="ticket-rows">
@@ -251,13 +268,17 @@ const kindClass = (k) => (/lab/i.test(k) ? 'k-lab' : /office/i.test(k) ? 'k-offi
 function lineup(s) {
   if (!s.upcomingWeek?.length) return '';
   const year = s.slug.slice(0, 4);
+  const sessionDay = new Date(`${s.slug}T12:00:00-08:00`).getTime();
   const cards = s.upcomingWeek.map((w) => {
     const [m, d] = w.date.split('/');
-    const p = parts(`${year}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`);
+    const iso = `${year}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+    const p = parts(iso);
+    const past = new Date(`${iso}T12:00:00-08:00`).getTime() < sessionDay;
     return `
-      <article class="lu ${kindClass(w.kind)}">
+      <article class="lu ${kindClass(w.kind)}${past ? ' past' : ''}">
         <p class="lu-date"><b>${esc(w.date)}</b><span>${p.wd}</span></p>
         <span class="kind">${esc(w.kind)}</span>
+        ${past ? '<span class="done">&#10003; Completed</span>' : ''}
         <h3>${esc(w.who)}</h3>
         <p>${esc(w.blurb)}</p>
       </article>`;
@@ -279,6 +300,7 @@ function lineup(s) {
 }
 
 function register(s) {
+  const cl = clockLabels(s);
   const form = SULUS + s.sulusFormId;
   return `
 <section class="band reg-wrap" id="register">
@@ -290,7 +312,7 @@ function register(s) {
       <ol class="steps">
         <li><strong>Register here.</strong> Name and email. Phone is optional.</li>
         <li><strong>Save it to your calendar.</strong> The next screen and your confirmation email both have one-tap buttons for Apple, Google and Outlook.</li>
-        <li><strong>Join at 3:00 PM PT.</strong> No waiting room. Click the link and you're in. We wrap at 5:00 PM PT.</li>
+        <li><strong>Join at ${cl.start}.</strong> No waiting room. Click the link and you're in. We wrap at ${cl.end}.</li>
       </ol>
       <p class="notice"><strong>Heads up:</strong> sessions are recorded for Hamilton&#39;s private notes only. Recordings are never shared or posted, so come join us live.</p>
     </div>
@@ -322,13 +344,13 @@ function plan(s, isNext, alt) {
     <div class="plan">
       <article class="hour one">
         <span class="num" aria-hidden="true">01</span>
-        <p class="when">Hour one &middot; 3:00 to 4:00 PM PT</p>
+        <p class="when">Hour one &middot; ${hourLabel(s.startUtc)} to ${hourLabel(plusHour(s.startUtc))} PT</p>
         <h3>${esc(s.hourOne.title)}</h3>
         <p>${esc(s.hourOne.body)}</p>
       </article>
       <article class="hour two">
         <span class="num" aria-hidden="true">02</span>
-        <p class="when">Hour two &middot; 4:00 to 5:00 PM PT</p>
+        <p class="when">Hour two &middot; ${hourLabel(plusHour(s.startUtc))} to ${hourLabel(s.endUtc)} PT</p>
         <h3>${esc(s.hourTwo.title)}</h3>
         <p>${esc(s.hourTwo.body)}</p>
       </article>
@@ -365,17 +387,18 @@ function catalog(current, alt) {
 
 function countdown(s) {
   const st = Date.parse(s.startUtc), en = Date.parse(s.endUtc);
+  const cl = clockLabels(s);
   return `
 <script>
 (function(){
-  // Countdown to ${s.longDate}, 3:00 PM Pacific (${s.startUtc}), ending 5:00 PM Pacific.
+  // Countdown to ${s.longDate}, ${cl.start} Pacific (${s.startUtc}), ending ${cl.end} Pacific.
   var start=${st}, end=${en}, box=document.getElementById('countdown'), note=document.getElementById('cd-note');
   if(!box) return;
   function set(u,v){var el=box.querySelector('[data-u="'+u+'"]'); if(el) el.textContent=v;}
   function tick(){
     var now=Date.now(), d=Math.max(0,start-now);
     set('d',Math.floor(d/864e5)); set('h',Math.floor(d%864e5/36e5)); set('m',Math.floor(d%36e5/6e4));
-    note.textContent = now>=end ? 'This session has ended.' : now>=start ? 'Live now until 5:00 PM PT' : '';
+    note.textContent = now>=end ? 'This session has ended.' : now>=start ? 'Live now until ${cl.end}' : '';
   }
   tick(); setInterval(tick,30000);
 })();
