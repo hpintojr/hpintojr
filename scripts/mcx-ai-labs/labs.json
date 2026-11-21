@@ -517,7 +517,7 @@
       "title": "AI-Powered Marketing: Campaigns, Voice, and Video",
       "status": "in-progress",
       "when": "Walkthrough in production",
-      "cardSummary": "A two-voice podcast of The 18% Problem and a captioned Mercury CRM infographic campaign.",
+      "cardSummary": "A two-voice thesis podcast and a 49-second Mercury CRM film with kinetic captions and three social formats.",
       "assetBase": "https://ai-lab-powered-marketing.vercel.app",
       "repo": {
         "name": "hpintojr/ai-lab-powered-marketing",
@@ -527,7 +527,7 @@
         "a": "One thesis.",
         "b": "One campaign."
       },
-      "lede": "I adapted my thesis into a short conversation for readers who want to listen, and developed an infographic campaign that introduces Mercury CRM’s AI agency offer to local-services entrepreneurs.",
+      "lede": "I adapted my thesis into a two-voice podcast and turned a familiar Main Street story into a motion campaign for Mercury CRM. The lab includes the commercial, narration, design brief, social exports, and the model and usage records.",
       "facts": [
         [
           "Podcast",
@@ -535,7 +535,7 @@
         ],
         [
           "Campaign",
-          "Mercury CRM<br><span class=\"dim\">Captioned social exports</span>"
+          "Mercury CRM<br><span class=\"dim\">49-second film · three social formats</span>"
         ],
         [
           "Walkthrough",
@@ -555,6 +555,10 @@
         {
           "label": "Open recording reader",
           "href": "https://ai-lab-powered-marketing.vercel.app/script/"
+        },
+        {
+          "label": "Browse project files",
+          "href": "/project-files/"
         }
       ],
       "audio": {
@@ -565,16 +569,17 @@
       },
       "approach": [
         "<strong>Give readers an audio option.</strong> Use a conversational host and guest to unpack the inventory figure and the thesis in everyday terms.",
-        "<strong>Build the campaign around a familiar memory.</strong> Use infographics and captions to connect the local computer technician story to Mercury CRM’s offer.",
-        "<strong>Give each voice a role.</strong> Use ElevenLabs MCP for the host and guest, with separate voice direction for the campaign."
+        "<strong>Use a familiar story to explain the product.</strong> Move from mid-century newspaper visuals and a 2002 iMac to a navy Mercury campaign about calls, bookings, and follow-up. Place animated caption phrases on the narration beats.",
+        "<strong>Give each voice a role.</strong> Use ElevenLabs MCP for the host and guest, with separate voice direction for the campaign.",
+        "<strong>Show how the work was made.</strong> Gemini 4.0 Neon informed the specification, Muse helped revise the commercial brief, and Codex used ChatGPT 6.2 Sol at high reasoning. The usage ledger records the measured Codex data and the Claude Opus 5.5 and Ollama DeepSeek editing credits."
       ],
       "showcase": {
         "title": "The project",
         "cards": [
           {
             "tag": "Campaign",
-            "title": "Mercury CRM infographic commercial",
-            "body": "Explore the campaign, closing screen and social versions.",
+            "title": "Mercury CRM motion campaign",
+            "body": "Main Street in 2002 meets the AI receptionist. Watch the film, then compare the storyboard and the social cuts.",
             "href": "https://ai-lab-powered-marketing.vercel.app/#commercial",
             "link": "Open campaign"
           },
@@ -584,27 +589,89 @@
             "body": "Read the thesis and the source notes behind the audio adaptation.",
             "href": "https://hamiltonpinto.com/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot#podcast",
             "link": "Read the thesis"
+          },
+          {
+            "tag": "Project files",
+            "title": "Scripts, brief and model credits",
+            "body": "Read the original project Markdown and see which parts of the production were measured.",
+            "href": "/project-files/",
+            "link": "Browse project files"
           }
         ]
       },
       "proof": [
         {
-          "group": "Scripts and exports",
+          "group": "Project Markdown",
           "items": [
             {
-              "label": "Project downloads",
-              "href": "/downloads/",
-              "meta": "Podcast, social videos, scripts and closing screen"
+              "label": "All project Markdown",
+              "href": "/project-files/",
+              "meta": "Read or download all 11 Markdown files"
             },
             {
-              "label": "Recording reader",
-              "href": "/script/",
-              "meta": "Timed human-narrated walkthrough"
+              "label": "Mercury CRM creative brief",
+              "href": "/files/Mercury_CRM_Creative_Brief.md",
+              "meta": "Story, visuals, positioning and Census source"
+            },
+            {
+              "label": "Commercial script",
+              "href": "/files/Mercury_CRM_Commercial_Script.md",
+              "meta": "Release voiceover and closing screen"
+            },
+            {
+              "label": "Thesis podcast transcript",
+              "href": "/files/Thesis_Podcast_TTS_v4.md",
+              "meta": "Two-host conversation"
+            },
+            {
+              "label": "Walkthrough recording script",
+              "href": "/files/Recording_Script.md",
+              "meta": "Timed narration with recording cues"
+            },
+            {
+              "label": "ElevenLabs workflow",
+              "href": "/files/ElevenLabs_MCP_Flows_Workflow.md",
+              "meta": "Voice design, stills, music and caption timing"
+            },
+            {
+              "label": "Models, time and tokens",
+              "href": "/files/Production_Usage_Ledger.md",
+              "meta": "Model credits and measured Codex usage"
             },
             {
               "label": "Production and verification record",
               "href": "/files/Verification_Record.md",
-              "meta": "Tools used and remaining submission steps"
+              "meta": "Media checks and open submission work"
+            }
+          ]
+        },
+        {
+          "group": "Campaign exports",
+          "items": [
+            {
+              "label": "Instagram Reels and YouTube Shorts",
+              "href": "/media/mercury-crm-vertical.mp4?v=main-street",
+              "meta": "9:16 · H.264/AAC MP4"
+            },
+            {
+              "label": "YouTube",
+              "href": "/media/mercury-crm-youtube.mp4?v=main-street",
+              "meta": "16:9 · H.264/AAC MP4"
+            },
+            {
+              "label": "LinkedIn",
+              "href": "/media/mercury-crm-linkedin.mp4?v=main-street",
+              "meta": "4:5 · H.264/AAC MP4"
+            },
+            {
+              "label": "Campaign storyboard",
+              "href": "/media/mercury-crm-storyboard.jpg",
+              "meta": "12 scene stills"
+            },
+            {
+              "label": "Project downloads",
+              "href": "/downloads/",
+              "meta": "MP4, MP3, storyboard and source Markdown"
             }
           ]
         }
