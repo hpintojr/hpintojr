@@ -70,8 +70,9 @@
   .byline .meta{margin-left:auto;font-size:12.5px;color:var(--muted);text-align:right;line-height:1.5}
   @media(max-width:640px){.byline .meta{margin-left:0;text-align:left}}
   .hero-img{margin:34px 0 0}
-  .hero-img .frame{background:var(--frame);padding:12px;border-radius:4px}
+  .hero-img .frame{position:relative;background:var(--frame);padding:12px;border-radius:4px}
   .hero-img img{width:100%;height:auto;display:block;border-radius:2px}
+  .hero-img .hero-signature{position:absolute;right:max(18px,2.5%);bottom:max(18px,2.5%);width:clamp(94px,21%,230px);max-width:29%;border-radius:0}
   .hero-img figcaption{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--muted)}
   .hero-img figcaption strong{color:var(--ink);font-weight:600}
 
@@ -157,9 +158,9 @@
   /* Signature */
   .signoff{max-width:760px;margin:56px auto 0;border-top:3px solid var(--ink);padding-top:28px}
   .signoff p{font-size:16px;line-height:1.7;color:var(--ink-2);max-width:40em}
-  .sig{display:flex;justify-content:flex-end;margin:26px 0 6px}
+  .sig{margin:26px 0 6px}
   .sig img{width:min(340px,82vw);height:auto;display:block;filter:var(--sig-filter)}
-  .signoff .sig-name{margin-left:auto;text-align:right;font-size:14px;line-height:1.4;color:var(--ink-2)}
+  .signoff .sig-name{font-size:14px;line-height:1.4;color:var(--ink-2)}
   .sig-name span{display:block}
   .sig-name .sig-detail{font-size:13px;color:var(--muted)}
   .sig-name strong{color:var(--ink);font-size:15px}
@@ -199,8 +200,11 @@
       <div class="who"><strong>Hamilton Pinto Jr.</strong><span>President | CEO | Developer, Benny &amp; Penny<br />Founder, Mercury CRM</span></div>
       <div class="meta">November 20, 2026<br />Research date: November 20, 2026<br />Full source list below</div>
     </div>
-    <figure class="hero-img">
-      <div class="frame"><img src="/masterclass/hero.jpg" width="1920" height="1280" fetchpriority="high" alt="Editorial illustration of an operator at a desk facing five linked ledger blocks connected to icons for operations, training, security, compliance, writing, and code" /></div>
+    <figure class="hero-img" id="hero">
+      <div class="frame">
+        <img src="/masterclass/hero.jpg" width="1920" height="1280" fetchpriority="high" alt="Editorial illustration of an operator at a desk facing five linked ledger blocks connected to icons for operations, training, security, compliance, writing, and code" />
+        <img class="hero-signature" src="/hamilton-signature-black.svg" width="1793" height="625" alt="Hamilton Pinto Jr., Consultant" />
+      </div>
       <figcaption><span>One operator. A whole org chart of agents.</span><span>Illustration created for this article. Every agent connected to one chained, auditable record.</span></figcaption>
     </figure>
 
