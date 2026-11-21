@@ -93,6 +93,11 @@
   /* Article */
   .article{max-width:760px;margin:0 auto}
   .article section{padding:44px 0 4px}
+  .article .podcast{padding:clamp(18px,4vw,30px);margin:32px 0 4px;scroll-margin-top:100px;background:var(--bg);border:1px solid var(--border);border-left:4px solid var(--brand);border-radius:12px}
+  .podcast audio{display:block;width:100%;margin:14px 0}
+  .podcast .podcast-meta{font-size:14px;color:var(--muted)}
+  .podcast .podcast-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;margin-bottom:12px}
+  .podcast summary{cursor:pointer;font-weight:700;margin-bottom:12px}
   .sec-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin:0 0 10px}
   .article h2{font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 16px}
   .article h3{font-size:19px;margin:28px 0 8px;line-height:1.3;font-weight:600;letter-spacing:-.01em}
@@ -218,10 +223,33 @@
   </header>
 
   <nav class="toc" aria-label="Article sections">
-    <a href="#finding">The finding</a><a href="#built">What we built</a><a href="#context">Context is the work</a><a href="#security">Security</a><a href="#gaps">Where we are exposed</a><a href="#thesis">The missing piece</a><a href="#leaders">What leaders do</a><a href="#prompts">Image prompts</a>
+    <a href="#podcast">Listen</a><a href="#finding">The finding</a><a href="#built">What we built</a><a href="#context">Context is the work</a><a href="#security">Security</a><a href="#gaps">Where we are exposed</a><a href="#thesis">The missing piece</a><a href="#leaders">What leaders do</a><a href="#prompts">Image prompts</a>
   </nav>
 
   <main class="article">
+    <section class="podcast" id="podcast" aria-labelledby="podcast-title">
+      <p class="sec-label">Audio edition</p>
+      <h2 id="podcast-title">Listen to The 18% Problem</h2>
+      <p>A host and guest talk through the research and Hamilton Pinto Jr.’s argument for giving AI agents defined roles, approvals, and a record someone can verify.</p>
+      <audio controls preload="metadata" aria-label="Play The 18% Problem podcast">
+        <source src="/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot/thesis-podcast-v4.mp3" type="audio/mpeg" />
+        <a href="/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot/thesis-podcast-v4.mp3">Download the podcast MP3</a>
+      </audio>
+      <p class="podcast-meta">About 3 minutes &middot; Synthetic host and guest narrated with ElevenLabs Text-to-Speech v4</p>
+      <p class="podcast-links"><a href="/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot/thesis-podcast-v4.mp3" download>Download MP3</a><a href="/MCX-AI-Labs/ai-powered-marketing#podcast">See how I made it</a></p>
+      <details>
+        <summary>Read the transcript</summary>
+        <p><strong>Host:</strong> Welcome. Today we’re talking about The 18% Problem: Running AI Like a Company, Not a Chatbot, a MasterClass Executive thesis by Hamilton Pinto Junior. I keep coming back to that title. What actually changes when you give software a job to do?</p>
+        <p><strong>Guest:</strong> Think about the difference between writing a reply and sending one. The first is a draft. The second reaches someone, makes a commitment, and leaves your company responsible for it. Once agents can act on your behalf, management starts to matter as much as model quality. You need to know which agents exist, what access they have, and who is accountable for the outcome.</p>
+        <p><strong>Host:</strong> And that’s where the 18% comes in, right? The thesis cites IBM Think 2026 research that found only 18% of organizations kept a complete inventory of their AI agents. What does that look like on an ordinary workday?</p>
+        <p><strong>Guest:</strong> Imagine that a customer gets a message they weren’t supposed to receive. If your team can’t tell which agent sent it or which permissions it used, you’re investigating from scratch. Hamilton describes giving each agent a named role, a clear brief, and scoped access. An agent can prepare the message. The authority to send it can go through a separate human approval. It’s a management decision you can apply to the next workflow you build.</p>
+        <p><strong>Host:</strong> Okay, so first I can answer who works here and what they’re allowed to do. Hamilton also uses the phrase verifiable chain of custody. What would I actually be able to see?</p>
+        <p><strong>Guest:</strong> Let’s say an agent books an appointment. A reviewer should be able to see four things. Which agent requested it, who or what approved it, the action it took, and the result that came back. Link those entries in a tamper-evident record and you can spot if someone changes the history later. That’s Hamilton’s proposal for agent operations. The inventory research tells us how far organizations have to go on the basics. The chain of custody is his argument for what comes next.</p>
+        <p><strong>Host:</strong> If listeners want to try this with one agent this week, where would you have them start?</p>
+        <p><strong>Guest:</strong> Pick one action your customers can see. Ask someone on your team to show you what the agent is allowed to do, who approved its last action, and where the result is recorded. Any question they can’t answer is a concrete place to start.</p>
+        <p><strong>Host:</strong> I like that. One workflow, four things you can trace. Thanks for joining us and making this so practical. And thanks to everyone listening. The full thesis is right here on the site if you’d like to dig into it. See you next time.</p>
+      </details>
+    </section>
 
     <section id="finding">
       <p class="sec-label">01 &middot; The finding</p>

@@ -515,8 +515,101 @@
       "slug": "ai-powered-marketing",
       "number": "04",
       "title": "AI-Powered Marketing: Campaigns, Voice, and Video",
-      "status": "upcoming",
-      "when": "Coming November"
+      "status": "in-progress",
+      "when": "Walkthrough in production",
+      "cardSummary": "A two-voice podcast of The 18% Problem and a captioned Mercury CRM infographic campaign.",
+      "assetBase": "https://ai-lab-powered-marketing.vercel.app",
+      "repo": {
+        "name": "hpintojr/ai-lab-powered-marketing",
+        "private": false
+      },
+      "hero": {
+        "a": "One thesis.",
+        "b": "One campaign."
+      },
+      "lede": "I adapted my thesis into a short conversation for readers who want to listen, and developed an infographic campaign that introduces Mercury CRM’s AI agency offer to local-services entrepreneurs.",
+      "facts": [
+        [
+          "Podcast",
+          "The 18% Problem<br><span class=\"dim\">ElevenLabs v4 · two voices</span>"
+        ],
+        [
+          "Campaign",
+          "Mercury CRM<br><span class=\"dim\">Captioned social exports</span>"
+        ],
+        [
+          "Walkthrough",
+          "Original narration<br><span class=\"dim\">In production</span>"
+        ]
+      ],
+      "cta": [
+        {
+          "label": "Listen to the podcast",
+          "href": "#podcast",
+          "primary": true
+        },
+        {
+          "label": "Open the campaign showcase",
+          "href": "https://ai-lab-powered-marketing.vercel.app/#commercial"
+        },
+        {
+          "label": "Open recording reader",
+          "href": "https://ai-lab-powered-marketing.vercel.app/script/"
+        }
+      ],
+      "audio": {
+        "title": "The 18% Problem",
+        "src": "/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot/thesis-podcast-v4.mp3",
+        "description": "A two-person audio adaptation of my thesis on the management layer AI agents need.",
+        "transcript": "/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot#podcast"
+      },
+      "approach": [
+        "<strong>Give readers an audio option.</strong> Use a conversational host and guest to unpack the inventory figure and the thesis in everyday terms.",
+        "<strong>Build the campaign around a familiar memory.</strong> Use infographics and captions to connect the local computer technician story to Mercury CRM’s offer.",
+        "<strong>Give each voice a role.</strong> Use ElevenLabs MCP for the host and guest, with separate voice direction for the campaign."
+      ],
+      "showcase": {
+        "title": "The project",
+        "cards": [
+          {
+            "tag": "Campaign",
+            "title": "Mercury CRM infographic commercial",
+            "body": "Explore the campaign, closing screen and social versions.",
+            "href": "https://ai-lab-powered-marketing.vercel.app/#commercial",
+            "link": "Open campaign"
+          },
+          {
+            "tag": "Thesis",
+            "title": "The 18% Problem",
+            "body": "Read the thesis and the source notes behind the audio adaptation.",
+            "href": "https://hamiltonpinto.com/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot#podcast",
+            "link": "Read the thesis"
+          }
+        ]
+      },
+      "proof": [
+        {
+          "group": "Scripts and exports",
+          "items": [
+            {
+              "label": "Project downloads",
+              "href": "/downloads/",
+              "meta": "Podcast, social videos, scripts and closing screen"
+            },
+            {
+              "label": "Recording reader",
+              "href": "/script/",
+              "meta": "Timed human-narrated walkthrough"
+            },
+            {
+              "label": "Production and verification record",
+              "href": "/files/Verification_Record.md",
+              "meta": "Tools used and remaining submission steps"
+            }
+          ]
+        }
+      ],
+      "related": []
     },
     {
       "slug": "agent-workforce",

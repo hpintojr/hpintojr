@@ -1,7 +1,7 @@
 // Builds the static MCX AI Labs portfolio into public/MCX-AI-Labs from labs.json.
 // Run: node scripts/mcx-ai-labs/build.mjs   (no dependencies)
 // Hub:  /MCX-AI-Labs            -> public/MCX-AI-Labs/index.html
-// Lab:  /MCX-AI-Labs/<slug>     -> public/MCX-AI-Labs/<slug>/index.html (completed labs only)
+// Lab:  /MCX-AI-Labs/<slug>     -> public/MCX-AI-Labs/<slug>/index.html (published lab pages)
 // Assets (videos, decks, MD files) load from assetBase: a lab's own Vercel deployment,
 // or public/MCX-AI-Labs/files/<slug> when hosted here.
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
@@ -22,6 +22,7 @@ const ext = (href) => /^https?:/.test(href) ? ' target="_blank" rel="noopener"' 
 
 const labs = data.labs;
 const done = labs.filter((l) => l.status === 'completed');
+const pages = labs.filter((l) => l.status === 'completed' || l.status === 'in-progress');
 const statusClass = (l) => (l.status === 'completed' ? 'done' : /next/i.test(l.when) ? 'next' : 'soon');
 const statusText = (l) => (l.status === 'completed' ? 'Completed' : l.when);
 
@@ -100,8 +101,8 @@ function hub() {
         <span class="num">LAB ${l.number}</span>
         <h3>${esc(l.title)}</h3>
         ${l.cardSummary ? `<p>${l.cardSummary}</p>` : ''}
-        <div class="foot-row"><span class="status ${statusClass(l)}">${esc(statusText(l))}</span>${l.status === 'completed' ? '<span class="go">Open lab &rarr;</span>' : ''}</div>`;
-    return l.status === 'completed'
+        <div class="foot-row"><span class="status ${statusClass(l)}">${esc(statusText(l))}</span>${pages.includes(l) ? '<span class="go">Open lab &rarr;</span>' : ''}</div>`;
+    return pages.includes(l)
       ? `      <a class="lab done" href="${BASE}/${l.slug}">${inner}\n      </a>`
       : `      <article class="lab upcoming">${inner}\n      </article>`;
   }).join('\n');
@@ -155,13 +156,13 @@ ${footer}`;
 }
 
 function labPage(lab) {
-  const i = done.indexOf(lab);
-  const prev = done[i - 1];
-  const next = done[i + 1];
+  const i = pages.indexOf(lab);
+  const prev = pages[i - 1];
+  const next = pages[i + 1];
   const facts = lab.facts.map(([dt, dd]) => `<div><dt>${esc(dt)}</dt><dd>${dd}</dd></div>`).join('');
   const cta = lab.cta.map((c) => `<a class="btn ${c.primary ? 'primary' : 'ghost'}" href="${abs(lab, c.href)}"${ext(c.href)}>${esc(c.label)}</a>`).join('\n      ');
   const v = lab.video;
-  const recording = `
+  const recording = v ? `
 <section class="band" id="recording" aria-labelledby="rec-title">
   <div class="wrap">
     <p class="eyebrow">Level 2 &middot; The recording</p>
@@ -175,7 +176,21 @@ function labPage(lab) {
     </div>
     <p class="player-meta"><strong>${v.meta}</strong>${lab.officialUrl ? `<a class="fine" href="${lab.officialUrl}" target="_blank" rel="noopener">Official lab page and recording (cohort login) &rarr;</a>` : ''}</p>
   </div>
-</section>`;
+</section>` : '';
+
+  const audio = lab.audio ? `
+<section class="band" id="podcast" aria-labelledby="podcast-title">
+  <div class="wrap">
+    <p class="eyebrow">Thesis podcast</p>
+    <h2 id="podcast-title">${esc(lab.audio.title)}</h2>
+    <p class="sub">${esc(lab.audio.description)}</p>
+    <audio controls preload="metadata" aria-label="${esc(lab.audio.title)}" style="width:min(100%,680px)">
+      <source src="${esc(lab.audio.src)}" type="audio/mpeg">
+      <a href="${esc(lab.audio.src)}">Download the podcast</a>
+    </audio>
+    <p><a href="${esc(lab.audio.transcript)}">Read the original thesis and transcript</a></p>
+  </div>
+</section>` : '';
 
   const approach = `
 <section class="band alt" aria-labelledby="app-title">
@@ -273,7 +288,7 @@ ${heroOpen}
       ${cta}
     </div>${heroClose}
 
-<main id="main">${recording}${approach}${work}${proof}${pager}
+<main id="main">${recording}${audio}${approach}${work}${proof}${pager}
 </main>
 ${footer}`;
 }
@@ -286,8 +301,8 @@ if (existsSync(OUT)) {
 }
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, 'index.html'), hub());
-for (const lab of done) {
+for (const lab of pages) {
   mkdirSync(join(OUT, lab.slug), { recursive: true });
   writeFileSync(join(OUT, lab.slug, 'index.html'), labPage(lab));
 }
-console.log(`MCX AI Labs: hub + ${done.length} lab pages written to public${BASE}/`);
+console.log(`MCX AI Labs: hub + ${pages.length} lab pages written to public${BASE}/`);
