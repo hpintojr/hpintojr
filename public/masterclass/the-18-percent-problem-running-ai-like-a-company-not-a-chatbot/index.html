@@ -55,7 +55,15 @@
   .breadcrumb{margin:22px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
   .breadcrumb ol{display:flex;flex-wrap:wrap;gap:4px 8px;margin:0;padding:0;list-style:none}
   .breadcrumb li+li::before{content:"/";margin-right:8px;color:var(--muted)}
-  .share{font-weight:600;white-space:nowrap}
+  .share{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:8px 14px;border:1.5px solid var(--brand);border-radius:2px;background:transparent;color:var(--brand);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap;line-height:1;transition:background-color .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+  .share svg{width:15px;height:15px;flex:none;transition:transform .18s ease}
+  .share:hover,.share:focus-visible{background:var(--brand);border-color:var(--brand);color:#fff;transform:translateY(-1px);box-shadow:0 6px 18px -8px rgba(23,43,52,.45)}
+  .share:hover svg,.share:focus-visible svg{transform:translateX(1px) rotate(-6deg)}
+  .share:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+  @media (prefers-color-scheme: dark){
+    .share:hover,.share:focus-visible{background:#fff;border-color:#fff;color:#121a1f;box-shadow:0 6px 22px -8px rgba(143,192,176,.55)}
+  }
+  @media (prefers-reduced-motion: reduce){.share,.share svg{transition:none}.share:hover,.share:focus-visible,.share:hover svg,.share:focus-visible svg{transform:none}}
 
   /* Hero */
   .hero{padding:32px 0 0}
@@ -181,7 +189,7 @@
 
   <div class="topline">
     <a class="topline-brand" href="/" aria-label="Hamilton Pinto Jr., home"><img class="topline-logo" src="/hamilton-signature-black.svg" width="1793" height="625" alt="Hamilton Pinto Jr., Consultant" /></a>
-    <span class="topline-meta"><span>Riverside, California</span><a class="share" href="mailto:?subject=The%2018%25%20problem%3A%20running%20AI%20like%20a%20company%2C%20not%20a%20chatbot&amp;body=https%3A%2F%2Fhamiltonpinto.com%2Fmasterclass%2Fthe-18-percent-problem-running-ai-like-a-company-not-a-chatbot">Share by email</a></span>
+    <span class="topline-meta"><span>Riverside, California</span><a class="share" href="mailto:?subject=The%2018%25%20problem%3A%20running%20AI%20like%20a%20company%2C%20not%20a%20chatbot&amp;body=https%3A%2F%2Fhamiltonpinto.com%2Fmasterclass%2Fthe-18-percent-problem-running-ai-like-a-company-not-a-chatbot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>Share by email</span></a></span>
   </div>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
