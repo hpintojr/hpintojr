@@ -431,7 +431,7 @@
         "caption": "An executive walkthrough of the Mercury CRM persona discovery, 40-buyer usability test, CRO split test, and GTM shift."
       },
       "approach": [
-        "<strong>Ground personas in evidence, not guesses.</strong> I configured ux-persona-builder with an evidence linter so every persona claim maps to MIT/RAND studies, Reddit threads, or G2 reviews\u2014and flagged freebie-hunting blog traffic to exclude from ad spend.",
+        "<strong>Ground personas in evidence, not guesses.</strong> I configured ux-persona-builder with an evidence linter so every persona claim maps to MIT/RAND studies, Reddit threads, or G2 reviews—and flagged freebie-hunting blog traffic to exclude from ad spend.",
         "<strong>Converge on volume, diverge for leverage.</strong> Convergence identified busy inbound sales managers (Mortgage/Lending) and home service crews, while divergence surfaced B2B systems consultants who bring 5 to 20 client sub-accounts at once.",
         "<strong>Expose onboarding friction at scale.</strong> Walking 40 synthetic buyers through a standard 14-day DIY trial revealed a 65% drop-off when asking busy owners for phone carrier API keys and a blank AI prompt box.",
         "<strong>Lead with a diagnostic and live proof.</strong> In split testing, a 60-second live AI phone call paired with a 5-day Revenue Diagnostic beat the empty DIY trial across our core revenue personas."
@@ -516,7 +516,7 @@
       "number": "04",
       "title": "AI-Powered Marketing: Campaigns, Voice, and Video",
       "status": "in-progress",
-      "when": "Walkthrough in production",
+      "when": "Walkthrough available",
       "cardSummary": "A two-voice thesis podcast and a 49-second Mercury CRM film with kinetic captions and three social formats.",
       "assetBase": "https://ai-lab-powered-marketing.vercel.app",
       "repo": {
@@ -539,7 +539,7 @@
         ],
         [
           "Walkthrough",
-          "Original narration<br><span class=\"dim\">In production</span>"
+          "Original narration<br><span class=\"dim\">4:15 · captioned</span>"
         ]
       ],
       "cta": [
@@ -547,6 +547,10 @@
           "label": "Listen to the podcast",
           "href": "#podcast",
           "primary": true
+        },
+        {
+          "label": "Watch the walkthrough",
+          "href": "#recording"
         },
         {
           "label": "Open the campaign showcase",
@@ -676,7 +680,15 @@
           ]
         }
       ],
-      "related": []
+      "related": [],
+      "video": {
+        "title": "My project walkthrough",
+        "caption": "I explain the thesis podcast, how I made the Mercury CRM campaign, and what the finished work is meant to do.",
+        "src": "/media/lab04-walkthrough.mp4",
+        "poster": "/media/lab04-walkthrough-poster.jpg",
+        "meta": "4:15 · 1080p · Captioned",
+        "script": "/script/"
+      }
     },
     {
       "slug": "agent-workforce",

@@ -174,7 +174,7 @@ function labPage(lab) {
         <a href="${abs(lab, v.src)}">Watch the presentation</a>.
       </video>
     </div>
-    <p class="player-meta"><strong>${v.meta}</strong>${lab.officialUrl ? `<a class="fine" href="${lab.officialUrl}" target="_blank" rel="noopener">Official lab page and recording (cohort login) &rarr;</a>` : ''}</p>
+    <p class="player-meta"><strong>${v.meta}</strong>${v.script ? `<a href="${abs(lab, v.script)}">Read the recording script</a>` : ''}${lab.officialUrl ? `<a class="fine" href="${lab.officialUrl}" target="_blank" rel="noopener">Official lab page and recording (cohort login) &rarr;</a>` : ''}</p>
   </div>
 </section>` : '';
 
