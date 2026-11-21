@@ -4,9 +4,9 @@
   gap: .7rem;
   min-height: 3rem;
   padding: .6rem 1rem .6rem .65rem;
-  border: 1px solid var(--border);
+  border: 1px solid #b49ac9;
   border-radius: 999px;
-  background: var(--ink);
+  background: #503363;
   color: #fff !important;
   text-decoration: none !important;
   font: 700 15px/1.3 system-ui, sans-serif;
@@ -22,7 +22,7 @@
 }
 .podcast-launch .launch-icon svg { width: 14px; height: 14px; }
 .podcast-launch span:last-child { padding-right: 5px; }
-.podcast-launch:hover { background: #42235c; }
+.podcast-launch:hover { background: #633e78; }
 .podcast-launch:focus-visible, .podcast-studio :focus-visible { outline: 3px solid #a775e4; outline-offset: 4px; }
 .podcast-hero-action { margin: 1.4rem 0 1.6rem; }
 .podcast-hero-action .podcast-time { display: inline-block; color: var(--muted); font: 600 13px/1.4 system-ui,sans-serif; margin-left: .65rem; }
@@ -31,6 +31,10 @@
 .podcast-inline-action { display: none; margin: 0 0 .9rem; }
 html.podcast-open { overflow: hidden; }
 dialog.podcast-studio {
+  --studio-text: #fcf8ff;
+  --studio-muted: #e0d8e6;
+  --studio-mint: #b8e3d7;
+  --studio-border: #e9d5ff38;
   position: fixed;
   inset: 0;
   width: 100%;
@@ -43,8 +47,12 @@ dialog.podcast-studio {
   overflow: auto;
   overscroll-behavior: contain;
   padding: clamp(1rem,4vw,3.25rem);
-  background: radial-gradient(ellipse at 9% 15%, #372450 0%, #190e29 38%, #0d101a 77%);
-  color: #fcf8ff;
+  background:
+    radial-gradient(circle at 1px 1px, #e8d8fb20 .75px, transparent 1.25px) 0 0 / 24px 24px,
+    radial-gradient(ellipse at 94% 4%, #743f77 0%, transparent 55%),
+    radial-gradient(ellipse at 94% 110%, #17404a 0%, transparent 56%),
+    linear-gradient(136deg, #1a122b 12%, #211630 52%, #10222e 100%);
+  color: var(--studio-text);
   color-scheme: dark;
   font: 400 1rem/1.55 system-ui,sans-serif;
 }
@@ -54,9 +62,10 @@ dialog.podcast-studio[open][data-closing] { animation: studio-out .23s ease-in b
 .podcast-studio[data-closing]::backdrop { animation: studio-out .23s ease-in both; }
 @keyframes studio-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes studio-out { from { opacity: 1; } to { opacity: 0; } }
-.studio-shell { width: min(1120px,100%); min-height: 100%; margin: auto; display: grid; grid-template-rows: auto 1fr; gap: 1.6rem; }
-.studio-top { display: flex; justify-content: space-between; align-items: center; gap: .7rem; }
-.studio-kicker { margin: 0; color: #dbc5ee; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; font-size: .81rem; }
+.studio-shell { width: min(1150px,100%); min-height: 100%; margin: auto; display: grid; grid-template-rows: auto 1fr; }
+.studio-top { display: flex; justify-content: space-between; align-items: center; gap: .85rem; padding-bottom: 1.05rem; border-bottom: 1px solid var(--studio-border); }
+.studio-signature { display: block; width: clamp(120px,20vw,220px); height: auto; }
+.studio-kicker { margin: 0; color: var(--studio-mint); font-weight: 750; letter-spacing: .18em; text-transform: uppercase; font-size: .78rem; }
 .studio-close, .studio-button, .studio-speed {
   padding: .65rem .85rem;
   border: 1px solid #ffffff30;
@@ -70,15 +79,30 @@ dialog.podcast-studio[open][data-closing] { animation: studio-out .23s ease-in b
 .studio-close { display: flex; gap: .55rem; align-items: center; }
 .studio-close span { font-size: 1.2rem; line-height: 1; }
 .studio-close:hover, .studio-button:hover { background: #f5e2ff2a; }
-.studio-grid { align-self: center; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.05fr); gap: clamp(1.5rem,5vw,4.75rem); align-items: center; padding-bottom: clamp(.5rem,3vw,2.5rem); }
+.studio-grid {
+  align-self: center;
+  display: grid;
+  grid-template:
+    "copy listen" auto
+    "meta listen" auto / minmax(0,1.23fr) minmax(0,1fr);
+  align-items: start;
+  gap: 1.65rem clamp(1.6rem,5.5vw,5.15rem);
+  padding-block: clamp(2.25rem,7vh,5.25rem);
+}
 .podcast-studio[open]:not([data-closing]) .studio-grid { animation: studio-reveal .55s cubic-bezier(.22,.85,.3,1) both; }
 @keyframes studio-reveal { from { opacity: 0; transform: translateY(22px) scale(.986); } to { opacity: 1; transform: none; } }
-.studio-art { aspect-ratio: 1; margin: 0; border-radius: clamp(1rem,3vw,2rem); overflow: hidden; border: 1px solid #e9d5ff35; box-shadow: 0 1.5rem 5rem #080613a0; }
+.studio-copy { grid-area: copy; align-self: end; }
+.studio-listen { grid-area: listen; align-self: center; min-width: 0; }
+.studio-art { aspect-ratio: 16 / 9; margin: 0 0 .85rem; border-radius: 1rem; overflow: hidden; border: 1px solid var(--studio-border); box-shadow: 0 1.25rem 4rem #08061366; }
 .studio-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.studio-copy h2 { margin: .5rem 0 .7rem; color: #fff; font: 720 clamp(2.85rem,6.2vw,6rem)/.99 Georgia,serif; letter-spacing: -.075em; }
-.studio-copy .studio-subtitle { margin: 0 0 .5rem; color: #f5e8fc; font-weight: 650; font-size: clamp(1.1rem,2vw,1.35rem); }
-.studio-byline { margin: .25rem 0 1.7rem; color: #d5bfdc; font-size: .9rem; }
-.studio-player { padding: clamp(1rem,3vw,1.5rem); border-radius: 1.4rem; background: #ecd5ff13; border: 1px solid #ead0ff32; }
+.studio-copy h2 { margin: .7rem 0 .65rem; color: var(--studio-text); font: 400 clamp(3rem,7.1vw,6.25rem)/.98 Georgia,serif; letter-spacing: -.055em; text-wrap: balance; }
+.studio-copy .studio-subtitle { margin: 0 0 1.1rem; color: var(--studio-mint); font: italic 400 clamp(1.55rem,3.65vw,3.1rem)/1.13 Georgia,serif; letter-spacing: -.015em; text-wrap: balance; }
+.studio-intro { margin: 0; max-width: 45ch; color: var(--studio-muted); line-height: 1.65; font-size: clamp(.98rem,1.4vw,1.11rem); }
+.studio-meta { grid-area: meta; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .6rem; margin: 0; }
+.studio-meta > div { padding: .7rem .8rem; border: 1px solid var(--studio-border); border-radius: .85rem; background: #ddd7ff10; }
+.studio-meta dt { color: var(--studio-mint); font-size: .68rem; font-weight: 750; letter-spacing: .125em; text-transform: uppercase; }
+.studio-meta dd { margin: .25rem 0 0; color: var(--studio-text); font-size: .88rem; line-height: 1.35; }
+.studio-player { padding: clamp(.9rem,2.5vw,1.4rem); border-radius: 1rem; background: #171124b8; border: 1px solid var(--studio-border); }
 .studio-wave { display: flex; align-items: center; justify-content: space-between; height: 50px; gap: 2px; margin: 0 0 .55rem; overflow: hidden; }
 .studio-wave span { flex: 1 1 0; min-width: 2px; max-width: 5px; border-radius: 999px; height: var(--height); background: #e0bcff51; transition: background .2s; }
 .studio-wave span[data-played] { background: #f0d4ff; }
@@ -94,14 +118,17 @@ dialog.podcast-studio[open][data-closing] { animation: studio-out .23s ease-in b
 .studio-speed option { background: #241835; color: #fff; }
 .studio-notice:empty { display: none; }
 .studio-notice { margin: .7rem 0 0; color: #f6d6f7; }
-.studio-links { display: flex; flex-wrap: wrap; gap: .9rem 1.1rem; margin: 1rem 0 0; }
+.studio-links { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; margin: .85rem 0 0; }
 .studio-links a, .studio-transcript { color: #f0d5ff; text-decoration: underline; text-underline-offset: .22em; font: 650 .9rem/1.5 system-ui,sans-serif; }
 .studio-transcript { border: 0; background: none; padding: 0; cursor: pointer; }
-@media (max-width: 700px) {
-  .studio-grid { grid-template-columns: 1fr; gap: 1.25rem; width: min(470px, 100%); margin: 0 auto; }
-  .studio-art { width: min(48vw,230px); }
-  .studio-top { align-items: start; }
-  .studio-copy h2 { letter-spacing: -.06em; }
+@media (max-width: 760px) {
+  .studio-grid { grid-template: "copy" auto "listen" auto "meta" auto / minmax(0,1fr); width: min(510px,100%); margin: 0 auto; gap: 1.35rem; padding-block: 1.8rem 1rem; }
+  .studio-art { aspect-ratio: 2.35; }
+  .studio-copy h2, .studio-copy .studio-subtitle { text-wrap: wrap; }
+  .studio-copy .studio-subtitle { margin-bottom: .75rem; }
+}
+@media (max-width: 355px) {
+  .studio-meta { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   .podcast-studio, .podcast-studio::backdrop, .podcast-studio .studio-grid { animation-duration: .01ms !important; }
