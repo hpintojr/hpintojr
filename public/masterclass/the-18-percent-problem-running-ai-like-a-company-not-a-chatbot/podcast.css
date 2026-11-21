@@ -72,10 +72,11 @@ dialog.podcast-studio[open][data-closing] { animation: studio-out .23s ease-in b
 .studio-copy h2 { margin: .7rem 0 .65rem; color: var(--studio-text); font: 400 clamp(3rem,7.1vw,6.25rem)/.98 Georgia,serif; letter-spacing: -.055em; text-wrap: balance; }
 .studio-copy .studio-subtitle { margin: 0 0 1.1rem; color: var(--studio-mint); font: italic 400 clamp(1.55rem,3.65vw,3.1rem)/1.13 Georgia,serif; letter-spacing: -.015em; text-wrap: balance; }
 .studio-intro { margin: 0; max-width: 45ch; color: var(--studio-muted); line-height: 1.65; font-size: clamp(.98rem,1.4vw,1.11rem); }
-.studio-meta { grid-area: meta; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .6rem; margin: 0; }
-.studio-meta > div { padding: .7rem .8rem; border: 1px solid var(--studio-border); border-radius: .85rem; background: #ddd7ff10; }
+.studio-meta { grid-area: meta; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; }
+.studio-meta > div { flex: 1 1 0; min-inline-size: max-content; padding: .7rem .8rem; border: 1px solid var(--studio-border); border-radius: .85rem; background: #ddd7ff10; }
+.studio-meta > div:first-child { flex-grow: 1.25; }
 .studio-meta dt { color: var(--studio-mint); font-size: .68rem; font-weight: 750; letter-spacing: .125em; text-transform: uppercase; }
-.studio-meta dd { margin: .25rem 0 0; color: var(--studio-text); font-size: .88rem; line-height: 1.35; }
+.studio-meta dd { margin: .25rem 0 0; color: var(--studio-text); font-size: .88rem; line-height: 1.35; white-space: nowrap; }
 .studio-player { padding: clamp(.9rem,2.5vw,1.4rem); border-radius: 1rem; background: #171124b8; border: 1px solid var(--studio-border); }
 .studio-wave { display: flex; align-items: center; justify-content: space-between; height: 50px; gap: 2px; margin: 0 0 .55rem; overflow: hidden; }
 .studio-wave span { flex: 1 1 0; min-width: 2px; max-width: 5px; border-radius: 999px; height: var(--height); background: #e0bcff51; transition: background .2s; }
@@ -107,7 +108,7 @@ dialog.podcast-studio[open][data-closing] { animation: studio-out .23s ease-in b
   .studio-copy .studio-subtitle { margin-bottom: .75rem; }
 }
 @media (max-width: 355px) {
-  .studio-meta { grid-template-columns: 1fr; }
+  .studio-meta { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {
   .podcast-studio, .podcast-studio::backdrop, .podcast-studio .studio-grid { animation-duration: .01ms !important; }
