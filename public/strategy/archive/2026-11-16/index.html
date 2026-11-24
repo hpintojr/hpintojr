@@ -83,6 +83,22 @@
 .lu.past::after{content:"";position:absolute;left:-8%;top:54%;width:116%;height:2px;background:linear-gradient(90deg,transparent,#a3532f 14%,#a3532f 86%,transparent);transform:rotate(-9deg);pointer-events:none}
 .lu .done{display:inline-flex;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#346459;background:#e7efeb;border-radius:999px;padding:4px 10px;margin-top:10px}
 .reg-wrap{background:linear-gradient(180deg,var(--bg),#f3f1ea)}
+.res{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:34px;align-items:center;background:linear-gradient(136deg,#1a122b 0%,#211630 50%,#10222e 100%);border-radius:26px;padding:40px;color:#e0d8e6}
+.res h2{color:#fff;margin:6px 0 12px}
+.res p{color:#e0d8e6;font-size:16px;line-height:1.6;margin:0 0 14px}
+.res-kicker{font-size:12px!important;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a9d1c3!important;margin:0!important}
+.res-pts{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px}
+.res-pts li{position:relative;padding-left:22px;font-size:15px;color:#f1ecf4}
+.res-pts li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:#a9d1c3}
+.res .res-btn{display:inline-flex;background:#fff;color:#172b34;border-radius:999px;padding:14px 26px;font-weight:700;text-decoration:none}
+.res .res-btn:hover{background:#e7efeb}
+.res-meta{font-size:13px!important;color:#b7aec2!important;margin:10px 0 0!important}
+.res-cover{display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:8.5/11;max-width:260px;justify-self:center;width:100%;border-radius:12px;padding:22px;text-decoration:none;background:radial-gradient(120% 80% at 10% 0%,#5b3f86 0%,transparent 55%),radial-gradient(90% 70% at 100% 100%,#1f5a55 0%,transparent 60%),#1a122b;box-shadow:0 30px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);transform:rotate(2deg);transition:transform .2s}
+.res-cover:hover{transform:rotate(0) translateY(-4px)}
+.rc-k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a9d1c3;margin-bottom:8px}
+.rc-t{font-family:Georgia,"Times New Roman",serif;font-size:26px;line-height:1.1;color:#fff}
+.rc-s{font-size:12px;color:#cfc6d8;margin-top:8px}
+@media (max-width:760px){.res{grid-template-columns:1fr;padding:28px 22px}.res-cover{max-width:200px}}
 .plan{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .hour{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 30px 32px;overflow:hidden}
 .hour .num{position:absolute;right:22px;top:6px;font-family:Georgia,"Times New Roman",serif;font-size:110px;line-height:1;color:rgba(52,100,89,.08);pointer-events:none}
@@ -202,7 +218,8 @@
       <p>New session every Monday. Past ones stay listed here.</p>
     </div>
     <ul class="catalog">
-      <li><div class="c-left"><span class="date-tile" aria-hidden="true"><span class="dt-mon">Nov</span><span class="dt-day">23</span><span class="dt-wd">Mon</span></span><div><a href="/strategy">This week's labs, guest speaker and projects</a><span class="when">Monday, Nov 23 &middot; 10:00 AM to 12:00 PM PT (1:00 to 3:00 PM ET)</span></div></div><span class="pill up">Up next</span></li>
+      <li><div class="c-left"><span class="date-tile" aria-hidden="true"><span class="dt-mon">Nov</span><span class="dt-day">30</span><span class="dt-wd">Mon</span></span><div><a href="/strategy">AI Labs study session &amp; Q&amp;A</a><span class="when">Monday, Nov 30 &middot; 3:00 to 5:00 PM PT (6:00 to 8:00 PM ET)</span></div></div><span class="pill up">Up next</span></li>
+      <li><div class="c-left"><span class="date-tile" aria-hidden="true"><span class="dt-mon">Nov</span><span class="dt-day">23</span><span class="dt-wd">Mon</span></span><div><a href="/strategy/archive/2026-11-23">This week's labs, guest speaker and projects</a><span class="when">Monday, Nov 23 &middot; 10:00 AM to 12:00 PM PT (1:00 to 3:00 PM ET)</span></div></div><span class="pill past">Archived</span></li>
       <li class="cur"><div class="c-left"><span class="date-tile" aria-hidden="true"><span class="dt-mon">Nov</span><span class="dt-day">16</span><span class="dt-wd">Mon</span></span><div><span class="t" aria-current="page">The new project: customer research with synthetic users</span><span class="when">Monday, Nov 16 &middot; 3:00 to 5:00 PM PT (6:00 to 8:00 PM ET)</span></div></div><span class="pill past">Archived</span></li>
     </ul>
   </div>

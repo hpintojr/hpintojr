@@ -2,55 +2,72 @@
   "basePath": "/strategy",
   "sessions": [
     {
-      "slug": "2026-11-23",
+      "slug": "2026-11-30",
       "status": "upcoming",
+      "dateLabel": "Monday, Nov 30",
+      "longDate": "Monday, November 30, 2026",
+      "shortDate": "Nov 30",
+      "timeLabel": "3:00 to 5:00 PM PT",
+      "etLabel": "6:00 to 8:00 PM ET",
+      "startUtc": "2026-11-30T23:00:00Z",
+      "endUtc": "2026-12-01T01:00:00Z",
+      "meetUrl": "https://meet.google.com/pnf-bhve-vek",
+      "sulusFormId": "z17bysejmb94yhqzn57esx6e498jv2a2",
+      "headlineA": "Two hours.",
+      "headlineB": "Study session, then open Q&A.",
+      "lede": "It's Thanksgiving break, so there were no MCX sessions this week. We're using the time as a study session: bring any AI lab, past or current, and whatever you're stuck on. Hour two is an open floor for the struggles nobody has solved yet.",
+      "planNote": "No new labs this week, so it's yours: study whatever lab you need, then work through what's slowing you down.",
+      "ticketNote": "Study session, then open Q&A",
+      "hourOne": {
+        "title": "AI Labs study session & Q&A",
+        "body": "Bring any MCX AI lab, past or current. We work through the steps together, fill the gaps and answer questions live, so you leave with the lab done or unblocked."
+      },
+      "hourTwo": {
+        "title": "Open floor: what you're struggling with",
+        "body": "Bring the problem in front of you, technical or strategic, and hear how others in the cohort are solving theirs."
+      },
+      "resource": {
+        "title": "AI Harness Starter Guide",
+        "kicker": "For the cohort · free download",
+        "href": "/strategy/AI-Harness-Starter-Guide.pdf",
+        "body": "A short report on getting more out of your AI agent while burning fewer tokens: 27 free agent skills from AI Hero and how to install them in Claude Code, Codex and other agents, a primer on Composio for connecting your apps through one MCP, and four habits for a smarter agent on fewer tokens. We'll walk through it live in hour one.",
+        "points": [
+          "27 agent skills, what each one does and when to use it",
+          "Step-by-step install for Claude Code and Codex",
+          "Composio: one connection for your apps and saved skills",
+          "Four habits that cut token burn"
+        ],
+        "meta": "PDF · 7 pages"
+      },
+      "upcomingWeek": [],
+      "ogImage": "og-2026-11-30.jpg",
+      "ogHour1": "AI Labs study session & Q&A",
+      "ogHour2": "Open floor: what you're struggling with"
+    },
+    {
+      "slug": "2026-11-23",
+      "status": "completed",
       "dateLabel": "Monday, Nov 23",
       "longDate": "Monday, November 23, 2026",
       "shortDate": "Nov 23",
       "timeLabel": "10:00 AM to 12:00 PM PT",
       "etLabel": "1:00 to 3:00 PM ET",
-      "timeUpdated": true,
       "startUtc": "2026-11-23T18:00:00Z",
       "endUtc": "2026-11-23T20:00:00Z",
       "meetUrl": "https://meet.google.com/pnf-bhve-vek",
       "sulusFormId": "z17ajkss741cqqf279nvy8h3618jd37w",
       "headlineA": "Two hours.",
       "headlineB": "This week's labs, then yours.",
-      "lede": "Hour one is a recap of this week's MCX labs and guest speaker session, plus the projects behind them. Hour two is open discussion: what everyone else in the cohort is building, and how they are doing it.",
+      "lede": "Hour one was a recap of the week's MCX labs and the guest speaker session, plus the projects behind them. Hour two was open discussion: what everyone else in the cohort is building, and how.",
       "hourOne": {
         "title": "This week's labs, guest speaker and projects",
-        "body": "A walkthrough of what we did across this week's MCX labs and the guest speaker session, plus the projects involved: what worked, what didn't, and what you can reuse."
+        "body": "A walkthrough of the week's MCX labs (ElevenLabs) and the Maggie Neale guest session, plus the projects involved: what worked, what didn't, and what you can reuse."
       },
       "hourTwo": {
         "title": "Open discussion: what everyone else is doing, and how",
-        "body": "The floor is yours. Share what you're working on, compare workflows and AI setups, and hear how other members are executing."
+        "body": "Members shared what they are working on, compared workflows and AI setups, and swapped notes on execution."
       },
-      "upcomingWeek": [
-        {
-          "date": "11/16",
-          "who": "Graphite",
-          "kind": "AI Lab Office Hours",
-          "blurb": "Follow-up questions from last week's AI lab."
-        },
-        {
-          "date": "11/18",
-          "who": "Maggie Neale",
-          "kind": "In Conversation",
-          "blurb": "How to ask for more and negotiate with confidence, from a Stanford GSB expert."
-        },
-        {
-          "date": "11/19",
-          "who": "ElevenLabs",
-          "kind": "AI Lab",
-          "blurb": "Use AI voice and video to build better campaigns faster, with Luke Harries."
-        },
-        {
-          "date": "11/20",
-          "who": "Community",
-          "kind": "Office Hours",
-          "blurb": "Bring your questions, share ideas, and connect with your cohort."
-        }
-      ],
+      "upcomingWeek": [],
       "ogImage": "og-2026-11-23.jpg",
       "ogHour1": "This week's labs & guest speaker",
       "ogHour2": "Open floor: what you're building"

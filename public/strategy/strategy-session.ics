@@ -4,12 +4,12 @@ PRODID:-//Hamilton Pinto Jr.//Strategy Session//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:strategy-session-20261123@hamiltonpinto.com
-DTSTAMP:20261110T180000Z
-DTSTART:20261123T180000Z
-DTEND:20261123T200000Z
+UID:strategy-session-20261130@hamiltonpinto.com
+DTSTAMP:20261117T230000Z
+DTSTART:20261130T230000Z
+DTEND:20261201T010000Z
 SUMMARY:Strategy Session with Hamilton Pinto Jr.
-DESCRIPTION:Two hour member-hosted Strategy Session for the MasterClass Executive Fall 2026 cohort.\nHour one: This week's labs\, guest speaker and projects.\nHour two: Open discussion: what everyone else is doing\, and how.\nJoin: https://meet.google.com/pnf-bhve-vek\nDetails: https://hamiltonpinto.com/strategy\nRecorded for Hamilton's private notes only\, never shared or posted. Member-hosted session\, not an official MasterClass Executive or Chicago Booth event.
+DESCRIPTION:Two hour member-hosted Strategy Session for the MasterClass Executive Fall 2026 cohort.\nHour one: AI Labs study session & Q&A.\nHour two: Open floor: what you're struggling with.\nJoin: https://meet.google.com/pnf-bhve-vek\nDetails: https://hamiltonpinto.com/strategy\nRecorded for Hamilton's private notes only\, never shared or posted. Member-hosted session\, not an official MasterClass Executive or Chicago Booth event.
 LOCATION:https://meet.google.com/pnf-bhve-vek
 URL:https://meet.google.com/pnf-bhve-vek
 STATUS:CONFIRMED

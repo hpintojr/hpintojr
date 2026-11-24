@@ -106,6 +106,22 @@ const EXTRA_CSS = `<style>
 .lu.past::after{content:"";position:absolute;left:-8%;top:54%;width:116%;height:2px;background:linear-gradient(90deg,transparent,#a3532f 14%,#a3532f 86%,transparent);transform:rotate(-9deg);pointer-events:none}
 .lu .done{display:inline-flex;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#346459;background:#e7efeb;border-radius:999px;padding:4px 10px;margin-top:10px}
 .reg-wrap{background:linear-gradient(180deg,var(--bg),#f3f1ea)}
+.res{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:34px;align-items:center;background:linear-gradient(136deg,#1a122b 0%,#211630 50%,#10222e 100%);border-radius:26px;padding:40px;color:#e0d8e6}
+.res h2{color:#fff;margin:6px 0 12px}
+.res p{color:#e0d8e6;font-size:16px;line-height:1.6;margin:0 0 14px}
+.res-kicker{font-size:12px!important;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a9d1c3!important;margin:0!important}
+.res-pts{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px}
+.res-pts li{position:relative;padding-left:22px;font-size:15px;color:#f1ecf4}
+.res-pts li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:#a9d1c3}
+.res .res-btn{display:inline-flex;background:#fff;color:#172b34;border-radius:999px;padding:14px 26px;font-weight:700;text-decoration:none}
+.res .res-btn:hover{background:#e7efeb}
+.res-meta{font-size:13px!important;color:#b7aec2!important;margin:10px 0 0!important}
+.res-cover{display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:8.5/11;max-width:260px;justify-self:center;width:100%;border-radius:12px;padding:22px;text-decoration:none;background:radial-gradient(120% 80% at 10% 0%,#5b3f86 0%,transparent 55%),radial-gradient(90% 70% at 100% 100%,#1f5a55 0%,transparent 60%),#1a122b;box-shadow:0 30px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);transform:rotate(2deg);transition:transform .2s}
+.res-cover:hover{transform:rotate(0) translateY(-4px)}
+.rc-k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a9d1c3;margin-bottom:8px}
+.rc-t{font-family:Georgia,"Times New Roman",serif;font-size:26px;line-height:1.1;color:#fff}
+.rc-s{font-size:12px;color:#cfc6d8;margin-top:8px}
+@media (max-width:760px){.res{grid-template-columns:1fr;padding:28px 22px}.res-cover{max-width:200px}}
 .plan{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .hour{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 30px 32px;overflow:hidden}
 .hour .num{position:absolute;right:22px;top:6px;font-family:Georgia,"Times New Roman",serif;font-size:110px;line-height:1;color:rgba(52,100,89,.08);pointer-events:none}
@@ -251,7 +267,7 @@ function hero(s, isNext) {
         </div>
       </div>
       <ul class="ticket-rows">
-        <li><span class="ico">${ICONS.clock}</span><div><strong>Two hours</strong><span>Hour one recap, hour two open floor</span></div></li>
+        <li><span class="ico">${ICONS.clock}</span><div><strong>Two hours</strong><span>${esc(s.ticketNote || 'Hour one recap, hour two open floor')}</span></div></li>
         <li><span class="ico">${ICONS.video}</span><div><strong>Google Meet</strong><span>${isNext ? 'Link emailed the moment you register' : 'Live session, no public replay'}</span></div></li>
         <li><span class="ico">${ICONS.users}</span><div><strong>Open to the whole cohort</strong><span>No seat limit, no waiting room</span></div></li>
       </ul>
@@ -339,7 +355,7 @@ function plan(s, isNext, alt) {
         <p class="eyebrow">The two-hour plan</p>
         <h2 id="a-title">${isNext ? 'What we cover' : 'What we covered'}</h2>
       </div>
-      <p>${isNext ? 'One hour on what the program just taught us, one hour on what the cohort is actually doing with it.' : 'Live session. There is no public replay.'}</p>
+      <p>${isNext ? esc(s.planNote || 'One hour on what the program just taught us, one hour on what the cohort is actually doing with it.') : 'Live session. There is no public replay.'}</p>
     </div>
     <div class="plan">
       <article class="hour one">
@@ -354,6 +370,32 @@ function plan(s, isNext, alt) {
         <h3>${esc(s.hourTwo.title)}</h3>
         <p>${esc(s.hourTwo.body)}</p>
       </article>
+    </div>
+  </div>
+</section>`;
+}
+
+function resource(s) {
+  const r = s.resource;
+  if (!r) return '';
+  const pts = (r.points || []).map((p) => `<li>${esc(p)}</li>`).join('');
+  return `
+<section class="band" id="guide" aria-labelledby="r-title">
+  <div class="wrap">
+    <div class="res">
+      <div class="res-copy">
+        <p class="res-kicker">${esc(r.kicker)}</p>
+        <h2 id="r-title">${esc(r.title)}</h2>
+        <p>${esc(r.body)}</p>
+        <ul class="res-pts">${pts}</ul>
+        <a class="btn res-btn" href="${esc(r.href)}" target="_blank" rel="noopener">Download the PDF</a>
+        <p class="res-meta">${esc(r.meta || 'PDF')}</p>
+      </div>
+      <a class="res-cover" href="${esc(r.href)}" target="_blank" rel="noopener" aria-label="Open the ${esc(r.title)} PDF">
+        <span class="rc-k">Hamilton Pinto Jr.</span>
+        <span class="rc-t">${esc(r.title)}</span>
+        <span class="rc-s">Skills and Composio</span>
+      </a>
     </div>
   </div>
 </section>`;
@@ -408,7 +450,7 @@ function countdown(s) {
 function page(s, path) {
   const isNext = s.status === 'upcoming';
   const body = isNext
-    ? `${lineup(s)}${register(s)}${plan(s, true, true)}${catalog(s, false)}`
+    ? `${lineup(s)}${register(s)}${plan(s, true, true)}${resource(s)}${catalog(s, true)}`
     : `${plan(s, false, true)}${catalog(s, false)}`;
   return `${head(s, path, isNext)}
 ${isNext ? '<a class="skip" href="#register">Skip to registration</a>' : '<a class="skip" href="#a-title">Skip to content</a>'}
@@ -453,6 +495,7 @@ p{margin:0 0 14px;font-size:15px;line-height:1.55;color:#59686b}
 .cal a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 6px;border:1px solid #dedfd8;border-radius:10px;color:#172b34;font-weight:600;font-size:14px;text-decoration:none}
 .cal a:hover{border-color:#346459;color:#346459}
 .fine{font-size:12.5px;color:#7a8689;margin:0}
+.guide{margin:0 0 16px}.guide a{display:block;padding:12px;border-radius:12px;background:#1a122b;color:#fff;font-weight:600;text-decoration:none;font-size:14.5px}
 .fine a{color:#346459}
 a:focus-visible{outline:2px solid #346459;outline-offset:2px}
 </style>
@@ -470,7 +513,8 @@ a:focus-visible{outline:2px solid #346459;outline-offset:2px}
     <a href="${esc(c.google)}" target="_blank" rel="noopener">Google</a>
     <a href="${esc(c.outlook)}" target="_blank" rel="noopener">Outlook</a>
   </div>
-  <p class="fine">Using Outlook at work (Microsoft 365)? Tap Apple instead; the .ics file opens in any calendar app. Recorded for Hamilton's private notes only, never shared or posted. Member-hosted session, not an official MasterClass Executive or Chicago Booth event.</p>
+${s.resource ? `  <p class="guide"><a href="${esc(s.resource.href)}" target="_blank" rel="noopener">Download the ${esc(s.resource.title)} (PDF)</a></p>
+` : ''}  <p class="fine">Using Outlook at work (Microsoft 365)? Tap Apple instead; the .ics file opens in any calendar app. Recorded for Hamilton's private notes only, never shared or posted. Member-hosted session, not an official MasterClass Executive or Chicago Booth event.</p>
 </main>
 <p class="back"><a href="${BASE}">&larr; Back to the event page</a></p>
 </body>
