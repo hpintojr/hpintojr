@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>The Rubik's Board: How I Make Decisions With Nine Seats | Hamilton Pinto Jr.</title>
+<meta name="description" content="Hamilton Pinto Jr.'s MasterClass Executive follow-up thesis: a synthetic board of directors with nine seats, one vote each, a 1.5x weight for the two lead seats in a vertical, and a human chairman when it ties." />
+<link rel="canonical" href="https://hamiltonpinto.com/masterclass/the-rubiks-board-nine-seats-one-face" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Rubik's Board: How I Make Decisions With Nine Seats" />
+<meta property="og:description" content="Nine seats, one vote each, a 1.5x weight for the two lead seats in a vertical, and a human chairman when it ties. How I run decisions through a synthetic board on Otto3." />
+<meta property="og:url" content="https://hamiltonpinto.com/masterclass/the-rubiks-board-nine-seats-one-face" />
+<meta property="og:image" content="https://hamiltonpinto.com/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-share-1200x642.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="642" />
+<meta property="og:image:alt" content="An operator at a desk facing a 3 by 3 Rubik's cube face with nine business icons, with the Hamilton Pinto Jr., Consultant signature bottom right." />
+<meta property="article:published_time" content="2026-11-26" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<style>
+  button, [role="button"], select, summary { min-height:2.25rem; }
+  a { min-height:2rem; }
+  :root{
+    --bg:#faf9f6; --bg-soft:#f1f2eb; --card:#ffffff; --ink:#172b34; --ink-2:#3d4f57; --muted:#59686b;
+    --brand:#346459; --brand-soft:#e7efeb; --border:#dedfd8; --border-strong:#c9cdc2; --frame:#e9ece3;
+    --gold:#8a6d2f; --danger:#9c2f24; --danger-soft:#f9ecea; --warn:#7a5a12; --warn-soft:#f7f0d9;
+    --sig-filter:none;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#121a1f; --bg-soft:#182228; --card:#182228; --ink:#eceee9; --ink-2:#c3cdc9; --muted:#9aa8a3;
+      --brand:#8fc0b0; --brand-soft:#1d2f2a; --border:#2b383e; --border-strong:#3d4d54; --frame:#1e2c2a;
+      --gold:#d3b26a; --danger:#f0a198; --danger-soft:#2e1c19; --warn:#e2c87e; --warn-soft:#2b2513;
+      --sig-filter:invert(1) brightness(1.6);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3.serif{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.035em}
+  a{color:var(--brand);text-underline-offset:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px 72px}
+  .topline{display:flex;justify-content:space-between;align-items:center;gap:14px 20px;flex-wrap:wrap;padding:14px 0 16px;border-bottom:1px solid var(--border);font-size:11px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+  .topline strong{color:var(--ink);font-weight:600}
+  .topline-brand{display:flex;align-items:center;line-height:0}
+  .topline-logo{display:block;width:196px;max-width:56vw;height:auto;filter:var(--sig-filter)}
+  .topline-meta{display:flex;gap:14px 20px;flex-wrap:wrap;align-items:center;margin-left:auto}
+  @media(max-width:640px){.topline-logo{width:168px}.topline-meta{margin-left:0}}
+
+  .breadcrumb{margin:22px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+  .breadcrumb ol{display:flex;flex-wrap:wrap;gap:4px 8px;margin:0;padding:0;list-style:none}
+  .breadcrumb li+li::before{content:"/";margin-right:8px;color:var(--muted)}
+  .share{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:8px 14px;border:1.5px solid var(--brand);border-radius:2px;background:transparent;color:var(--brand);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap;line-height:1;transition:background-color .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+  .share svg{width:15px;height:15px;flex:none;transition:transform .18s ease}
+  .share:hover,.share:focus-visible{background:var(--brand);border-color:var(--brand);color:#fff;transform:translateY(-1px);box-shadow:0 6px 18px -8px rgba(23,43,52,.45)}
+  .share:hover svg,.share:focus-visible svg{transform:translateX(1px) rotate(-6deg)}
+  .share:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+  @media (prefers-color-scheme: dark){
+    .share:hover,.share:focus-visible{background:#fff;border-color:#fff;color:#121a1f;box-shadow:0 6px 22px -8px rgba(143,192,176,.55)}
+  }
+  @media (prefers-reduced-motion: reduce){.share,.share svg{transition:none}.share:hover,.share:focus-visible,.share:hover svg,.share:focus-visible svg{transform:none}}
+
+  /* Hero */
+  .hero{padding:32px 0 0}
+  .kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);margin:0 0 18px}
+  .hero h1{font-size:clamp(42px,6.2vw,72px);line-height:1.02;margin:0;max-width:14em;text-wrap:balance}
+  .hero h1 em{color:var(--brand);font-style:italic}
+  .dek{font-family:"Newsreader",Georgia,serif;font-size:clamp(19px,2.6vw,24px);line-height:1.45;color:var(--ink-2);max-width:38em;margin:24px 0 0}
+  .byline{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:30px 0 0;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .byline img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 25%}
+  .byline .who{font-size:14px;line-height:1.4}
+  .byline .who strong{display:block;font-size:15px}
+  .byline .who span{color:var(--muted)}
+  .byline .meta{margin-left:auto;font-size:12.5px;color:var(--muted);text-align:right;line-height:1.5}
+  @media(max-width:640px){.byline .meta{margin-left:0;text-align:left}}
+  .hero-img{margin:34px 0 0}
+  .hero-img .frame{position:relative;background:var(--frame);padding:12px;border-radius:4px}
+  .hero-img img{width:100%;height:auto;display:block;border-radius:2px}
+  .hero-img .hero-signature{position:absolute;right:max(18px,2.5%);bottom:max(18px,2.5%);width:clamp(94px,21%,230px);max-width:29%;border-radius:0}
+  .hero-img figcaption{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--muted)}
+  .hero-img figcaption strong{color:var(--ink);font-weight:600}
+
+  /* Portfolio meta */
+  .meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:34px 0 0}
+  .meta-grid div{background:var(--card);padding:16px 18px}
+  .meta-grid dt{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin:0 0 5px}
+  .meta-grid dd{margin:0;font-size:14.5px;line-height:1.45}
+  .meta-grid dd span{display:block;color:var(--muted);font-size:13px}
+  @media(max-width:760px){.meta-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.meta-grid{grid-template-columns:1fr}}
+
+  nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border);margin:36px -22px 0;padding:10px 22px;display:flex;gap:4px 20px;flex-wrap:wrap}
+  nav.toc a{font-size:12.5px;font-weight:600;letter-spacing:.03em;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;padding:4px 0}
+  nav.toc a:hover{color:var(--brand)}
+
+  /* Article */
+  .article{max-width:760px;margin:0 auto}
+  .article section{padding:44px 0 4px}
+  .article .podcast{padding:clamp(18px,4vw,30px);margin:32px 0 4px;scroll-margin-top:100px;background:var(--bg);border:1px solid var(--border);border-left:4px solid var(--brand);border-radius:12px}
+  .podcast audio{display:block;width:100%;margin:14px 0}
+  .podcast .podcast-meta{font-size:14px;color:var(--muted)}
+  .podcast .podcast-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;margin-bottom:12px}
+  .podcast summary{cursor:pointer;font-weight:700;margin-bottom:12px}
+  .sec-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin:0 0 10px}
+  .article h2{font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 16px}
+  .article h3{font-size:19px;margin:28px 0 8px;line-height:1.3;font-weight:600;letter-spacing:-.01em}
+  .article p{margin:0 0 16px;font-size:17px;line-height:1.75;color:var(--ink-2)}
+  .article p strong{color:var(--ink)}
+  .article p:first-of-type.drop::first-letter{font-family:Georgia,serif;font-size:58px;line-height:.85;float:left;padding:6px 10px 0 0;color:var(--brand)}
+  .pull{border-top:2px solid var(--ink);border-bottom:1px solid var(--border);padding:22px 0;margin:28px 0}
+  .pull p{font-family:Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.3;letter-spacing:-.02em;color:var(--ink);margin:0}
+  .pull cite{display:block;margin-top:12px;font-family:Inter,sans-serif;font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .callout{background:var(--bg-soft);border:1px solid var(--border);padding:18px 20px;margin:22px 0}
+  .callout .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);display:block;margin-bottom:6px}
+  .callout p{font-size:15.5px;margin:0}
+  .callout.thesis{background:var(--brand-soft)}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+  .stat{border-top:3px solid var(--brand);padding-top:12px}
+  .stat .n{font-family:Georgia,serif;font-size:38px;line-height:1;letter-spacing:-.03em}
+  .stat p{font-size:13.5px;line-height:1.5;margin:8px 0 0}
+  @media(max-width:640px){.stat-row{grid-template-columns:1fr}}
+  .src{font-size:12.5px;color:var(--muted)}
+  .src a{color:var(--muted)}
+
+  /* Org chart */
+  .org{margin:24px 0}
+  .org-top{background:var(--ink);color:var(--bg);padding:18px 20px;text-align:center}
+  .org-top strong{font-family:Georgia,serif;font-weight:400;font-size:20px;letter-spacing:-.01em;display:block}
+  .org-top span{font-size:12.5px;opacity:.85}
+  .org-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-top:none}
+  .org-grid div{background:var(--card);padding:16px 18px}
+  .org-grid h4{margin:0 0 4px;font-size:15px}
+  .org-grid p{font-size:13.5px;margin:0;line-height:1.55}
+  .org-grid .role{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);display:block;margin-bottom:4px}
+  @media(max-width:600px){.org-grid{grid-template-columns:1fr}}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:14.5px}
+  th,td{text-align:left;vertical-align:top;padding:11px 12px;border-bottom:1px solid var(--border)}
+  thead th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border-strong)}
+  td:first-child{font-weight:600;color:var(--ink)}
+  @media(max-width:640px){
+    thead{display:none} table,tbody,tr,td{display:block;width:100%}
+    tr{border-bottom:2px solid var(--border-strong);padding:8px 0} td{border:none;padding:3px 0}
+    td::before{content:attr(data-h);display:block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  }
+  ol.steps{margin:0;padding-left:22px}
+  ol.steps li{margin-bottom:14px;font-size:16px;line-height:1.65;color:var(--ink-2)}
+  ol.steps li strong{color:var(--ink)}
+  ul.tight{margin:0 0 16px;padding-left:20px}
+  ul.tight li{margin-bottom:8px;font-size:16px;line-height:1.65;color:var(--ink-2)}
+  ul.tight li::marker{color:var(--brand)}
+
+  /* Prompts */
+  .prompts{max-width:1060px;margin:0 auto}
+  .prompt-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+  @media(max-width:760px){.prompt-grid{grid-template-columns:1fr}}
+  .prompt-card{border:1px solid var(--border);background:var(--card);display:flex;flex-direction:column}
+  .prompt-card header{padding:18px 20px 0}
+  .prompt-card h3{margin:0 0 4px;font-size:17px}
+  .prompt-card header p{font-size:13px;color:var(--muted);margin:0}
+  .prompt-text{margin:16px 20px;padding:16px;background:var(--bg-soft);border:1px solid var(--border);font-size:13.5px;line-height:1.65;color:var(--ink-2);white-space:pre-wrap;flex:1}
+  .prompt-card footer{padding:0 20px 18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .copy-btn{appearance:none;border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:10px 18px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;border-radius:4px;min-height:44px}
+  .copy-btn:hover{background:var(--brand);border-color:var(--brand)}
+  .copy-status{font-size:13px;color:var(--brand);font-weight:600}
+
+  /* Signature */
+  .signoff{max-width:760px;margin:56px auto 0;border-top:3px solid var(--ink);padding-top:28px}
+  .signoff p{font-size:16px;line-height:1.7;color:var(--ink-2);max-width:40em}
+  .sig{margin:26px 0 6px}
+  .sig img{width:min(340px,82vw);height:auto;display:block;filter:var(--sig-filter)}
+  .signoff .sig-name{font-size:14px;line-height:1.4;color:var(--ink-2)}
+  .sig-name span{display:block}
+  .sig-name .sig-detail{font-size:13px;color:var(--muted)}
+  .sig-name strong{color:var(--ink);font-size:15px}
+
+  .sources{max-width:760px;margin:48px auto 0;border-top:1px solid var(--border);padding-top:22px}
+  .sources h2{font-size:22px;margin:0 0 6px}
+  .sources p{font-size:13.5px;color:var(--muted)}
+  .sources ol{font-size:13.5px;color:var(--ink-2);padding-left:20px}
+  .sources li{margin-bottom:9px;overflow-wrap:anywhere}
+  .sources .host{display:block;font-size:12px;color:var(--muted)}
+  footer.page{max-width:760px;margin:36px auto 0;padding-top:18px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline">
+    <a class="topline-brand" href="/" aria-label="Hamilton Pinto Jr., home"><img class="topline-logo" src="/hamilton-signature-black.svg" width="1793" height="625" alt="Hamilton Pinto Jr., Consultant" /></a>
+    <span class="topline-meta"><span>Riverside, California</span></span>
+  </div>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/masterclass">MasterClass Portfolio</a></li>
+      <li aria-current="page">The Rubik's Board: How I Make Decisions With Nine Seats</li>
+    </ol>
+  </nav>
+  <header class="hero">
+    <p class="kicker">MasterClass Executive &middot; Portfolio &middot; For AI Exchange</p>
+    <h1>The Rubik's Board: How I Make Decisions With Nine Seats</h1>
+    <p class="dek">A follow-up to The 18% Problem. Once every agent has a name, a role, a token, and a record, who decides? A synthetic board of directors, nine seats, one vote each, with the expert in the room counting more, only in their room.</p>
+    <figure class="hero-img">
+      <img src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-hero.jpg" width="1920" height="1280" fetchpriority="high" alt="An operator at a desk facing a 3 by 3 Rubik's cube face with nine business icons, with the Hamilton Pinto Jr., Consultant signature bottom right." />
+    </figure>
+    <p class="byline">By <strong>Hamilton Pinto Jr.</strong> &middot; Founder, Mercury CRM &middot; MasterClass Executive, Fall 2026 Founding Cohort, Pod 3 Lead &middot; November 26, 2026</p>
+  </header>
+  <main class="article">
+    <section id="problem">
+      <p class="sec-label">01 &middot; The problem</p>
+      <h2>Deciding alone is the same problem as running alone</h2>
+      <p>My first thesis was about inventory. Only 18% of organisations keep a complete list of the AI agents working for them. If you cannot name who is acting for you, you cannot hold them accountable.</p>
+      <p>The next problem is the same shape, one level up. Once you have agents with names, roles, and tokens, who decides? A single assistant with a long prompt will agree with you. A single model will optimise for the last thing you said. That is not a decision. That is an echo.</p>
+      <p>I did not want a louder echo. I wanted a board. Not a real board, with lawyers and quarterly meetings. A synthetic one, inside OpenClaw, on Otto3. Nine seats. Lightweight enough to run on every major decision, strict enough that a bad idea has to survive nine different lenses before it gets my time, my money, or my team.</p>
+      <p>I call it the Rubik's setup. Nine squares, one face, three by three. Turn one square and the whole face changes. No square decides alone, and no square is decorative.</p>
+    </section>
+    <section id="seats">
+      <p class="sec-label">02 &middot; The nine seats</p>
+      <h2>One seat, one vote</h2>
+      <p>Each seat is a persona, modelled on a real operator, with a single lens. One seat, one vote, as a base. There is no different base vote count per seat. The weight comes later, and only where it belongs.</p>
+      <ol>
+        <li><strong>Hardware and Ecosystem, Tim Cook.</strong> Supply chain discipline, margin protection, privacy and security, tight vertical integration. Home turf: Otto and Otto3, brand trust, premium positioning.</li>
+        <li><strong>Enterprise Scale and AI, Satya Nadella.</strong> B2B platform adoption, cloud and agentic infrastructure, partner ecosystems, enterprise SaaS. Home turf: Sulus CRM, Mercury CRM, OpenClaw orchestration.</li>
+        <li><strong>AI Compute and Speed, Jensen Huang.</strong> Full-stack acceleration, first-mover technical moats, aggressive R&amp;D. Home turf: agentic workflows, local and cloud model routing, product velocity.</li>
+        <li><strong>SMB Cash Flow, Sasan Goodarzi.</strong> Small-business unit economics, automated financial workflows, high-retention SaaS. Home turf: usage-based telecom and AI pricing, Stripe and QuickBooks flows, SMB onboarding.</li>
+        <li><strong>Capital Allocation, Warren Buffett.</strong> Free cash flow, durable moats, simplicity, killing low-return distractions. Default posture: reject, unless a proposal clears the bar. Home turf: holding-company discipline across all ventures.</li>
+        <li><strong>Operational Rigor, Jamie Dimon.</strong> Risk management, regulatory compliance, fortress balance sheet, sales-floor accountability. Home turf: Advantage First Financial, Loan Streamline Pro, compliance with Owen.</li>
+        <li><strong>Consumer and Brand, Bob Iger.</strong> Storytelling, IP monetization, emotional resonance, family and consumer brand equity. Home turf: Benny and Penny's, False Idols, UGC funnels.</li>
+        <li><strong>Industrial and Ops Scale, Larry Culp.</strong> Lean manufacturing, physical supply chains, ERP execution, turnaround discipline. Home turf: XBeton, American AAC, Odoo ERP rollout.</li>
+        <li><strong>Customer Obsession, Andy Jassy.</strong> Working backward from the customer, infrastructure unit cost, high-velocity experimentation. Home turf: direct-to-consumer checkouts, stripping bloated per-seat SaaS overhead.</li>
+      </ol>
+      <p>Seven seats would be faster. Nine covers every domain I actually operate in. The tighter seven-seat version drops Seats 8 and 9 and folds industrial and customer execution into Seats 1 and 4. I run nine, because dropping a domain to save a vote is how you miss the risk that domain would have caught.</p>
+      <p>The board is built for the holding company and its operating companies: Mercury CRM, Sulus CRM, Advantage First Financial, XBeton, and Benny and Penny's.</p>
+    </section>
+    <section id="passes">
+      <p class="sec-label">03 &middot; How a decision runs</p>
+      <h2>Three passes, run by Alexander</h2>
+      <p>Alexander, my Chief of Staff, runs every major strategic decision through the same three passes. No pass is skipped because the idea feels good.</p>
+      <h3>Pass 1: Independent assessment, no cross-talk</h3>
+      <p>Alexander feeds the proposal, the relevant SilverBullet context, and the financial and operational constraints to all nine personas independently. No seat sees another seat's vote first. Each seat returns the same thing, in JSON: Vote, APPROVE, REJECT, or CONDITIONAL, with the exact change required; a confidence score, 1 to 10; a primary risk, in 25 words or less; a rubric breakdown, three criteria per seat, each scored 1 to 10; and a rationale, in 60 words or less, direct and concrete. No softening to reach consensus.</p>
+      <h3>Pass 2: Weighted domain vote, and the hard stop</h3>
+      <p>Standard vote is 1 seat, 1 vote. Five of nine is required to pass. Then the weight that matters, and only where it matters. On a decision inside a specific vertical, the two lead domain seats carry 1.5x weight:</p>
+      <ul>
+        <li>SaaS: Nadella and Goodarzi, Seats 2 and 4</li>
+        <li>Finance: Buffett and Dimon, Seats 5 and 6</li>
+        <li>Industrial: Cook and Culp, Seats 1 and 8</li>
+        <li>Consumer: Iger and Jassy, Seats 7 and 9</li>
+        <li>Holding: Buffett and Dimon, Seats 5 and 6</li>
+      </ul>
+      <p>Every other seat stays at 1.0 on that decision. The expert in the room counts more, but only in their room. A consumer brand expert does not get 1.5x on a lending compliance call. That is the whole point of the Rubik's face: the square that matters turns, the others hold.</p>
+      <p>Two automatic rules sit in this pass. <strong>Auto-condition:</strong> any APPROVE whose average rubric score falls below 6.5 is automatically downgraded by Alexander to CONDITIONAL, using that seat's required condition. A yes with a weak score is not a yes. <strong>Compliance hard-stop:</strong> if Dimon, paired with Owen, my Compliance Officer, flags a legal, regulatory, or security blocker, Alexander pauses execution.</p>
+      <h3>Pass 3: Tie-breaker and escalation</h3>
+      <ul>
+        <li><strong>7 to 2 or better:</strong> Alexander logs the decision in the Run Ledger and queues execution for Chip, my COO, and Sean, my developer, subject to the Scout and Duo approval gates. Level 3 actions still need my approval every time.</li>
+        <li><strong>5 to 4 split, or a conditional pass:</strong> Alexander does not auto-execute. He brings me a one-page brief: the majority case, the dissenting four-vote rationale, and his recommendation.</li>
+        <li><strong>Deadlock, 4 to 4 on an abstention:</strong> I act as Executive Chairman and cast the deciding vote. Nine seats is an odd number to eliminate deadlocks, but an abstention can still tie it. When it does, the tie-breaker is a human, and it is me.</li>
+      </ul>
+    </section>
+    <section id="rubrics">
+      <p class="sec-label">04 &middot; What each seat scores</p>
+      <h2>A rubric, not an opinion</h2>
+      <p>Every seat scores three criteria, 1 to 10. This is the part that keeps the board from becoming nine opinions in a room.</p>
+      <ul>
+        <li><strong>Cook:</strong> margin and supply chain integrity; security and privacy posture; ecosystem tightness.</li>
+        <li><strong>Nadella:</strong> platform leverage; agentic and AI multiplier; ecosystem and partner fit.</li>
+        <li><strong>Huang:</strong> technical moat and differentiation; speed to deployment, days not months; compute and model efficiency.</li>
+        <li><strong>Goodarzi:</strong> unit economics and payback; onboarding friction, value in 24 hours; billing and cash automation.</li>
+        <li><strong>Buffett:</strong> free cash flow yield; focus and opportunity cost; durable competitive advantage, three years out.</li>
+        <li><strong>Dimon:</strong> regulatory and legal safety; downside and balance sheet protection; execution and sales accountability.</li>
+        <li><strong>Iger:</strong> IP ownership and longevity; audience and emotional resonance; cross-channel monetization.</li>
+        <li><strong>Culp:</strong> lean process and waste elimination; ERP and data visibility in Odoo; commercial readiness before scaling demand.</li>
+        <li><strong>Jassy:</strong> working backward from a verified customer pain; self-serve and checkout speed; cost-to-serve compression as volume scales.</li>
+      </ul>
+      <p>A proposal does not need nine perfect scores. It needs to survive nine different definitions of good.</p>
+    </section>
+    <section id="structure">
+      <p class="sec-label">05 &middot; The structure underneath</p>
+      <h2>Clean structure makes the vote honest</h2>
+      <p>The board only works because the company underneath it is clean: a parent holding layer holding shared software infrastructure, OpenClaw architecture, CRM snapshots, brand IP, and capital allocation; and operating verticals with distinct P&amp;Ls, B2B SaaS and AI infrastructure, financial services and deal flow, industrial and advisory, and consumer media, IP, and services. Alexander routes a decision to the right vertical first. If the routing is wrong, the 1.5x weight lands on the wrong seats, and the whole model lies to itself.</p>
+    </section>
+    <section id="why">
+      <p class="sec-label">06 &middot; Why this follows the thesis</p>
+      <h2>Decision first, record second, both verifiable</h2>
+      <p>My first thesis said: running AI like a company, not a chatbot, means identity, approval, action, and result, chained so the record can be trusted. The board is the decision half of that same chain. The audit log is the record half. One without the other is incomplete. A perfect record of a bad decision is still a bad decision. A good decision with no record is unprovable.</p>
+      <p>The Rubik's image fits because a cube is not nine separate stickers. It is one object, and every turn moves more than one face. Cook voting on a SaaS price change is not off-topic, it is the supply chain square turning on a pricing face. Buffett rejecting a shiny object is not negativity, it is the capital square holding the face still while the others turn.</p>
+      <p>Lightweight is a design choice, not a compromise. Nine JSON payloads, three passes, one ledger entry. No meeting, no deck, no committee. If a decision model needs a meeting to run, it will not run. Mine runs on every major call, because it is cheaper than deciding alone and more expensive than deciding wrong.</p>
+      <p>That is the standard I am building toward: a verifiable chain of custody for agent actions, and a verifiable chain of reasoning before those actions happen. Identity, approval, action, result. And before approval, nine seats, three passes, and a human chairman when it ties.</p>
+    </section>
+    <section class="podcast" id="podcast">
+      <p class="sec-label">Audio edition</p>
+      <h2>Listen to The Rubik's Board</h2>
+      <p>Audio edition in production, narrated with ElevenLabs Text-to-Speech, like the 18% Problem podcast. The MP3 will be added here once the ElevenLabs connection is confirmed.</p>
+    </section>
+    <section class="sources" id="sources">
+      <h2>Sources</h2>
+      <p>Synthetic Board of Directors: Architecture, Decision Model and OpenClaw Prompts, shared Gemini Canvas document. Base vote is 1 seat, 1 vote for all nine seats. The 1.5x multiplier applies only to the two lead domain seats for a given vertical. Threshold is 5 of 9 to pass. The Rubik's setup framing is Hamilton's own name for the model.</p>
+      <p>Follow-up to: <a href="/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot">The 18% problem: running AI like a company, not a chatbot</a></p>
+    </section>
+  </main>
+  <footer class="page">
+    <img src="/hamilton-signature-black.svg" width="1793" height="625" alt="Hamilton Pinto Jr., Consultant. Handwritten signature logo." />
+    <p>Hamilton Pinto Jr., Founder, Mercury CRM</p>
+  </footer>
+</div>
+</body>
+</html>
