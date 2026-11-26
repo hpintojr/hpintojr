@@ -188,6 +188,17 @@
   footer.page{max-width:760px;margin:36px auto 0;padding-top:18px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
+<style>
+  .seats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;list-style:none;padding:0}
+  .seats-grid li{border:1px solid var(--border);border-radius:12px;padding:18px 16px;background:var(--card);text-align:center}
+  .seats-grid img{width:88px;height:88px;object-fit:cover;border-radius:50%;border:2px solid var(--border);margin:0 auto 10px;display:block}
+  .seats-grid h4{margin:0 0 2px;font-size:15px}
+  .seats-grid .role{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700;margin:0 0 8px}
+  .seats-grid p{font-size:13.5px;line-height:1.55;margin:0}
+  .seats-grid .ind{font-size:12.5px;color:var(--muted);margin-top:8px}
+  @media(max-width:640px){.seats-grid{grid-template-columns:1fr}}
+  .photo-credit{font-size:12px;color:var(--muted)}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -224,19 +235,20 @@
       <p class="sec-label">02 &middot; The nine seats</p>
       <h2>One seat, one vote</h2>
       <p>Each seat is a persona, modelled on a real operator, with a single lens. One seat, one vote, as a base. There is no different base vote count per seat. The weight comes later, and only where it belongs.</p>
-      <ol>
-        <li><strong>Hardware and Ecosystem, Tim Cook.</strong> Supply chain discipline, margin protection, privacy and security, tight vertical integration. Home turf: Otto and Otto3, brand trust, premium positioning.</li>
-        <li><strong>Enterprise Scale and AI, Satya Nadella.</strong> B2B platform adoption, cloud and agentic infrastructure, partner ecosystems, enterprise SaaS. Home turf: Sulus CRM, Mercury CRM, OpenClaw orchestration.</li>
-        <li><strong>AI Compute and Speed, Jensen Huang.</strong> Full-stack acceleration, first-mover technical moats, aggressive R&amp;D. Home turf: agentic workflows, local and cloud model routing, product velocity.</li>
-        <li><strong>SMB Cash Flow, Sasan Goodarzi.</strong> Small-business unit economics, automated financial workflows, high-retention SaaS. Home turf: usage-based telecom and AI pricing, Stripe and QuickBooks flows, SMB onboarding.</li>
-        <li><strong>Capital Allocation, Warren Buffett.</strong> Free cash flow, durable moats, simplicity, killing low-return distractions. Default posture: reject, unless a proposal clears the bar. Home turf: holding-company discipline across all ventures.</li>
-        <li><strong>Operational Rigor, Jamie Dimon.</strong> Risk management, regulatory compliance, fortress balance sheet, sales-floor accountability. Home turf: Advantage First Financial, Loan Streamline Pro, compliance with Owen.</li>
-        <li><strong>Consumer and Brand, Bob Iger.</strong> Storytelling, IP monetization, emotional resonance, family and consumer brand equity. Home turf: Benny and Penny's, False Idols, UGC funnels.</li>
-        <li><strong>Industrial and Ops Scale, Larry Culp.</strong> Lean manufacturing, physical supply chains, ERP execution, turnaround discipline. Home turf: XBeton, American AAC, Odoo ERP rollout.</li>
-        <li><strong>Customer Obsession, Andy Jassy.</strong> Working backward from the customer, infrastructure unit cost, high-velocity experimentation. Home turf: direct-to-consumer checkouts, stripping bloated per-seat SaaS overhead.</li>
-      </ol>
+      <ul class="seats-grid">
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/cook.jpg" width="400" height="400" alt="Tim Cook" loading="lazy" /><h4>Tim Cook</h4><p class="role">Hardware and Ecosystem</p><p>Supply chain discipline, margin protection, privacy and security, tight vertical integration.</p><p class="ind">Industry: hardware, devices, and brand trust</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/nadella.jpg" width="400" height="400" alt="Satya Nadella" loading="lazy" /><h4>Satya Nadella</h4><p class="role">Enterprise Scale and AI</p><p>B2B platform adoption, cloud and agentic infrastructure, partner ecosystems, enterprise SaaS.</p><p class="ind">Industry: B2B SaaS and cloud platforms</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/huang.jpg" width="400" height="400" alt="Jensen Huang" loading="lazy" /><h4>Jensen Huang</h4><p class="role">AI Compute and Speed</p><p>Full-stack acceleration, first-mover technical moats, aggressive R&amp;D.</p><p class="ind">Industry: AI infrastructure and model routing</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/goodarzi.jpg" width="400" height="400" alt="Sasan Goodarzi" loading="lazy" /><h4>Sasan Goodarzi</h4><p class="role">SMB Cash Flow</p><p>Small-business unit economics, automated financial workflows, high-retention SaaS.</p><p class="ind">Industry: small-business finance and payments</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/buffett.jpg" width="400" height="400" alt="Warren Buffett" loading="lazy" /><h4>Warren Buffett</h4><p class="role">Capital Allocation</p><p>Free cash flow, durable moats, simplicity, killing low-return distractions. Default posture: reject, unless a proposal clears the bar.</p><p class="ind">Industry: holding-company investing</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/dimon.jpg" width="400" height="400" alt="Jamie Dimon" loading="lazy" /><h4>Jamie Dimon</h4><p class="role">Operational Rigor</p><p>Risk management, regulatory compliance, fortress balance sheet, sales-floor accountability.</p><p class="ind">Industry: financial services and compliance</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/iger.jpg" width="400" height="400" alt="Bob Iger" loading="lazy" /><h4>Bob Iger</h4><p class="role">Consumer and Brand</p><p>Storytelling, IP monetization, emotional resonance, family and consumer brand equity.</p><p class="ind">Industry: consumer media, IP, and storytelling</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/culp.jpg" width="400" height="400" alt="Larry Culp" loading="lazy" /><h4>Larry Culp</h4><p class="role">Industrial and Ops Scale</p><p>Lean manufacturing, physical supply chains, ERP execution, turnaround discipline.</p><p class="ind">Industry: manufacturing and ERP operations</p></li>
+        <li><img src="/masterclass/the-rubiks-board-nine-seats-one-face/seats/jassy.jpg" width="400" height="400" alt="Andy Jassy" loading="lazy" /><h4>Andy Jassy</h4><p class="role">Customer Obsession</p><p>Working backward from the customer, infrastructure unit cost, high-velocity experimentation.</p><p class="ind">Industry: e-commerce and cloud infrastructure</p></li>
+      </ul>
+      <p class="photo-credit">Portraits: Wikimedia Commons, used under their licenses. Personas are modelled on real operators; the board is synthetic.</p>
       <p>Seven seats would be faster. Nine covers every domain I actually operate in. The tighter seven-seat version drops Seats 8 and 9 and folds industrial and customer execution into Seats 1 and 4. I run nine, because dropping a domain to save a vote is how you miss the risk that domain would have caught.</p>
-      <p>The board is built for the holding company and its operating companies: Mercury CRM, Sulus CRM, Advantage First Financial, XBeton, and Benny and Penny's.</p>
+      <p>The board is built for a holding company and its operating verticals: B2B SaaS and AI infrastructure, financial services, industrial, and consumer media.</p>
     </section>
     <section id="passes">
       <p class="sec-label">03 &middot; How a decision runs</p>
@@ -295,7 +307,24 @@
     <section class="podcast" id="podcast">
       <p class="sec-label">Audio edition</p>
       <h2>Listen to The Rubik's Board</h2>
-      <p>Audio edition in production, narrated with ElevenLabs Text-to-Speech, like the 18% Problem podcast. The MP3 will be added here once the ElevenLabs connection is confirmed.</p>
+      <p>A host and guest talk through the decision model and Hamilton Pinto Jr.'s argument for a synthetic board, nine seats, one vote each, and a human chairman when it ties.</p>
+      <audio controls preload="metadata" src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3"></audio>
+      <p class="podcast-meta">3 min 19 sec &middot; Synthetic host and American co-host narrated with ElevenLabs Text-to-Speech v4</p>
+      <p><a href="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3" download>Download the podcast MP3</a></p>
+      <details>
+        <summary>Read the transcript</summary>
+          <p><strong>Host:</strong> Welcome back. Last time, we talked about The 18% Problem, and what changes when you give software a job to do. Only eighteen percent of organizations keep a complete inventory of their AI agents. Hamilton Pinto Junior&#x27;s answer was a verifiable chain of custody, who asked, who approved, what ran, and what came back. Today is the follow-up.</p>
+          <p><strong>Guest:</strong> Because a perfect record of a bad decision is still a bad decision. Once you know who works for you, the next question is who decides. Hamilton wanted a board. Nine seats, inside OpenClaw, on Otto3, each one a real operator&#x27;s lens, each one voting on its own first. Cook, Nadella, Huang, Goodarzi, Buffett, Dimon, Iger, Culp, and Jassy.</p>
+          <p><strong>Host:</strong> Nine seats, one vote each. And the one point five times weight, only in the expert&#x27;s own room.</p>
+          <p><strong>Guest:</strong> Exactly. On a decision inside a vertical, the two lead seats carry one point five times weight. For software, Nadella and Goodarzi. For finance, Buffett and Dimon. For industrial, Cook and Culp. For consumer, Iger and Jassy. Everybody else stays at one. A brand expert does not get extra weight on a lending compliance call.</p>
+          <p><strong>Host:</strong> Let&#x27;s make it real. A B2B software product, per-seat pricing or per-usage pricing. Run it through the board.</p>
+          <p><strong>Guest:</strong> The board splits on it. Goodarzi loves usage pricing, it matches how a small business earns. Nadella agrees, the price follows the value. But Buffett pushes back, free cash flow gets harder to predict, and he votes to reject unless the floor is protected. Dimon checks the billing flow, and if anything looks risky, he can pause the whole thing with Owen, the compliance officer. That is the hard stop. Iger asks what the price says about the brand, Jassy works backward from the customer, and Huang asks whether the debate slows down shipping.</p>
+          <p><strong>Host:</strong> What happens when the vote lands five to four?</p>
+          <p><strong>Guest:</strong> Alexander, the Chief of Staff, does not auto-execute. He brings Hamilton a one-page brief, the majority case, the dissenting four-vote rationale, and his recommendation. At seven to two or better, it logs to the Run Ledger and queues the work for Chip and Sean, still under Duo approval. Any approve averaging under six point five on its rubric drops to conditional automatically. A yes with a weak score is not a yes. On a dead tie, Hamilton, as Executive Chairman, casts the deciding vote. The board advises. It does not replace the chairman.</p>
+          <p><strong>Host:</strong> What should a listener try this week?</p>
+          <p><strong>Guest:</strong> Pick one decision you are sitting on, and write down three lenses before you decide. Cash flow, risk, and the customer. Score each one, one to ten, and name one risk in a sentence. If any lens scores under six and a half, make it conditional, name the condition, and do not call it a yes yet. That is the board, without any software at all.</p>
+          <p><strong>Host:</strong> One decision, three lenses, and no fake yes. Thanks for joining us, and thanks to everyone listening. The full piece is right here on the site, The Rubik&#x27;s Board, by Hamilton Pinto Junior. See you next time.</p>
+      </details>
     </section>
     <section class="sources" id="sources">
       <h2>Sources</h2>
