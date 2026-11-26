@@ -9,6 +9,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/consulting", label: "Consulting" },
   { href: "/ugc", label: "UGC & partnerships" },
+  { href: "/masterclass", label: "MasterClass" },
 ];
 
 export function SiteNav() {
