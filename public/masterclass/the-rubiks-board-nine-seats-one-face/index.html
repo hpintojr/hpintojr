@@ -97,6 +97,7 @@
   nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border);margin:36px -22px 0;padding:10px 22px;display:flex;gap:4px 20px;flex-wrap:wrap}
   nav.toc a{font-size:12.5px;font-weight:600;letter-spacing:.03em;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;padding:4px 0}
   nav.toc a:hover{color:var(--brand)}
+  .article section[id]{scroll-margin-top:100px}
 
   /* Article */
   .article{max-width:760px;margin:0 auto}
@@ -105,6 +106,7 @@
   .podcast audio{display:block;width:100%;margin:14px 0}
   .podcast .podcast-meta{font-size:14px;color:var(--muted)}
   .podcast .podcast-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;margin-bottom:12px}
+  .podcast details{scroll-margin-top:100px}
   .podcast summary{cursor:pointer;font-weight:700;margin-bottom:12px}
   .sec-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin:0 0 10px}
   .article h2{font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 16px}
@@ -186,6 +188,7 @@
   .sources li{margin-bottom:9px;overflow-wrap:anywhere}
   .sources .host{display:block;font-size:12px;color:var(--muted)}
   footer.page{max-width:760px;margin:36px auto 0;padding-top:18px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+  footer.page img{display:block;width:min(260px,100%);height:auto;filter:var(--sig-filter)}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 <style>
@@ -199,12 +202,14 @@
   @media(max-width:640px){.seats-grid{grid-template-columns:1fr}}
   .photo-credit{font-size:12px;color:var(--muted)}
 </style>
+  <link rel="stylesheet" href="/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot/podcast.css?v=card-spacing" />
+  <script defer src="/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot/podcast.js"></script>
 </head>
 <body>
 <div class="wrap">
   <div class="topline">
     <a class="topline-brand" href="/" aria-label="Hamilton Pinto Jr., home"><img class="topline-logo" src="/hamilton-signature-black.svg" width="1793" height="625" alt="Hamilton Pinto Jr., Consultant" /></a>
-    <span class="topline-meta"><span>Riverside, California</span></span>
+    <span class="topline-meta"><span>Riverside, California</span><a class="share" href="mailto:?subject=The%20Rubik%27s%20Board%3A%20How%20I%20Make%20Decisions%20With%20Nine%20Seats&amp;body=https%3A%2F%2Fhamiltonpinto.com%2Fmasterclass%2Fthe-rubiks-board-nine-seats-one-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>Share by email</span></a></span>
   </div>
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <ol>
@@ -215,14 +220,62 @@
   </nav>
   <header class="hero">
     <p class="kicker">MasterClass Executive &middot; Portfolio &middot; For AI Exchange</p>
-    <h1>The Rubik's Board: How I Make Decisions With Nine Seats</h1>
+    <h1>The Rubik's Board: How I Make Decisions With <em>Nine Seats</em></h1>
     <p class="dek">A follow-up to The 18% Problem. Once every agent has a name, a role, a token, and a record, who decides? A synthetic board of directors, nine seats, one vote each, with the expert in the room counting more, only in their room.</p>
+    <p class="podcast-hero-action"><a class="share podcast-launch" href="#podcast" data-open-podcast aria-haspopup="dialog"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 3.5v13l11-6.5z"/></svg><span>Listen to the podcast</span></a><span class="podcast-time">3 min 19 sec</span></p>
+    <div class="byline">
+      <div class="who"><strong>Hamilton Pinto Jr.</strong><span>Founder, Mercury CRM</span></div>
+      <div class="meta"><time datetime="2026-11-26">November 26, 2026</time></div>
+    </div>
     <figure class="hero-img">
-      <img src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-hero.jpg" width="1920" height="1280" fetchpriority="high" alt="An operator at a desk facing a 3 by 3 Rubik's cube face with nine business icons, with the Hamilton Pinto Jr., Consultant signature bottom right." />
+      <div class="frame">
+        <img src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-hero.jpg" width="1920" height="1280" fetchpriority="high" alt="An operator at a desk facing a 3 by 3 Rubik's cube face with nine business icons, with the Hamilton Pinto Jr., Consultant signature bottom right." />
+      </div>
     </figure>
-    <p class="byline">By <strong>Hamilton Pinto Jr.</strong> &middot; Founder, Mercury CRM &middot; MasterClass Executive, Fall 2026 Founding Cohort, Pod 3 Lead &middot; November 26, 2026</p>
+    <dl class="meta-grid">
+      <div><dt>Program</dt><dd>MasterClass Executive<span>Fall 2026, Founding Cohort</span></dd></div>
+      <div><dt>My role</dt><dd>Pod 3 Lead</dd></div>
+      <div><dt>Focus</dt><dd>Decision-making<span>Nine seats and three passes</span></dd></div>
+      <div><dt>Companion piece</dt><dd><a href="/masterclass/the-18-percent-problem-running-ai-like-a-company-not-a-chatbot">The 18% Problem</a></dd></div>
+    </dl>
   </header>
+  <nav class="toc" aria-label="Article sections">
+    <a href="#podcast">Listen</a>
+    <a href="#problem">The problem</a>
+    <a href="#seats">Nine seats</a>
+    <a href="#passes">Three passes</a>
+    <a href="#rubrics">Scoring</a>
+    <a href="#structure">Structure</a>
+    <a href="#why">Chain of custody</a>
+    <a href="#sources">Sources</a>
+  </nav>
   <main class="article">
+    <section class="podcast" id="podcast" aria-labelledby="podcast-title">
+      <p class="sec-label">Audio edition</p>
+      <h2 id="podcast-title">Listen to The Rubik's Board</h2>
+      <p>A host and guest talk through the decision model and Hamilton Pinto Jr.'s argument for a synthetic board, nine seats, one vote each, and a human chairman when it ties.</p>
+      <p class="podcast-inline-action"><a class="share podcast-launch" href="#podcast" data-open-podcast aria-haspopup="dialog"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 3.5v13l11-6.5z"/></svg><span>Listen to the podcast</span></a></p>
+      <audio class="podcast-inline-audio" controls preload="none" aria-label="Play The Rubik's Board podcast">
+        <source src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3" type="audio/mpeg" />
+        <a href="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3" download>Download the podcast MP3</a>
+      </audio>
+      <p class="podcast-meta">3 min 19 sec &middot; Synthetic host and American co-host narrated with ElevenLabs Text-to-Speech v4</p>
+      <p class="podcast-links"><a href="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3" download>Download MP3</a></p>
+      <details id="podcast-transcript">
+        <summary>Read the transcript</summary>
+          <p><strong>Host:</strong> Welcome back. Last time, we talked about The 18% Problem, and what changes when you give software a job to do. Only eighteen percent of organizations keep a complete inventory of their AI agents. Hamilton Pinto Junior&#x27;s answer was a verifiable chain of custody, who asked, who approved, what ran, and what came back. Today is the follow-up.</p>
+          <p><strong>Guest:</strong> Because a perfect record of a bad decision is still a bad decision. Once you know who works for you, the next question is who decides. Hamilton wanted a board. Nine seats, inside OpenClaw, on Otto3, each one a real operator&#x27;s lens, each one voting on its own first. Cook, Nadella, Huang, Goodarzi, Buffett, Dimon, Iger, Culp, and Jassy.</p>
+          <p><strong>Host:</strong> Nine seats, one vote each. And the one point five times weight, only in the expert&#x27;s own room.</p>
+          <p><strong>Guest:</strong> Exactly. On a decision inside a vertical, the two lead seats carry one point five times weight. For software, Nadella and Goodarzi. For finance, Buffett and Dimon. For industrial, Cook and Culp. For consumer, Iger and Jassy. Everybody else stays at one. A brand expert does not get extra weight on a lending compliance call.</p>
+          <p><strong>Host:</strong> Let&#x27;s make it real. A B2B software product, per-seat pricing or per-usage pricing. Run it through the board.</p>
+          <p><strong>Guest:</strong> The board splits on it. Goodarzi loves usage pricing, it matches how a small business earns. Nadella agrees, the price follows the value. But Buffett pushes back, free cash flow gets harder to predict, and he votes to reject unless the floor is protected. Dimon checks the billing flow, and if anything looks risky, he can pause the whole thing with Owen, the compliance officer. That is the hard stop. Iger asks what the price says about the brand, Jassy works backward from the customer, and Huang asks whether the debate slows down shipping.</p>
+          <p><strong>Host:</strong> What happens when the vote lands five to four?</p>
+          <p><strong>Guest:</strong> Alexander, the Chief of Staff, does not auto-execute. He brings Hamilton a one-page brief, the majority case, the dissenting four-vote rationale, and his recommendation. At seven to two or better, it logs to the Run Ledger and queues the work for Chip and Sean, still under Duo approval. Any approve averaging under six point five on its rubric drops to conditional automatically. A yes with a weak score is not a yes. On a dead tie, Hamilton, as Executive Chairman, casts the deciding vote. The board advises. It does not replace the chairman.</p>
+          <p><strong>Host:</strong> What should a listener try this week?</p>
+          <p><strong>Guest:</strong> Pick one decision you are sitting on, and write down three lenses before you decide. Cash flow, risk, and the customer. Score each one, one to ten, and name one risk in a sentence. If any lens scores under six and a half, make it conditional, name the condition, and do not call it a yes yet. That is the board, without any software at all.</p>
+          <p><strong>Host:</strong> One decision, three lenses, and no fake yes. Thanks for joining us, and thanks to everyone listening. The full piece is right here on the site, The Rubik&#x27;s Board, by Hamilton Pinto Junior. See you next time.</p>
+      </details>
+    </section>
     <section id="problem">
       <p class="sec-label">01 &middot; The problem</p>
       <h2>Deciding alone is the same problem as running alone</h2>
@@ -304,28 +357,6 @@
       <p>Lightweight is a design choice, not a compromise. Nine JSON payloads, three passes, one ledger entry. No meeting, no deck, no committee. If a decision model needs a meeting to run, it will not run. Mine runs on every major call, because it is cheaper than deciding alone and more expensive than deciding wrong.</p>
       <p>That is the standard I am building toward: a verifiable chain of custody for agent actions, and a verifiable chain of reasoning before those actions happen. Identity, approval, action, result. And before approval, nine seats, three passes, and a human chairman when it ties.</p>
     </section>
-    <section class="podcast" id="podcast">
-      <p class="sec-label">Audio edition</p>
-      <h2>Listen to The Rubik's Board</h2>
-      <p>A host and guest talk through the decision model and Hamilton Pinto Jr.'s argument for a synthetic board, nine seats, one vote each, and a human chairman when it ties.</p>
-      <audio controls preload="metadata" src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3"></audio>
-      <p class="podcast-meta">3 min 19 sec &middot; Synthetic host and American co-host narrated with ElevenLabs Text-to-Speech v4</p>
-      <p><a href="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3" download>Download the podcast MP3</a></p>
-      <details>
-        <summary>Read the transcript</summary>
-          <p><strong>Host:</strong> Welcome back. Last time, we talked about The 18% Problem, and what changes when you give software a job to do. Only eighteen percent of organizations keep a complete inventory of their AI agents. Hamilton Pinto Junior&#x27;s answer was a verifiable chain of custody, who asked, who approved, what ran, and what came back. Today is the follow-up.</p>
-          <p><strong>Guest:</strong> Because a perfect record of a bad decision is still a bad decision. Once you know who works for you, the next question is who decides. Hamilton wanted a board. Nine seats, inside OpenClaw, on Otto3, each one a real operator&#x27;s lens, each one voting on its own first. Cook, Nadella, Huang, Goodarzi, Buffett, Dimon, Iger, Culp, and Jassy.</p>
-          <p><strong>Host:</strong> Nine seats, one vote each. And the one point five times weight, only in the expert&#x27;s own room.</p>
-          <p><strong>Guest:</strong> Exactly. On a decision inside a vertical, the two lead seats carry one point five times weight. For software, Nadella and Goodarzi. For finance, Buffett and Dimon. For industrial, Cook and Culp. For consumer, Iger and Jassy. Everybody else stays at one. A brand expert does not get extra weight on a lending compliance call.</p>
-          <p><strong>Host:</strong> Let&#x27;s make it real. A B2B software product, per-seat pricing or per-usage pricing. Run it through the board.</p>
-          <p><strong>Guest:</strong> The board splits on it. Goodarzi loves usage pricing, it matches how a small business earns. Nadella agrees, the price follows the value. But Buffett pushes back, free cash flow gets harder to predict, and he votes to reject unless the floor is protected. Dimon checks the billing flow, and if anything looks risky, he can pause the whole thing with Owen, the compliance officer. That is the hard stop. Iger asks what the price says about the brand, Jassy works backward from the customer, and Huang asks whether the debate slows down shipping.</p>
-          <p><strong>Host:</strong> What happens when the vote lands five to four?</p>
-          <p><strong>Guest:</strong> Alexander, the Chief of Staff, does not auto-execute. He brings Hamilton a one-page brief, the majority case, the dissenting four-vote rationale, and his recommendation. At seven to two or better, it logs to the Run Ledger and queues the work for Chip and Sean, still under Duo approval. Any approve averaging under six point five on its rubric drops to conditional automatically. A yes with a weak score is not a yes. On a dead tie, Hamilton, as Executive Chairman, casts the deciding vote. The board advises. It does not replace the chairman.</p>
-          <p><strong>Host:</strong> What should a listener try this week?</p>
-          <p><strong>Guest:</strong> Pick one decision you are sitting on, and write down three lenses before you decide. Cash flow, risk, and the customer. Score each one, one to ten, and name one risk in a sentence. If any lens scores under six and a half, make it conditional, name the condition, and do not call it a yes yet. That is the board, without any software at all.</p>
-          <p><strong>Host:</strong> One decision, three lenses, and no fake yes. Thanks for joining us, and thanks to everyone listening. The full piece is right here on the site, The Rubik&#x27;s Board, by Hamilton Pinto Junior. See you next time.</p>
-      </details>
-    </section>
     <section class="sources" id="sources">
       <h2>Sources</h2>
       <p>Synthetic Board of Directors: Architecture, Decision Model and OpenClaw Prompts, shared Gemini Canvas document. Base vote is 1 seat, 1 vote for all nine seats. The 1.5x multiplier applies only to the two lead domain seats for a given vertical. Threshold is 5 of 9 to pass. The Rubik's setup framing is Hamilton's own name for the model.</p>
@@ -337,5 +368,43 @@
     <p>Hamilton Pinto Jr., Founder, Mercury CRM</p>
   </footer>
 </div>
+  <dialog id="podcast-studio" class="podcast-studio" aria-labelledby="studio-title">
+    <div class="studio-shell">
+      <div class="studio-top">
+        <img class="studio-signature" src="/hamilton-signature-email-white.png" width="480" height="155" alt="Hamilton Pinto Jr., Consultant">
+        <button class="share studio-action" type="button" data-close autofocus><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg>Back to thesis</button>
+      </div>
+      <div class="studio-grid">
+        <div class="studio-copy">
+          <p class="studio-kicker">MasterClass Executive · Audio edition</p>
+          <h2 id="studio-title">The Rubik's Board</h2>
+          <p class="studio-subtitle">How I Make Decisions With Nine Seats</p>
+          <p class="studio-intro">How do you make a call when nine advisers see it differently? A host and co-host walk through Hamilton's synthetic board, its three voting passes, and when the decision goes back to a human.</p>
+        </div>
+        <div class="studio-listen">
+          <figure class="studio-art"><img src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-hero.jpg" alt="An operator facing a Rubik's cube face with nine business icons" width="1920" height="1280"></figure>
+          <div class="studio-player" data-player>
+            <audio preload="none" src="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3"></audio>
+            <div class="studio-wave" aria-hidden="true"><span style="--height:82%"></span><span style="--height:86%"></span><span style="--height:82%"></span><span style="--height:92%"></span><span style="--height:83%"></span><span style="--height:95%"></span><span style="--height:74%"></span><span style="--height:77%"></span><span style="--height:74%"></span><span style="--height:72%"></span><span style="--height:82%"></span><span style="--height:75%"></span><span style="--height:68%"></span><span style="--height:82%"></span><span style="--height:70%"></span><span style="--height:72%"></span><span style="--height:70%"></span><span style="--height:81%"></span><span style="--height:90%"></span><span style="--height:69%"></span><span style="--height:83%"></span><span style="--height:77%"></span><span style="--height:61%"></span><span style="--height:67%"></span><span style="--height:72%"></span><span style="--height:84%"></span><span style="--height:76%"></span><span style="--height:71%"></span><span style="--height:87%"></span><span style="--height:80%"></span><span style="--height:82%"></span><span style="--height:66%"></span><span style="--height:64%"></span><span style="--height:78%"></span><span style="--height:72%"></span><span style="--height:78%"></span><span style="--height:66%"></span><span style="--height:63%"></span><span style="--height:68%"></span><span style="--height:78%"></span><span style="--height:85%"></span><span style="--height:63%"></span><span style="--height:84%"></span><span style="--height:72%"></span><span style="--height:79%"></span><span style="--height:85%"></span><span style="--height:78%"></span><span style="--height:80%"></span><span style="--height:82%"></span><span style="--height:83%"></span><span style="--height:68%"></span><span style="--height:69%"></span><span style="--height:64%"></span><span style="--height:78%"></span><span style="--height:93%"></span><span style="--height:67%"></span><span style="--height:71%"></span><span style="--height:76%"></span><span style="--height:83%"></span><span style="--height:83%"></span><span style="--height:68%"></span><span style="--height:93%"></span><span style="--height:82%"></span><span style="--height:76%"></span><span style="--height:89%"></span><span style="--height:84%"></span></div>
+            <input class="studio-seek" data-seek type="range" min="0" max="198.76" value="0" step="0.1" aria-label="Podcast position" disabled>
+            <div class="studio-times" aria-hidden="true"><span data-current>0:00</span><span data-duration>3:19</span></div>
+            <div class="studio-controls">
+              <button class="studio-button" type="button" data-skip="-15" aria-label="Back 15 seconds">−15s</button>
+              <button class="studio-play" type="button" data-play aria-label="Play podcast"><span data-icon="play"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 3.5v13l11-6.5z"/></svg></span><span data-icon="pause"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h4v12H5zM11 4h4v12h-4z"/></svg></span></button>
+              <button class="studio-button" type="button" data-skip="15" aria-label="Forward 15 seconds">+15s</button>
+              <select class="studio-speed" data-speed aria-label="Playback speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+            </div>
+            <p class="studio-notice" data-notice role="status"></p>
+          </div>
+          <div class="studio-links"><button class="share studio-action" type="button" data-transcript><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 2.8h7l3 3V17H5zM8 8h4M8 11h4M8 14h4"/></svg>Read transcript</button><a class="share studio-action" href="/masterclass/the-rubiks-board-nine-seats-one-face/rubiks-podcast.mp3" download><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 3v10m-4-4 4 4 4-4M4 14v3h12v-3"/></svg>Download MP3</a></div>
+        </div>
+        <dl class="studio-meta">
+          <div><dt>Thesis by</dt><dd>Hamilton Pinto Jr.</dd></div>
+          <div><dt>Narration</dt><dd>Two AI voices</dd></div>
+          <div><dt>Runtime</dt><dd>3 min 19 sec</dd></div>
+        </dl>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>
