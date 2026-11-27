@@ -515,8 +515,8 @@
       "slug": "ai-powered-marketing",
       "number": "04",
       "title": "AI-Powered Marketing: Campaigns, Voice, and Video",
-      "status": "in-progress",
-      "when": "Walkthrough available",
+      "status": "completed",
+      "when": "Completed November 2026",
       "cardSummary": "A two-voice thesis podcast and a 49-second Mercury CRM film with kinetic captions and three social formats.",
       "assetBase": "https://ai-lab-powered-marketing.vercel.app",
       "repo": {
